@@ -1,0 +1,6 @@
+site_name: Daiquiri documentation
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Settings: settings.md
