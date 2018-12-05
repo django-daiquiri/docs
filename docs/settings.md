@@ -1,7 +1,7 @@
 Settings
 ========
 
-A Daiquiri application can be customised using various settings. Since Daiquiri is based on Django, we use its [build-in settings system](https://docs.djangoproject.com/en/2.1/topics/settings/). Almost every setting has a default value, which is set in the `daiquiri.core.settings` module ([Code on github](https://github.com/aipescience/django-daiquiri/tree/master/daiquiri/core/settings)). All settings can be changed for your particular `app` in `config/settings/base.py` (app specific) or `config/settings/local.py` (machine specific). Most of the settings can and should be customized in this way. In particular, the following settings can be overridden:
+A Daiquiri application can be customised using various settings. Since Daiquiri is based on Django, we use its [build-in settings system](https://docs.djangoproject.com/en/2.1/topics/settings/). Almost every setting has a default value, which is set in the `daiquiri.core.settings` module ([Code on github](https://github.com/aipescience/django-daiquiri/tree/master/daiquiri/core/settings)). All settings can be changed for your particular `app` in `config/settings/base.py` (app specific) or `config/settings/local.py` (machine specific). Most of the settings can and should be customized in this way. In particular, the following settings can be overridden.
 
 
 Django settings
@@ -291,7 +291,13 @@ AUTH_DETAIL_KEYS = [
 ]
 ```
 
-where `key` is the identifier for the detail, used in the code, `label` the text shown in the interface, `datatype` the type of the detail which affects the widget to be used (`'text'`, `'textarea'`, `'select'`, `'radio'`, `'multiselect'`, or `'checkbox'`), `required` whether this detail is required or not, and `options` a list of options for select, radio or checkboxes widgets of the form `[{'id': id, 'label': label}, ...]`.
+where:
+
+* `key` is the internal identifier,
+* `label` the text shown in the interface,
+* `datatype` the type of the detail which affects the widget to be used (`'text'`, `'textarea'`, `'select'`, `'radio'`, `'multiselect'`, or `'checkbox'`),
+* `required` whether this detail is required or not, and
+* `options` a list of options for select, radio or checkboxes widgets of the form `[{'id': id, 'label': label}, ...]`.
 
 #### AUTH_TERMS_OF_USE
 
@@ -404,7 +410,13 @@ MEETINGS_PARTICIPANT_DETAIL_KEYS = [
 ]
 ```
 
-where `key` is the identifier for the detail, used in the code, `label` the text shown in the interface, `datatype` the type of the detail which affects the widget to be used (`'text'`, `'textarea'`, `'select'`, `'radio'`, `'multiselect'`, or `'checkbox'`), `required` whether this detail is required or not, and `options` a list of options for select, radio or checkboxes widgets of the form `[{'id': id, 'label': label}, ...]`.
+where:
+
+* `key` is the internal identifier,
+* `label` the text shown in the interface,
+* `datatype` the type of the detail which affects the widget to be used (`'text'`, `'textarea'`, `'select'`, `'radio'`, `'multiselect'`, or `'checkbox'`),
+* `required` whether this detail is required or not, and
+* `options` a list of options for select, radio or checkboxes widgets of the form `[{'id': id, 'label': label}, ...]`.
 
 #### MEETINGS_ABSTRACT_MAX_LENGTH
 
@@ -509,7 +521,15 @@ Default:
 ]
 ```
 
-Set the different queue, which can be selected by the users. `key` is the internal identifier, `label` the text shown in the interface, `timeout` the maximum excecution time in seconds, `priority` a integer number, and `access_level` and `groups` the usual restiction on who can use this queue. Jobs in a queue with *higher* priority are selected first when a query worker becomes available.
+Set the different queue, which can be selected by the users. Each queue is represented by a dictionary where:
+
+* `key` is the internal identifier,
+* `label` is the text shown in the interface,
+* `timeout` the maximum excecution time in seconds,
+* `priority` is a integer number indicationg the priority in which jobs are executed, and
+* `access_level` and `groups` the usual restiction on who can use this queue.
+
+Jobs in a queue with *higher* priority are selected first when a query worker becomes available.
 
 #### QUERY_LANGUAGES
 
@@ -527,7 +547,14 @@ Default:
 ]
 ```
 
-Sets the different query languages, which can be selected by the users. `key` is the internal identifier, `label` the text shown in the interface, `description` additional information shown in TopCat, and `quote_char` the character used by the database system to quote identifiers. Already implemented in Daiquiri are `adql`, `postgresql`, and `mysql`. Apart from ADQL, the query language must match the database system of the `data` database.
+Sets the different query languages, which can be selected by the users. Each query language is represented by a dictionary where:
+
+* `key` is the internal identifier,
+* `label` is the text shown in the interface,
+* `description` is additional information shown, e.g. in TopCat, and
+* `quote_char` the character used by the database system to quote identifiers.
+
+Already implemented in Daiquiri are `adql`, `postgresql`, and `mysql`. Apart from ADQL, the query language must match the database system of the `data` database.
 
 #### QUERY_FORMS
 
@@ -543,6 +570,15 @@ Default:
     }
 ]
 ```
+
+Sets the form available for the users in the query interface. Each form is represented by a dictionary where:
+
+* `key` is the internal identifier,
+* `label` is the text shown in the interface,
+* `service` the path AngularJS service containing the client side logic, and
+* `template` the path to the Django template with the markup for the form.
+
+Included in Daiquiri are `sql` and (simplyfied) `cone` and `box` services.
 
 #### QUERY_DROPDOWNS
 
@@ -570,13 +606,26 @@ Default:
 ]
 ```
 
+Sets the additional drop down menus above the SQL query interface available for the users. Each drop down is represented by a dictionary where:
+
+* `key` is the internal identifier,
+* `service` the path AngularJS service containing the client side logic,
+* `template` the path to the Django template with the markup, and
+* `options` additional options specific to the drop down.
+
+Included in Daiquiri are `simbad` and `vizier` services.
+
 #### QUERY_DOWNLOAD_DIR
 
 Default: `os.path.join(BASE_DIR, 'download')`
 
+Sets the absolute base path of the download files served by the query module in the local file system.
+
 #### QUERY_DEFAULT_DOWNLOAD_FORMAT
 
 Default: `'votable'`
+
+Sets the default download format.
 
 #### QUERY_DOWNLOAD_FORMATS
 
@@ -608,14 +657,33 @@ Default:
 ]
 ```
 
+Sets the available default download formats. Each format is represented by a dictionary where:
+
+* `key` is the internal identifier,
+* `extension` the file extension,
+* `content_type` the content type,
+* `label` the text shown in the interface, and
+* `help` a more verbose help text for the format.
+
+
+Daiquiri serve settings
+-----------------------
+
 #### SERVE_DOWNLOAD_DIR
 
 Default: `os.path.join(BASE_DIR, 'download')`
 
+Sets the absolute base path of the download files served by the serve module in the local file system.
 
 #### SERVE_RESOLVER
 
 Default: `None`
+
+Sets the a resolver class to handle references in tables served by the serve module.
+
+
+Daiquiri stats settings
+-----------------------
 
 #### STATS_RESOURCE_TYPES
 
@@ -646,22 +714,60 @@ Default:
 ]
 ```
 
+Sets the aggegated stats shown in the stats management overview.
+
+
+Daiquiri uws settings
+-----------------------
+
 #### UWS_RESOURCES
 
 Default: `[]`
+
+Configures UWS services (in addition to the TAP module). E.g.:
+
+```python
+{
+    'prefix': r'query',
+    'viewset': 'daiquiri.query.viewsets.UWSQueryJobViewSet',
+    'base_name': 'uws_query'
+}
+```
+
+where:
+
+* `prefix` is part of the base URL of the service (e.g. http://example.com/usw/query),
+* `viewset` is the ViewSet class handling the requests (neets to enherit from `daiquiri.jobs.viewsets.AsyncJobViewSet`), and
+* `base_name` a basename needed for the integration in the Django REST framework.
+
+
+Daiquiri tap settings
+-----------------------
 
 #### TAP_SCHEMA
 
 Default: `'TAP_SCHEMA'`
 
+Sets the name of the TAP schema. If more than one Daiquiri application is using the same `data` database, they cannot use the same TAP schema. Therefore the schema name TAP_SCHEMA is replaced before queries are submitted.
+
+
+Daiquiri wordpress settings
+--------------------------
+
 #### WORDPRESS_URL
 
 Default: `'/cms/'`
+
+Sets the base url of the WordPress instance.
 
 #### WORDPRESS_CLI
 
 Default: `'/opt/wp-cli/wp'`
 
+Sets the location of the `wp-cli` script on the local file system.
+
 #### WORDPRESS_PATH
 
 Default: `'/opt/wordpress'`
+
+Sets the location of the WordPress installation on the local file system.

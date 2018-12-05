@@ -103,7 +103,7 @@ You can use `config/settings/sample.local.py` as template, i.e.:
 cp config/settings/sample.local.py config/settings/local.py
 ```
 
-The different settings are explained in detail [later in the documentation](configuration.md). For a minimal configuration, you need to set 
+The different settings are explained in detail [later in the documentation](settings.md). For a minimal configuration, you need to set 
 
 
 ```python
