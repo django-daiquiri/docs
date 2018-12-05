@@ -186,17 +186,27 @@ Default: `32`
 
 Number of bits kept from IPv6 addresses for anonymity.
 
+
+Daiquiri archive settings
+-------------------------
+
 #### ARCHIVE_ANONYMOUS
 
 Default: `False`
 
-####ARCHIVE_SCHEMA
+Designates if the archive interface can be accessed by anonymus users.
+
+#### ARCHIVE_SCHEMA
 
 Default: `'daiquiri_archive'`
+
+Sets the schema for the archive in the `data` database.
 
 #### ARCHIVE_TABLE
 
 Default: `'files'`
+
+Sets the table for the archive in the schema set by `ARCHIVE_SCHEMA` the `data` database.
 
 #### ARCHIVE_COLUMNS
 
@@ -228,53 +238,118 @@ Default:
 ]
 ```
 
+Sets the additional columns for the archive in the table set by `ARCHIVE_TABLE` the `data` database.
+
 #### ARCHIVE_BASE_PATH
 
 Default: `os.path.join(BASE_DIR, 'files')`
+
+Sets the absolute base path of the files served by the archive module in the local file system.
 
 #### ARCHIVE_DOWNLOAD_DIR
 
 Default: `os.path.join(BASE_DIR, 'download')`
 
+Sets the absolute path where the zip files for downloads from the archive are located in the local file system.
+
+
+Daiquiri auth settings
+----------------------
+
 #### AUTH_SIGNUP
 
 Default: `False`
+
+Designates if users can register for an account. If set to false, all users need to be created through the Django admin system.
 
 #### AUTH_WORKFLOW
 
 Default: `None`
 
+Sets the workflow for user registration. Options are
+
+* `None`: Newly registered users can log in after registartion.
+* `'activation'`: Newly registered users need to be activated by a manager or admin.
+* `'confirmation'`: Newly registered users need to be confirmed by a manager before they are activated by an admin.
+
 #### AUTH_DETAIL_KEYS
 
 Default: `[]`
+
+Sets additional details to be asked from the users when registering. An example would be:
+
+```python
+AUTH_DETAIL_KEYS = [
+    {
+        'key': 'affiliation',
+        'label': 'Affiliation',
+        'data_type': 'text',
+        'required': True,
+        'options': []
+    },
+
+]
+```
+
+where `key` is the identifier for the detail, used in the code, `label` the text shown in the interface, `datatype` the type of the detail which affects the widget to be used (`'text'`, `'textarea'`, `'select'`, `'radio'`, `'multiselect'`, or `'checkbox'`), `required` whether this detail is required or not, and `options` a list of options for select, radio or checkboxes widgets of the form `[{'id': id, 'label': label}, ...]`.
 
 #### AUTH_TERMS_OF_USE
 
 Default: `False`
 
+Designates whether terms of use are displayed on the signup page and need to be accepted to register.
+
+
+Daiquiri cutout settings
+------------------------
+
 #### CONESEARCH_ADAPTER
 
 Default: `'daiquiri.conesearch.adapter.SimpleConeSearchAdapter'`
+
+Sets the adapter class to be used by the cone search api. The adapter class encapsulated all operations creating a cone search votable output from the api request. Custom adapter need to enherit from `daiquiri.conesearch.adapter.BaseConeSearchAdapter`.
 
 #### CONESEARCH_ANONYMOUS
 
 Default: `False`
 
+Designates if cone searches can be done by by anonymus users.
+
+
+Daiquiri cutout settings
+------------------------
+
 #### CUTOUT_ADAPTER
 
 Default: `'daiquiri.cutout.adapter.SimpleCutOutAdapter'`
+
+Sets the adapter class to be used by the cutout api. The adapter class encapsulated all operations creating a cut out from the api request. Custom adapter need to enherit from `daiquiri.cutout.adapter.BaseCutOutAdapter`.
 
 #### CUTOUT_ANONYMOUS
 
 Default: `False`
 
+Designates if the cutout interface can be accessed by anonymus users.
+
+
+Daiquiri files settings
+-----------------------
+
 #### FILES_BASE_PATH
 
 Default: `os.path.join(BASE_DIR, 'files')`
 
+Sets the absolute base path of the files served by the files module in the local file system.
+
 #### FILES_BASE_URL
 
 Default: `None`
+
+Sets the absolute URL for this Daiquiri app to be prepended to file references when downloading query results. This is done for columns with the `meta.ref;meta.file`, `meta.ref;meta.image` or `meta.ref;meta.note` UCD.
+
+
+Daiquiri meetings settings
+--------------------------
 
 #### MEETINGS_CONTRIBUTION_TYPES
 
@@ -287,6 +362,8 @@ Default:
 ]
 ```
 
+Sets the types of contributions to be selected by partcipants when registering.
+
 #### MEETINGS_PAYMENT_CHOICES
 
 Default:
@@ -298,29 +375,74 @@ Default:
 ]
 ```
 
+Sets the different payment choices to be selected by partcipants when registering.
+
 #### MEETINGS_PARTICIPANT_DETAIL_KEYS
 
 Default: `[]`
+
+Sets additional details to be asked from the participants when registering. An example would be:
+
+```python
+MEETINGS_PARTICIPANT_DETAIL_KEYS = [
+    {
+        'key': 'affiliation',
+        'label': 'Affiliation',
+        'data_type': 'text',
+        'required': True
+    },
+    {
+        'key': 'dinner',
+        'label': 'Conference dinner',
+        'data_type': 'radio',
+        'required': True,
+        'options': [
+            {'id': 'yes', 'label': 'yes'},
+            {'id': 'no', 'label': 'no'}
+        ]
+    }
+]
+```
+
+where `key` is the identifier for the detail, used in the code, `label` the text shown in the interface, `datatype` the type of the detail which affects the widget to be used (`'text'`, `'textarea'`, `'select'`, `'radio'`, `'multiselect'`, or `'checkbox'`), `required` whether this detail is required or not, and `options` a list of options for select, radio or checkboxes widgets of the form `[{'id': id, 'label': label}, ...]`.
 
 #### MEETINGS_ABSTRACT_MAX_LENGTH
 
 Default: `2000`
 
+Sets the maximum lenght of an abstract.
+
+
+Daiquiri metadata settings
+--------------------------
+
 #### METADATA_COLUMN_PERMISSIONS
 
 Default: `False`
+
+Designates if permissions can be assigned to individual columns (in addition to tables and schemas). *This is an experimental feature.*
 
 #### METADATA_BASE_URL
 
 Default: `None`
 
+Sets the absolute URL of the metadata module, e.g. http://example.com/metadata/. The URL is used to create links to the landing pages for schemas and tables in VOTables if a DOI is not set.
+
+
+Daiquiri qyery settings
+--------------------------
+
 #### QUERY_ANONYMOUS
 
 Default: `False`
 
+Designates if the query interface can be accessed by anonymus users. The permissions on schemas and tables need to be configured using the metadata interface.
+
 #### QUERY_USER_SCHEMA_PREFIX
 
 Default: `'daiquiri_user_'`
+
+Sets the prefix for user schemas in the `data` database. Each user has a private schema where the result table of successful queries are stored.
 
 #### QUERY_QUOTA
 
@@ -335,9 +457,28 @@ Default:
 }
 ```
 
+Sets the maximum quota for tables in a user's personal schema. The quota need to be set for the `anonymous` user as well as regular loggen in users (`user`). Additionally, users or groups can be asigned individual quotas, e.g.:
+
+```python
+{
+    'anonymous': '100Mb',
+    'user': '10000Mb',
+    'users': {
+        'admin': '1000Gb'
+    },
+    'groups': {
+        'collab': '100Gb'
+    }
+}
+```
+
+If more than one quota applies, the maximum is used.
+
 #### QUERY_SYNC_TIMEOUT
 
 Default: `5`
+
+Sets the timeout for syncronous (TAP) queries in seconds.
 
 #### QUERY_MAX_ACTIVE_JOBS
 
@@ -348,6 +489,8 @@ Default:
     'anonymous': '1'
 }
 ```
+
+Sets the maximum of simultanous jobs for users. The setting work analog to 'QUERY_QUOTA'. If more than one maximum applies, the maximum is used. If no maximum is given, like the default setting for logged users, no maximum is enforced.
 
 #### QUERY_QUEUES
 
@@ -366,6 +509,8 @@ Default:
 ]
 ```
 
+Set the different queue, which can be selected by the users. `key` is the internal identifier, `label` the text shown in the interface, `timeout` the maximum excecution time in seconds, `priority` a integer number, and `access_level` and `groups` the usual restiction on who can use this queue. Jobs in a queue with *higher* priority are selected first when a query worker becomes available.
+
 #### QUERY_LANGUAGES
 
 Default:
@@ -381,6 +526,8 @@ Default:
     }
 ]
 ```
+
+Sets the different query languages, which can be selected by the users. `key` is the internal identifier, `label` the text shown in the interface, `description` additional information shown in TopCat, and `quote_char` the character used by the database system to quote identifiers. Already implemented in Daiquiri are `adql`, `postgresql`, and `mysql`. Apart from ADQL, the query language must match the database system of the `data` database.
 
 #### QUERY_FORMS
 
