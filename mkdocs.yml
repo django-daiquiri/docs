@@ -5,6 +5,7 @@ nav:
   - Installation: installation.md
   - Deployment: deployment.md
   - Settings: settings.md
+  - Appendix: appendix.md
 
 theme:
     name: readthedocs

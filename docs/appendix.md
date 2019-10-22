@@ -1,6 +1,6 @@
 # Appendix
 
-## Deployment with Apache2 and mod_wsgi
+## Apache2 and mod_wsgi
 
 This is an alternative deployment without the need of systemd scripts for the web application. Any asyncronous workers, however, would still need these systemd scripts.
 
