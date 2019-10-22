@@ -69,6 +69,25 @@
     <a class="" href="../settings/">Settings</a>
 	    </li>
           
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Appendix</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#appendix">Appendix</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#apache2-and-mod_wsgi">Apache2 and mod_wsgi</a></li>
+        
+            <li><a class="toctree-l3" href="#wordpress-integration">WordPress integration</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -102,7 +121,7 @@
             <div class="section">
               
                 <h1 id="appendix">Appendix</h1>
-<h2 id="deployment-with-apache2-and-mod_wsgi">Deployment with Apache2 and mod_wsgi</h2>
+<h2 id="apache2-and-mod_wsgi">Apache2 and mod_wsgi</h2>
 <p>This is an alternative deployment without the need of systemd scripts for the web application. Any asyncronous workers, however, would still need these systemd scripts.</p>
 <p>Install the Apache server and <code>mod_wsgi</code> on Debian or Ubuntu using:</p>
 <pre><code class="bash">sudo apt install apache2 libapache2-mod-wsgi-py3
@@ -216,6 +235,13 @@ define('PLUGINS_COOKIE_PATH',COOKIEPATH);
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../settings/" class="btn btn-neutral" title="Settings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
@@ -237,6 +263,8 @@ define('PLUGINS_COOKIE_PATH',COOKIEPATH);
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
+      
+        <span><a href="../settings/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>
