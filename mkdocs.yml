@@ -3,4 +3,17 @@ site_name: Daiquiri documentation
 nav:
   - Home: index.md
   - Installation: installation.md
+  - Deployment: deployment.md
   - Settings: settings.md
+
+theme:
+    name: readthedocs
+
+markdown_extensions:
+- def_list
+- footnotes
+- tables
+- smarty
+
+extra_css:
+  - style.css
