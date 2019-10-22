@@ -135,4 +135,4 @@ The go to http://<your url>/cms/ and follow the WordPress instalation. You can u
 * Activate the Daiquiri theme under `Appearance -> Themes`
 * Activate the Daiquiri plugin under `Appearance -> Plugins`
 
-Logout of WordPress. Login to Daiquiri. You should now be logged in into WordPress as well.
+Logout of WordPress. Login to Daiquiri. You should now be logged in into WordPress as well. The syncronization of WordPress and Daiquiri users is done using [wp-cli](https://wp-cli.org/). See [settings](/settings/#daiquiriwordpresssettings) for more information about using WordPress with Daiquiri.

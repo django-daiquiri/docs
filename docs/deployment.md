@@ -376,6 +376,33 @@ sudo systemctl enable daiquiri-query-worker
 sudo systemctl enable daiquiri-download-worker
 ```
 
+Caching
+-------
+
+To use [memcached] as cache, first install it from the distribution:
+
+```bash
+apt install memcached  # Debian/Ubuntu
+yum install memcached  # CentOS
+```
+
+On CentOS memcached needs to be restricted to listen only to localhost in `/etc/sysconfig/memcached`:
+
+```
+PORT="11211"
+USER="memcached"
+MAXCONN="1024"
+CACHESIZE="64"
+OPTIONS="-l 127.0.0.1,::1"
+```
+
+Then memcached can be enabled and started:
+
+```bash
+systemctl start memcached
+systemctl enable memcached
+```
+
 [Apache2]: https://httpd.apache.org/
 [NGINX]: https://www.nginx.com/
 [wsgi]: https://docs.djangoproject.com/en/stable/howto/deployment/wsgi/
@@ -386,3 +413,4 @@ sudo systemctl enable daiquiri-download-worker
 [virtual hosts]: https://www.rabbitmq.com/vhosts.html
 [tmpfiles.d]: https://www.freedesktop.org/software/systemd/man/tmpfiles.d.html
 [WordPress.org]: https://wordpress.org/download/
+[memcached]: https://memcached.org/
