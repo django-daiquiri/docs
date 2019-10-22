@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Settings - Daiquiri documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../style.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Settings";
+    var mkdocs_page_input_path = "settings.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daiquiri documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deployment/">Deployment</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Settings</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#settings">Settings</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#daiquiricoresettingsdjango">daiquiri.core.settings.django</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiricoresettingsdaiquiri">daiquiri.core.settings.daiquiri</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiricoresettingscelery">daiquiri.core.settings.celery</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiricoresettingslogging">daiquiri.core.settings.logging</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiricoresettingsvendor">daiquiri.core.settings.vendor</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiriarchivesettings">daiquiri.archive.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiriauthsettings">daiquiri.auth.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiricutoutsettings">daiquiri.cutout.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiricutoutsettings_1">daiquiri.cutout.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquirifilessettings">daiquiri.files.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquirimeetingssettings">daiquiri.meetings.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquirimetadatasettings">daiquiri.metadata.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquirioaisettings">daiquiri.oai.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiriquerysettings">daiquiri.query.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiriservesettings">daiquiri.serve.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiristatssettings">daiquiri.stats.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiritapsettings">daiquiri.tap.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiriuwssettings">daiquiri.uws.settings</a></li>
+        
+            <li><a class="toctree-l3" href="#daiquiriwordpresssettings">daiquiri.wordpress.settings</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daiquiri documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Settings</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="settings">Settings</h1>
+<p>A Daiquiri application can be customised using various settings. Since Daiquiri is based on Django, we use its <a href="https://docs.djangoproject.com/en/2.1/topics/settings/">build-in settings system</a>. Almost every setting has a default value, which is set in the Daiquiri library. The core settings are defined in the <code>daiquiri.core.settings</code> module:</p>
+<ul>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/django.py">daiquiri.core.settings.django</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/celery.py">daiquiri.core.settings.celery</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/daiquiri.py">daiquiri.core.settings.daiquiri</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/logging.py">daiquiri.core.settings.logging</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/vendor.py">daiquiri.core.settings.vendor</a></li>
+</ul>
+<p>Additional settings, which concern only a single Daiquiri module are defined in the <code>settings</code> module of the particular module:</p>
+<ul>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/archive/settings.py">daiquiri.archive.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/auth/settings.py">daiquiri.auth.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/conesearch/settings.py">daiquiri.conesearch.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/cutout/settings.py">daiquiri.cutout.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/files/settings.py">daiquiri.files.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/meetings/settings.py">daiquiri.meetings.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/metadata/settings.py">daiquiri.metadata.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/oai/settings.py">daiquiri.oai.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/query/settings.py">daiquiri.query.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/serve/settings.py">daiquiri.serve.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/stats/settings.py">daiquiri.stats.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/tap/settings.py">daiquiri.tap.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/wordpress/settings.py">daiquiri.wordpress.settings</a></li>
+</ul>
+<p>All settings can be changed for your particular <code>app</code> in <code>config/settings/base.py</code> (app specific) or <code>config/settings/local.py</code> (machine specific, and ignored by git). In addition, selected settings can be configured as environment variables, in particular using the <code>.env</code> file <code>app</code> directory:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SECRET_KEY</td>
+<td>🚫</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td><code>http://localhost:8000</code></td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td>ASYNC</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td>ALLOWED_HOSTS</td>
+<td><code>['localhost']</code></td>
+</tr>
+<tr>
+<td>TIME_ZONE</td>
+<td><code>'UTC'</code></td>
+</tr>
+<tr>
+<td>PROXY</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td>ADMINS</td>
+<td><code>[]</code></td>
+</tr>
+<tr>
+<td>DATABASE_APP</td>
+<td>🚫</td>
+</tr>
+<tr>
+<td>DATABASE_DATA</td>
+<td>🚫</td>
+</tr>
+<tr>
+<td>TAP_SCHEMA</td>
+<td><code>TAP_SCHEMA</code></td>
+</tr>
+<tr>
+<td>TAP_UPLOAD</td>
+<td><code>TAP_UPLOAD</code></td>
+</tr>
+<tr>
+<td>OAI_SCHEMA</td>
+<td><code>OAI_SCHEMA</code></td>
+</tr>
+</tbody>
+</table>
+<p>In the <code>.env</code> file, lists are seperated by comma, e.g. <code>ADMINS=Anna Admin &lt;admin@example.com&gt;, Manni Manager &lt;manager@example.com&gt;</code>. Since <code>SECRET_KEY</code>, <code>DATABASE_APP</code>, and <code>DATABASE_DATA</code> have no default value, they need to be set in any case.</p>
+<p>In the following all settings, which can be changed from their default values to customize you particular Daiquiri app are described in detail:</p>
+<h2 id="daiquiricoresettingsdjango">daiquiri.core.settings.django</h2>
+<h4 id="secret_key">SECRET_KEY</h4>
+<p>Secret key for Django.</p>
+<p>See also <a href="https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-SECRET_KEY">SECRET_KEY</a> in the Django documentation. Should be set in <code>.env</code>.</p>
+<hr />
+<h4 id="debug">DEBUG</h4>
+<p>Default: <code>False</code></p>
+<p>Debug mode. See also <a href="https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-DEBUG">DEBUG</a> in the Django documentation. Should be set in <code>.env</code>.</p>
+<hr />
+<h4 id="base_url">BASE_URL</h4>
+<p>Default: <code>/</code></p>
+<p>Base URL for the Daiquiri app. Set if your Daiquiri app runs under a alias path on your web server, e.g. <code>/daiquiri/</code>.</p>
+<hr />
+<h4 id="allowed_hosts">ALLOWED_HOSTS</h4>
+<p>Default: <code>['localhost']</code></p>
+<p>List of allowed hosts for this app.</p>
+<p>See also <a href="https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-ALLOWED_HOSTS">ALLOWED_HOSTS</a> in the Django documentation. Should be set in <code>.env</code>.</p>
+<hr />
+<h4 id="time_zone">TIME_ZONE</h4>
+<p>Default: <code>'UTC'</code></p>
+<p>The time zone for this Daiquiri app (e.g. <code>Europe/Berlin</code>).</p>
+<hr />
+<h4 id="account_logout_on_get">ACCOUNT_LOGOUT_ON_GET</h4>
+<p>Default: False</p>
+<p>Designates if a GET request is sufficient to logout. The seeting needs to be set to <code>TRUE</code> if the WordPress integration is used.</p>
+<hr />
+<h4 id="account_username_min_length">ACCOUNT_USERNAME_MIN_LENGTH</h4>
+<p>Default: 4</p>
+<p>The minimal length of usernames.</p>
+<hr />
+<h4 id="account_password_min_length">ACCOUNT_PASSWORD_MIN_LENGTH</h4>
+<p>Default: 4</p>
+<p>The minimal length of passwords.</p>
+<hr />
+<h4 id="account_email_verification">ACCOUNT_EMAIL_VERIFICATION</h4>
+<p>Default: <code>'mandatory'</code></p>
+<p>Designates if new users need to verify their email addresses before logging in. Options are</p>
+<ul>
+<li><code>'mandatory'</code></li>
+<li><code>'optional'</code></li>
+<li><code>'none'</code></li>
+</ul>
+<p>See also <a href="https://django-allauth.readthedocs.io/en/latest/configuration.html">ACCOUNT_EMAIL_VERIFICATION</a> in the django-allauth documentation.</p>
+<hr />
+<h4 id="account_login_on_email_confirmation">ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION</h4>
+<p>Default: <code>True</code></p>
+<p>Designates if new users are automatically logged in after validating their email address.</p>
+<hr />
+<h4 id="rest_framework">REST_FRAMEWORK</h4>
+<p>Default:</p>
+<pre><code>{
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.ScopedRateThrottle',
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'query.create': '10/second'
+    }
+}
+</code></pre>
+
+<p>Configuration object for the Django REST framework. Used to adjust the maximum rate in which queries are allowed to be submitted (by anyone). See also <a href="https://www.django-rest-framework.org/api-guide/throttling/">Throttling</a> in the Django REST framework documentation.</p>
+<hr />
+<h4 id="email_backend">EMAIL_BACKEND</h4>
+<p>Default: <code>'django.core.mail.backends.console.EmailBackend'</code></p>
+<p>Sets the backend used for email delivery. On a production system, this will be <code>django.core.mail.backends.smtp.EmailBackend</code>. For testing/demonstration <code>django.core.mail.backends.console.EmailBackend</code> can be used. See also <a href="https://docs.djangoproject.com/en/2.1/topics/email/">Sending email</a> in the Django documentation. Can be set in <code>.env</code>.</p>
+<hr />
+<h4 id="email_host">EMAIL_HOST</h4>
+<p>Default: <code>'localhost'</code></p>
+<p>Hostname of the SMTP server. Can be set in <code>.env</code>.</p>
+<hr />
+<h4 id="email_port">EMAIL_PORT</h4>
+<p>Default: <code>'25'</code></p>
+<p>Port of the SMTP server. Can be set in <code>.env</code>.</p>
+<hr />
+<h4 id="email_host_user">EMAIL_HOST_USER</h4>
+<p>Default: <code>''</code></p>
+<p>User for the SMTP server. Can be set in <code>.env</code>.</p>
+<hr />
+<h4 id="email_host_password">EMAIL_HOST_PASSWORD</h4>
+<p>Default: <code>''</code></p>
+<p>Password for the SMTP server. Can be set in <code>.env</code>.</p>
+<hr />
+<h4 id="email_use_tls">EMAIL_USE_TLS</h4>
+<p>Default: <code>False</code></p>
+<p>Designates whether a <code>STARTTLS</code> is used (usually on port 587). Can be set in <code>.env</code>.</p>
+<hr />
+<h4 id="email_use_ssl">EMAIL_USE_SSL</h4>
+<p>Default: <code>False</code></p>
+<p>Designates whether a implicit TLS connection is used (usually on port 465). Can be set in <code>.env</code>.</p>
+<hr />
+<h4 id="default_from_email">DEFAULT_FROM_EMAIL</h4>
+<p>Default: <code>''</code></p>
+<p>Sets the FROM field for the E-mails send. Can be set in <code>.env</code>.</p>
+<hr />
+<h4 id="sendfile_backend">SENDFILE_BACKEND</h4>
+<p>Default: <code>'sendfile.backends.simple'</code></p>
+<p>Sets the backend used for the sendfile integration to deliver static files. On a production system (using Apache), this will be <code>sendfile.backends.xsendfile</code>. For testing/demonstration <code>sendfile.backends.simple</code> can be used.</p>
+<p>See also <a href="https://github.com/johnsensible/django-sendfile">Django Sendfile</a> GitHub readme.</p>
+<hr />
+<h4 id="memcache_key_prefix">MEMCACHE_KEY_PREFIX</h4>
+<p>Default: <code>None</code></p>
+<p>Key prefix to use for caching with <a href="https://memcached.org/">memcached</a>. Enables caching with memcached. See also <a href="/deployment/#caching">deployment</a>. Should be set in <code>.env</code>.</p>
+<hr />
+<h2 id="daiquiricoresettingsdaiquiri">daiquiri.core.settings.daiquiri</h2>
+<h4 id="async">ASYNC</h4>
+<p>Default: <code>False</code></p>
+<p>Designates if celery workers are used for asyncronous tasks like query execution. If set to <code>True</code>, three workers need to run: <code>default</code>, <code>query</code>, and <code>download</code>.</p>
+<hr />
+<h4 id="ipv4_privacy_mask">IPV4_PRIVACY_MASK</h4>
+<p>Default: <code>16</code></p>
+<p>Number of bits kept from IPv4 addresses (e.g. to produce query stats) for anonymity.</p>
+<hr />
+<h4 id="ipv6_privacy_mask">IPV6_PRIVACY_MASK</h4>
+<p>Default: <code>32</code></p>
+<p>Number of bits kept from IPv6 addresses (e.g. to produce query stats) for anonymity.</p>
+<hr />
+<h4 id="site_url">SITE_URL</h4>
+<p>Default: <code>http://localhost:8000</code></p>
+<p>Public URL of the Daiquiri site. Used for VO and OAI metadata.</p>
+<hr />
+<h4 id="site_identifier">SITE_IDENTIFIER</h4>
+<p>Default: <code>None</code></p>
+<p>Identifier for the Daiquiri site. Usually the URL without the protocol. Used for VO and OAI metadata.</p>
+<hr />
+<h4 id="site_title">SITE_TITLE</h4>
+<p>Default: <code>None</code></p>
+<p>The title for the Daiquiri site. Used for VO and OAI metadata.</p>
+<hr />
+<h4 id="site_description">SITE_DESCRIPTION</h4>
+<p>Default: <code>None</code></p>
+<p>The description for the Daiquiri site. Used for VO and OAI metadata.</p>
+<hr />
+<h4 id="site_license">SITE_LICENSE</h4>
+<p>Default: <code>None</code></p>
+<p>A license for the Daiquiri site. See <a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/constants.py">https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/constants.py</a> for the available choices. Used in various metadata fields.</p>
+<hr />
+<h4 id="site_creator">SITE_CREATOR</h4>
+<p>Default: <code>None</code></p>
+<p>Creator of the Daiquiri site. Used in the VO registry entry. Has to be of the following form:</p>
+<pre><code>{
+    'name': 'Daiquiri project'
+    'logo': None
+}
+</code></pre>
+
+<hr />
+<h4 id="site_contact">SITE_CONTACT</h4>
+<p>Default: <code>None</code></p>
+<p>List of contacts for the Daiquiri site. Used in the VO registry entry. Has to be of the following form:</p>
+<pre><code>{
+    'name': 'Anna Admin'
+    'address': 'Beispielstr. 3, 12345 Berlin',
+    'email': 'contact@example.com'
+    'telephone': '+49 30 123467'
+}
+</code></pre>
+
+<hr />
+<h4 id="site_publisher">SITE_PUBLISHER</h4>
+<p>Default: <code>None</code></p>
+<p>Publisher of the Daiquiri site. Used for VO and OAI metadata.</p>
+<hr />
+<h4 id="site_created">SITE_CREATED</h4>
+<p>Default: <code>None</code></p>
+<p>Date of the creation of the Daiquiri site. Used for VO and OAI metadata. Has to be of the form <code>YYYY-MM-DD</code>.</p>
+<hr />
+<h4 id="site_updated">SITE_UPDATED</h4>
+<p>Default: <code>None</code></p>
+<p>Date of the last update of the Daiquiri site. Used for VO and OAI metadata. Has to be of the form <code>YYYY-MM-DD</code>.</p>
+<hr />
+<h4 id="site_subjects">SITE_SUBJECTS</h4>
+<p>Default:</p>
+<pre><code>[
+    {
+        'subject': 'Astronomy',
+        'schemeURI': 'http://id.loc.gov/authorities/subjects',
+        'valueURI': 'http://id.loc.gov/authorities/subjects/sh85009003'
+    }
+]
+</code></pre>
+
+<p>Subjects for this Daiquiri app. Used for VO and OAI metadata.</p>
+<hr />
+<h4 id="site_type">SITE_TYPE</h4>
+<p>Default: <code>'service'</code></p>
+<p>Type for this Daiquiri site. Used in the VO registry entry.</p>
+<hr />
+<h2 id="daiquiricoresettingscelery">daiquiri.core.settings.celery</h2>
+<h4 id="celery_broker_url">CELERY_BROKER_URL</h4>
+<p>Default: <code>amqp://</code></p>
+<p>URL of the RabbitMQ server to be used. For a more sophisticated setup use:</p>
+<pre><code>CELERY_BROKER_URL=amqp://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;vhost&gt;
+</code></pre>
+
+<p>See also <a href="/deployment/#asyncronous-workers">deployment</a>. Should be set in <code>.env</code>.</p>
+<hr />
+<h2 id="daiquiricoresettingslogging">daiquiri.core.settings.logging</h2>
+<h4 id="log_level">LOG_LEVEL</h4>
+<p>Default: <code>INFO</code></p>
+<p>Level of logging. Set to <code>DEBUG</code> to get more verbose logging. Should be set in <code>.env</code>.</p>
+<hr />
+<h4 id="log_dir">LOG_DIR</h4>
+<p>Default: <code>None</code></p>
+<p>Directory for log files. In development <code>log</code> is suitable, in production <code>/var/log/django/daiquiri/</code> might be a sensible choice. Note that this directory must exist for Daiquiri to work. Should be set in <code>.env</code>.</p>
+<hr />
+<h2 id="daiquiricoresettingsvendor">daiquiri.core.settings.vendor</h2>
+<h4 id="vendor_cdn">VENDOR_CDN</h4>
+<p>Default: <code>False</code></p>
+<p>Use content delivery networks to host the static vendor assets (js and css files). Using the default of <code>False</code> implies that the assets need to be collected using <code>python manage.py download_vendor_files</code>.</p>
+<hr />
+<h2 id="daiquiriarchivesettings">daiquiri.archive.settings</h2>
+<h4 id="archive_base_path">ARCHIVE_BASE_PATH</h4>
+<p>Default: <code>os.path.join(BASE_DIR, 'files')</code></p>
+<p>Sets the absolute base path of the files served by the archive module in the local file system.</p>
+<hr />
+<h4 id="archive_download_dir">ARCHIVE_DOWNLOAD_DIR</h4>
+<p>Default: <code>os.path.join(BASE_DIR, 'download')</code></p>
+<p>Sets the absolute path where the zip files for downloads from the archive are located in the local file system.</p>
+<hr />
+<h4 id="archive_anonymous">ARCHIVE_ANONYMOUS</h4>
+<p>Default: <code>False</code></p>
+<p>Designates if the archive interface can be accessed by anonymus users.</p>
+<hr />
+<h4 id="archive_schema">ARCHIVE_SCHEMA</h4>
+<p>Default: <code>'daiquiri_archive'</code></p>
+<p>Sets the schema for the archive in the <code>data</code> database.</p>
+<h4 id="archive_table">ARCHIVE_TABLE</h4>
+<p>Default: <code>'files'</code></p>
+<p>Sets the table for the archive in the schema set by <code>ARCHIVE_SCHEMA</code> the <code>data</code> database.</p>
+<h4 id="archive_columns">ARCHIVE_COLUMNS</h4>
+<p>Default:</p>
+<pre><code class="python">[
+    {
+        'name': 'id',
+        'hidden': True
+    },
+    {
+        'name': 'timestamp',
+        'label': 'Timestamp'
+    },
+    {
+        'name': 'file',
+        'label': 'Filename',
+        'ucd': 'meta.file'
+    },
+    {
+        'name': 'collection',
+        'hidden': True
+    },
+    {
+        'name': 'path',
+        'hidden': True
+    }
+]
+</code></pre>
+
+<p>Sets the additional columns for the archive in the table set by <code>ARCHIVE_TABLE</code> the <code>data</code> database.</p>
+<hr />
+<h2 id="daiquiriauthsettings">daiquiri.auth.settings</h2>
+<h4 id="auth_signup">AUTH_SIGNUP</h4>
+<p>Default: <code>False</code></p>
+<p>Designates if users can register for an account. If set to false, all users need to be created through the Django admin system.</p>
+<hr />
+<h4 id="auth_workflow">AUTH_WORKFLOW</h4>
+<p>Default: <code>None</code></p>
+<p>Sets the workflow for user registration. Options are</p>
+<ul>
+<li><code>None</code>: Newly registered users can log in after registartion.</li>
+<li><code>'activation'</code>: Newly registered users need to be activated by a manager or admin.</li>
+<li><code>'confirmation'</code>: Newly registered users need to be confirmed by a manager before they are activated by an admin.</li>
+</ul>
+<hr />
+<h4 id="auth_detail_keys">AUTH_DETAIL_KEYS</h4>
+<p>Default: <code>[]</code></p>
+<p>Sets additional details to be asked from the users when registering. An example would be:</p>
+<pre><code class="python">AUTH_DETAIL_KEYS = [
+    {
+        'key': 'affiliation',
+        'label': 'Affiliation',
+        'data_type': 'text',
+        'required': True,
+        'options': []
+    },
+
+]
+</code></pre>
+
+<p>where:</p>
+<ul>
+<li><code>key</code> is the internal identifier,</li>
+<li><code>label</code> the text shown in the interface,</li>
+<li><code>datatype</code> the type of the detail which affects the widget to be used (<code>'text'</code>, <code>'textarea'</code>, <code>'select'</code>, <code>'radio'</code>, <code>'multiselect'</code>, or <code>'checkbox'</code>),</li>
+<li><code>required</code> whether this detail is required or not, and</li>
+<li><code>options</code> a list of options for select, radio or checkboxes widgets of the form <code>[{'id': id, 'label': label}, ...]</code>.</li>
+</ul>
+<hr />
+<h4 id="auth_terms_of_use">AUTH_TERMS_OF_USE</h4>
+<p>Default: <code>False</code></p>
+<p>Designates whether terms of use are displayed on the signup page and need to be accepted to register. The text of to displayed needs to be configured in a template <code>account/terms_of_use.html</code>.</p>
+<hr />
+<h2 id="daiquiricutoutsettings">daiquiri.cutout.settings</h2>
+<h4 id="conesearch_adapter">CONESEARCH_ADAPTER</h4>
+<p>Default: <code>'daiquiri.conesearch.adapter.SimpleConeSearchAdapter'</code></p>
+<p>Sets the adapter class to be used by the cone search api. The adapter class encapsulated all operations creating a cone search votable output from the api request. Custom adapter need to enherit from <code>daiquiri.conesearch.adapter.BaseConeSearchAdapter</code>.</p>
+<hr />
+<h4 id="conesearch_anonymous">CONESEARCH_ANONYMOUS</h4>
+<p>Default: <code>False</code></p>
+<p>Designates if cone searches can be done by by anonymus users.</p>
+<hr />
+<h2 id="daiquiricutoutsettings_1">daiquiri.cutout.settings</h2>
+<h4 id="cutout_adapter">CUTOUT_ADAPTER</h4>
+<p>Default: <code>'daiquiri.cutout.adapter.SimpleCutOutAdapter'</code></p>
+<p>Sets the adapter class to be used by the cutout api. The adapter class encapsulated all operations creating a cut out from the api request. Custom adapter need to enherit from <code>daiquiri.cutout.adapter.BaseCutOutAdapter</code>.</p>
+<hr />
+<h4 id="cutout_anonymous">CUTOUT_ANONYMOUS</h4>
+<p>Default: <code>False</code></p>
+<p>Designates if the cutout interface can be accessed by anonymus users.</p>
+<hr />
+<h2 id="daiquirifilessettings">daiquiri.files.settings</h2>
+<h4 id="files_base_path">FILES_BASE_PATH</h4>
+<p>Default: <code>os.path.join(BASE_DIR, 'files')</code></p>
+<p>Sets the absolute base path of the files served by the files module in the local file system. Should be set in <code>.env</code>.</p>
+<hr />
+<h4 id="files_base_url">FILES_BASE_URL</h4>
+<p>Default: <code>None</code></p>
+<p>Sets the absolute URL for this Daiquiri app to be prepended to file references when downloading query results. This is done for columns with the <code>meta.ref;meta.file</code>, <code>meta.ref;meta.image</code> or <code>meta.ref;meta.note</code> UCD. Should be set in <code>.env</code>.</p>
+<hr />
+<h2 id="daiquirimeetingssettings">daiquiri.meetings.settings</h2>
+<h4 id="meetings_contribution_types">MEETINGS_CONTRIBUTION_TYPES</h4>
+<p>Default:</p>
+<pre><code class="python">[
+    ('talk', _('Talk')),
+    ('poster', _('Poster'))
+]
+</code></pre>
+
+<p>Sets the types of contributions to be selected by partcipants when registering.</p>
+<hr />
+<h4 id="meetings_payment_choices">MEETINGS_PAYMENT_CHOICES</h4>
+<p>Default:</p>
+<pre><code class="python">[
+    ('cash', _('cash')),
+    ('wire', _('wire transfer')),
+]
+</code></pre>
+
+<p>Sets the different payment choices to be selected by partcipants when registering.</p>
+<hr />
+<h4 id="meetings_participant_detail_keys">MEETINGS_PARTICIPANT_DETAIL_KEYS</h4>
+<p>Default: <code>[]</code></p>
+<p>Sets additional details to be asked from the participants when registering. An example would be:</p>
+<pre><code class="python">MEETINGS_PARTICIPANT_DETAIL_KEYS = [
+    {
+        'key': 'affiliation',
+        'label': 'Affiliation',
+        'data_type': 'text',
+        'required': True
+    },
+    {
+        'key': 'dinner',
+        'label': 'Conference dinner',
+        'data_type': 'radio',
+        'required': True,
+        'options': [
+            {'id': 'yes', 'label': 'yes'},
+            {'id': 'no', 'label': 'no'}
+        ]
+    }
+]
+</code></pre>
+
+<p>where:</p>
+<ul>
+<li><code>key</code> is the internal identifier,</li>
+<li><code>label</code> the text shown in the interface,</li>
+<li><code>datatype</code> the type of the detail which affects the widget to be used (<code>'text'</code>, <code>'textarea'</code>, <code>'select'</code>, <code>'radio'</code>, <code>'multiselect'</code>, or <code>'checkbox'</code>),</li>
+<li><code>required</code> whether this detail is required or not, and</li>
+<li><code>options</code> a list of options for select, radio or checkboxes widgets of the form <code>[{'id': id, 'label': label}, ...]</code>.</li>
+</ul>
+<hr />
+<h4 id="meetings_abstract_max_length">MEETINGS_ABSTRACT_MAX_LENGTH</h4>
+<p>Default: <code>2000</code></p>
+<p>Sets the maximum lenght of an abstract.</p>
+<hr />
+<h2 id="daiquirimetadatasettings">daiquiri.metadata.settings</h2>
+<h4 id="metadata_column_permissions">METADATA_COLUMN_PERMISSIONS</h4>
+<p>Default: <code>False</code></p>
+<p>Designates if permissions can be assigned to individual columns (in addition to tables and schemas). <em>This is an experimental feature.</em></p>
+<hr />
+<h4 id="metadata_base_url">METADATA_BASE_URL</h4>
+<p>Default: <code>None</code></p>
+<p>Sets the absolute URL of the metadata module, e.g. http://example.com/metadata/. The URL is used to create links to the landing pages for schemas and tables in VOTables if a DOI is not set.</p>
+<hr />
+<h2 id="daiquirioaisettings">daiquiri.oai.settings</h2>
+<h4 id="oai_schema">OAI_SCHEMA</h4>
+<p>Default: <code>OAI_SCHEMA</code></p>
+<p>Sets the name of the schema for OAI records. If more than one Daiquiri application is using the same <code>data</code> database, they cannot use the same OAI_SCHEMA schema. <strong>This setting must be set in <code>.env</code></strong></p>
+<hr />
+<h4 id="oai_adapter">OAI_ADAPTER</h4>
+<p>Default: <code>'daiquiri.metadata.adapter.RegistryDoiMetadataOaiAdapter'</code></p>
+<p>Sets the adapter class to be used by the OAI-PMH api. The adapter class encapsulated all operations to set up and retrieve the OAI records. Custom adapter need to enherit from <code>daiquiri.metadata.adapter.BaseOaiAdapter</code>. Usually this will be done in the Daiquiri app, e.g.</p>
+<pre><code>OAI_ADAPTER = 'app.adapter.OaiAdapter'
+</code></pre>
+
+<hr />
+<h4 id="oai_page_size">OAI_PAGE_SIZE</h4>
+<p>Default: <code>500</code></p>
+<p>Number of records returned in a OAI-PMH request.</p>
+<hr />
+<h2 id="daiquiriquerysettings">daiquiri.query.settings</h2>
+<h4 id="query_anonymous">QUERY_ANONYMOUS</h4>
+<p>Default: <code>False</code></p>
+<p>Designates if the query interface can be accessed by anonymus users. The permissions on schemas and tables need to be configured using the metadata interface.</p>
+<hr />
+<h4 id="query_user_schema_prefix">QUERY_USER_SCHEMA_PREFIX</h4>
+<p>Default: <code>'daiquiri_user_'</code></p>
+<p>Sets the prefix for user schemas in the <code>data</code> database. Each user has a private schema where the result table of successful queries are stored.</p>
+<hr />
+<h4 id="query_quota">QUERY_QUOTA</h4>
+<p>Default:</p>
+<pre><code class="python">{
+    'anonymous': '100Mb',
+    'user': '10000Mb',
+    'users': {},
+    'groups': {}
+}
+</code></pre>
+
+<p>Sets the maximum quota for tables in a user&rsquo;s personal schema. The quota need to be set for the <code>anonymous</code> user as well as regular loggen in users (<code>user</code>). Additionally, users or groups can be asigned individual quotas, e.g.:</p>
+<pre><code class="python">{
+    'anonymous': '100Mb',
+    'user': '10000Mb',
+    'users': {
+        'admin': '1000Gb'
+    },
+    'groups': {
+        'collab': '100Gb'
+    }
+}
+</code></pre>
+
+<p>If more than one quota applies, the maximum is used.</p>
+<hr />
+<h4 id="query_sync_timeout">QUERY_SYNC_TIMEOUT</h4>
+<p>Default: <code>5</code></p>
+<p>Sets the timeout for syncronous (TAP) queries in seconds.</p>
+<hr />
+<h4 id="query_max_active_jobs">QUERY_MAX_ACTIVE_JOBS</h4>
+<p>Default:</p>
+<pre><code class="python">{
+    'anonymous': '1'
+}
+</code></pre>
+
+<p>Sets the maximum of simultanous jobs for users. The setting work analog to &lsquo;QUERY_QUOTA&rsquo;. If more than one maximum applies, the maximum is used. If no maximum is given, like the default setting for logged users, no maximum is enforced.</p>
+<hr />
+<h4 id="query_queues">QUERY_QUEUES</h4>
+<p>Default:</p>
+<pre><code class="python">[
+    {
+        'key': 'default',
+        'label': 'Default',
+        'timeout': 10,
+        'priority': 1,
+        'access_level': 'PUBLIC',
+        'groups': []
+    }
+]
+</code></pre>
+
+<p>Set the different queue, which can be selected by the users. Each queue is represented by a dictionary where:</p>
+<ul>
+<li><code>key</code> is the internal identifier,</li>
+<li><code>label</code> is the text shown in the interface,</li>
+<li><code>timeout</code> the maximum excecution time in seconds,</li>
+<li><code>priority</code> is a integer number indicationg the priority in which jobs are executed, and</li>
+<li><code>access_level</code> and <code>groups</code> the usual restiction on who can use this queue.</li>
+</ul>
+<p>Jobs in a queue with <em>higher</em> priority are selected first when a query worker becomes available.</p>
+<hr />
+<h4 id="query_languages">QUERY_LANGUAGES</h4>
+<p>Default:</p>
+<pre><code class="python">[
+    {
+        'key': 'adql',
+        'version': 2.0,
+        'label': 'ADQL',
+        'description': '',
+        'quote_char': '&quot;'
+    }
+]
+</code></pre>
+
+<p>Sets the different query languages, which can be selected by the users. Each query language is represented by a dictionary where:</p>
+<ul>
+<li><code>key</code> is the internal identifier,</li>
+<li><code>label</code> is the text shown in the interface,</li>
+<li><code>description</code> is additional information shown, e.g. in TopCat, and</li>
+<li><code>quote_char</code> the character used by the database system to quote identifiers.</li>
+</ul>
+<p>Already implemented in Daiquiri are <code>adql</code>, <code>postgresql</code>, and <code>mysql</code>. Apart from ADQL, the query language must match the database system of the <code>data</code> database.</p>
+<hr />
+<h4 id="query_forms">QUERY_FORMS</h4>
+<p>Default:</p>
+<pre><code class="python">[
+    {
+        'key': 'sql',
+        'label': 'SQL query',
+        'service': 'query/js/forms/sql.js',
+        'template': 'query/query_form_sql.html'
+    }
+]
+</code></pre>
+
+<p>Sets the form available for the users in the query interface. Each form is represented by a dictionary where:</p>
+<ul>
+<li><code>key</code> is the internal identifier,</li>
+<li><code>label</code> is the text shown in the interface,</li>
+<li><code>service</code> the path AngularJS service containing the client side logic, and</li>
+<li><code>template</code> the path to the Django template with the markup for the form.</li>
+</ul>
+<p>Included in Daiquiri are <code>sql</code> and (simplyfied) <code>cone</code> and <code>box</code> services.</p>
+<hr />
+<h4 id="query_dropdowns">QUERY_DROPDOWNS</h4>
+<p>Default:</p>
+<pre><code class="python">[
+    {
+        'key': 'simbad',
+        'service': 'query/js/dropdowns/simbad.js',
+        'template': 'query/query_dropdown_simbad.html',
+        'options': {
+            'url': 'http://simbad.u-strasbg.fr/simbad/sim-id'
+        }
+    },
+    {
+        'key': 'vizier',
+        'service': 'query/js/dropdowns/vizier.js',
+        'template': 'query/query_dropdown_vizier.html',
+        'options': {
+            'url': 'http://vizier.u-strasbg.fr/viz-bin/votable',
+            'catalogs': ['I/322A', 'I/259']
+        }
+    }
+]
+</code></pre>
+
+<p>Sets the additional drop down menus above the SQL query interface available for the users. Each drop down is represented by a dictionary where:</p>
+<ul>
+<li><code>key</code> is the internal identifier,</li>
+<li><code>service</code> the path AngularJS service containing the client side logic,</li>
+<li><code>template</code> the path to the Django template with the markup, and</li>
+<li><code>options</code> additional options specific to the drop down.</li>
+</ul>
+<p>Included in Daiquiri are <code>simbad</code> and <code>vizier</code> services.</p>
+<hr />
+<h4 id="query_download_dir">QUERY_DOWNLOAD_DIR</h4>
+<p>Default: <code>os.path.join(BASE_DIR, 'download')</code></p>
+<p>Sets the absolute base path of the download files served by the query module in the local file system.</p>
+<hr />
+<h4 id="query_default_download_format">QUERY_DEFAULT_DOWNLOAD_FORMAT</h4>
+<p>Default: <code>'votable'</code></p>
+<p>Sets the default download format.</p>
+<hr />
+<h4 id="query_download_formats">QUERY_DOWNLOAD_FORMATS</h4>
+<p>Default:</p>
+<pre><code class="python">[
+    {
+        'key': 'votable',
+        'extension': 'xml',
+        'content_type': 'application/xml',
+        'label': 'IVOA VOTable XML file - TABLEDATA serialization',
+        'help': 'A XML file using the IVOA VOTable format. Use this option if you intend to use VO compatible software to further process the data.'
+    },
+    {
+        'key': 'csv',
+        'extension': 'csv',
+        'content_type': 'text/csv',
+        'label': 'Comma separated Values',
+        'help': 'A text file with a line for each row of the table. The fields are delimited by a comma and quoted by double quotes. Use this option for a later import into a spreadsheed application or a custom script. Use this option if you are unsure what to use.'
+    },
+    {
+        'key': 'fits',
+        'extension': 'fits',
+        'content_type': 'application/fits',
+        'label': 'FITS',
+        'help': 'Flexible Image Transport System (FITS) file format.'
+    }
+]
+</code></pre>
+
+<p>Sets the available default download formats. Each format is represented by a dictionary where:</p>
+<ul>
+<li><code>key</code> is the internal identifier,</li>
+<li><code>extension</code> the file extension,</li>
+<li><code>content_type</code> the content type,</li>
+<li><code>label</code> the text shown in the interface, and</li>
+<li><code>help</code> a more verbose help text for the format.</li>
+</ul>
+<hr />
+<h4 id="query_upload">QUERY_UPLOAD</h4>
+<p>Default: <code>True</code></p>
+<p>Enables the upload functionality in the query interface.</p>
+<hr />
+<p>QUERY_UPLOAD_LIMIT</p>
+<p>Default:</p>
+<pre><code>{
+    'anonymous': '10Mb',
+    'user': '100Mb',
+    'users': {},
+    'groups': {}
+}
+</code></pre>
+
+<p>Sets the maximum quota for uploads by a user. The quota need to be set for the <code>anonymous</code> user as well as regular loggen in users (<code>user</code>). Additionally, users or groups can be asigned individual quotas, much like with <code>QUERY_QUOTA</code>.</p>
+<hr />
+<h2 id="daiquiriservesettings">daiquiri.serve.settings</h2>
+<h4 id="serve_download_dir">SERVE_DOWNLOAD_DIR</h4>
+<p>Default: <code>os.path.join(BASE_DIR, 'download')</code></p>
+<p>Sets the absolute base path of the download files served by the serve module in the local file system.</p>
+<hr />
+<h4 id="serve_resolver">SERVE_RESOLVER</h4>
+<p>Default: <code>None</code></p>
+<p>Sets the a resolver class to handle references in tables served by the serve module.</p>
+<hr />
+<h2 id="daiquiristatssettings">daiquiri.stats.settings</h2>
+<h4 id="stats_resource_types">STATS_RESOURCE_TYPES</h4>
+<p>Default:</p>
+<pre><code class="python">[
+    {
+        'key': 'ARCHIVE_DOWNLOAD',
+        'label': 'Archive downloads'
+    },
+    {
+        'key': 'CONESEARCH',
+        'label': 'Performed cone searches'
+    },
+    {
+        'key': 'CUTOUT',
+        'label': 'Performed cutouts'
+    },
+    {
+        'key': 'FILE',
+        'label': 'File downloads'
+    },
+    {
+        'key': 'QUERY',
+        'label': 'Queries'
+    }
+]
+</code></pre>
+
+<p>Sets the aggegated stats shown in the stats management overview.</p>
+<hr />
+<h2 id="daiquiritapsettings">daiquiri.tap.settings</h2>
+<h4 id="tap_schema">TAP_SCHEMA</h4>
+<p>Default: <code>'TAP_SCHEMA'</code></p>
+<p>Sets the name of the TAP schema. If more than one Daiquiri application is using the same <code>data</code> database, they cannot use the same TAP schema. Therefore the schema name TAP_SCHEMA is replaced before queries are submitted. <strong>This setting must be set in <code>.env</code></strong></p>
+<hr />
+<h4 id="tap_upload">TAP_UPLOAD</h4>
+<p>Default: <code>'TAP_UPLOAD'</code></p>
+<p>Sets the name of the schema for TAP uploads. If more than one Daiquiri application is using the same <code>data</code> database, they cannot use the same TAP_UPLOAD schema. Therefore the schema name TAP_UPLOAD is replaced before queries are submitted. <strong>This setting must be set in <code>.env</code></strong></p>
+<hr />
+<h2 id="daiquiriuwssettings">daiquiri.uws.settings</h2>
+<h4 id="uws_resources">UWS_RESOURCES</h4>
+<p>Default: <code>[]</code></p>
+<p>Configures UWS services (in addition to the TAP module). E.g.:</p>
+<pre><code class="python">{
+    'prefix': r'query',
+    'viewset': 'daiquiri.query.viewsets.UWSQueryJobViewSet',
+    'base_name': 'uws_query'
+}
+</code></pre>
+
+<p>where:</p>
+<ul>
+<li><code>prefix</code> is part of the base URL of the service (e.g. http://example.com/usw/query),</li>
+<li><code>viewset</code> is the ViewSet class handling the requests (neets to enherit from <code>daiquiri.jobs.viewsets.AsyncJobViewSet</code>), and</li>
+<li><code>base_name</code> a basename needed for the integration in the Django REST framework.</li>
+</ul>
+<hr />
+<h2 id="daiquiriwordpresssettings">daiquiri.wordpress.settings</h2>
+<h4 id="wordpress_path">WORDPRESS_PATH</h4>
+<p>Default: <code>'/opt/wordpress'</code></p>
+<p>Sets the location of the WordPress installation on the local file system.</p>
+<hr />
+<h4 id="wordpress_ssh">WORDPRESS_SSH</h4>
+<p>Default: <code>None</code></p>
+<p>Sets the destination for a SSH connection to use with <code>wp-cli</code>. Use this setting if WordPress <strong>is not</strong> installed on the same host as Daiquiri. The local <code>wp-cli</code> will then connect to the remote system using ssh. An example would be:</p>
+<pre><code>WORDPRESS_SSH=example.com:/opt/daiquiri
+</code></pre>
+
+<p>This option overided <code>WORDPRESS_PATH</code>.</p>
+<hr />
+<h4 id="wordpress_cli">WORDPRESS_CLI</h4>
+<p>Default: <code>'/opt/wp-cli/wp'</code></p>
+<p>Sets the location of the <code>wp-cli</code> script on the local file system.</p>
+<hr />
+<h4 id="wordpress_url">WORDPRESS_URL</h4>
+<p>Default: <code>'/cms/'</code></p>
+<p>Sets the base url of the WordPress instance.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../deployment/" class="btn btn-neutral" title="Deployment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../deployment/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

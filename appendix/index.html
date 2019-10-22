@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Appendix - Daiquiri documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../style.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Appendix";
+    var mkdocs_page_input_path = "appendix.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daiquiri documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deployment/">Deployment</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../settings/">Settings</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daiquiri documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Appendix</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="appendix">Appendix</h1>
+<h2 id="deployment-with-apache2-and-mod_wsgi">Deployment with Apache2 and mod_wsgi</h2>
+<p>This is an alternative deployment without the need of systemd scripts for the web application. Any asyncronous workers, however, would still need these systemd scripts.</p>
+<p>Install the Apache server and <code>mod_wsgi</code> on Debian or Ubuntu using:</p>
+<pre><code class="bash">sudo apt install apache2 libapache2-mod-wsgi-py3
+</code></pre>
+
+<p>On CentOS 7 you need to enable the [IUS repository] first. Then install using:</p>
+<pre><code>sudo yum install httpd python35u-mod_wsgi
+</code></pre>
+
+<p>Then, edit the virtual host configuration:</p>
+<pre><code># in /etc/httpd/sites-available/default  on Debian/Ubuntu
+# in /etc/httpd/conf.d/vhost.conf        on RHEL/CentOS
+&lt;VirtualHost *:80&gt;
+
+    ...
+
+    WSGIDaemonProcess daiquiri user=daiquiri group=daiquiri \
+        home=/srv/daiquiri/app python-home=/srv/daiquiri/app/env
+    WSGIProcessGroup daiquiri
+    WSGIScriptAlias / /srv/daiquiri/app/config/wsgi.py process-group=daiquiri
+    WSGIPassAuthorization On
+
+    Alias /static /srv/daiquiri/app/static_root/
+    &lt;Directory /srv/daiquiri/app/static_root/&gt;
+        Require all granted
+    &lt;/Directory&gt;
+
+    &lt;Directory /srv/daiquiri/app/config/&gt;
+        &lt;Files wsgi.py&gt;
+            Require all granted
+        &lt;/Files&gt;
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>Start the Apache server:</p>
+<pre><code class="bash"># on Debian/Ubuntu
+sudo systemctl start apache2
+sudo systemctl enable apache2
+
+# on RHEL/CentOS
+sudo systemctl start httpd
+sudo systemctl enable httpd
+</code></pre>
+
+<p>Your Daiquiri app should now be available on the configured virtual host, and the deployment can be continued as usual.</p>
+<h2 id="wordpress-integration">WordPress integration</h2>
+<p>WordPress can be used as CMS for the documentation and/or the presentation of the project. For this documentation, we assume WordPress will be installed <code>/opt/wordpress</code>. First, you need to install PHP:</p>
+<pre><code class="bash"># Debian 10
+sudo apt-get install php7.3 php7.3-mysql php-pear
+pear install HTTP_Request2
+
+# Ubuntu 18.04
+sudo apt-get install php7.2 php7.2-mysql php-pear
+pear install HTTP_Request2
+</code></pre>
+
+<p>The code needs to be downloaded from [WordPress.org] and extracted:</p>
+<pre><code class="bash"># as root
+cd /opt
+wget https://wordpress.org/latest.tar.gz
+tar xzvf latest.tar.gz
+</code></pre>
+
+<p>The the [Daiquiri theme] and the [Daiquiri plugin] need to be installed:</p>
+<pre><code class="bash"># as root
+cd /opt/wordpress/wp-content/themes
+git clone https://github.com/django-daiquiri/wordpress-theme daiquiri
+
+cd /opt/wordpress/wp-content/plugins
+git clone https://github.com/django-daiquiri/wordpress-plugin daiquiri
+</code></pre>
+
+<p>The WordPress directory need to be owned by the Apache2 user:</p>
+<pre><code class="bash">chown -R www-data:www-data /opt/wordpress  # Debian/Ubuntu
+chown -R apache:apache /opt/wordpress      # CentOS
+</code></pre>
+
+<p>Then, create the <code>wp-config.php</code> file</p>
+<pre><code class="bash">cp /opt/wordpress/wp-config-sample.php /opt/wordpress/wp-config.php
+</code></pre>
+
+<p>and edit the file for the database connection for WordPress (not the same as for Daiquiri, needs MySQL or MariaDB):</p>
+<pre><code>define( 'DB_NAME', 'database_name_here' );
+
+define( 'DB_USER', 'username_here' );
+
+define( 'DB_PASSWORD', 'password_here' );
+
+define( 'DB_HOST', 'localhost' );
+</code></pre>
+
+<p>In addition, update the salt values and add the following at the end of the file, but before <code>That's all, stop editing!</code>:</p>
+<pre><code>define('DAIQUIRI_DEBUG', False);
+define('DAIQUIRI_URL', 'https://&lt;the url your daiquiri app&gt;');
+
+define('COOKIEPATH','/');
+define('SITECOOKIEPATH',COOKIEPATH);
+define('ADMIN_COOKIE_PATH',COOKIEPATH);
+define('PLUGINS_COOKIE_PATH',COOKIEPATH);
+</code></pre>
+
+<p>The go to http://<your url>/cms/ and follow the WordPress instalation. You can use a username which you already registered in Daiquiri. After the installation log in into the WordPress backend. Then:</p>
+<ul>
+<li>Activate the Daiquiri theme under <code>Appearance -&gt; Themes</code></li>
+<li>Activate the Daiquiri plugin under <code>Appearance -&gt; Plugins</code></li>
+</ul>
+<p>Logout of WordPress. Login to Daiquiri. You should now be logged in into WordPress as well. The syncronization of WordPress and Daiquiri users is done using <a href="https://wp-cli.org/">wp-cli</a>. See <a href="/settings/#daiquiriwordpresssettings">settings</a> for more information about using WordPress with Daiquiri.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

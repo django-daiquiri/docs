@@ -1,0 +1,10 @@
+.rst-content dl dt {
+    border-top: none !important;
+    background: none !important;
+    color: #404040 !important;
+    padding: 0 !important;
+}
+
+li.toctree-l2:first-child {
+    display: none;
+}
