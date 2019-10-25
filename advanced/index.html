@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Appendix - Daiquiri documentation</title>
+  <title>Advanced features - Daiquiri documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Appendix";
-    var mkdocs_page_input_path = "appendix.md";
+    var mkdocs_page_name = "Advanced features";
+    var mkdocs_page_input_path = "advanced.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -69,18 +69,30 @@
     <a class="" href="../settings/">Settings</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../administration/">Administration</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../management/">Management</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Appendix</a>
+    <a class="current" href="./">Advanced features</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#appendix">Appendix</a></li>
+    <li class="toctree-l2"><a href="#advanced-features">Advanced features</a></li>
     
         <ul>
         
             <li><a class="toctree-l3" href="#apache2-and-mod_wsgi">Apache2 and mod_wsgi</a></li>
         
             <li><a class="toctree-l3" href="#wordpress-integration">WordPress integration</a></li>
+        
+            <li><a class="toctree-l3" href="#double-reverse-proxy-setup">Double reverse proxy setup</a></li>
         
         </ul>
     
@@ -110,7 +122,7 @@
     
       
     
-    <li>Appendix</li>
+    <li>Advanced features</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -120,7 +132,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="appendix">Appendix</h1>
+                <h1 id="advanced-features">Advanced features</h1>
 <h2 id="apache2-and-mod_wsgi">Apache2 and mod_wsgi</h2>
 <p>This is an alternative deployment without the need of systemd scripts for the web application. Any asyncronous workers, however, would still need these systemd scripts.</p>
 <p>Install the Apache server and <code>mod_wsgi</code> on Debian or Ubuntu using:</p>
@@ -230,6 +242,65 @@ define('PLUGINS_COOKIE_PATH',COOKIEPATH);
 <li>Activate the Daiquiri plugin under <code>Appearance -&gt; Plugins</code></li>
 </ul>
 <p>Logout of WordPress. Login to Daiquiri. You should now be logged in into WordPress as well. The syncronization of WordPress and Daiquiri users is done using <a href="https://wp-cli.org/">wp-cli</a>. See <a href="/settings/#daiquiriwordpresssettings">settings</a> for more information about using WordPress with Daiquiri.</p>
+<h2 id="double-reverse-proxy-setup">Double reverse proxy setup</h2>
+<p>When running Daiquiri behind two reverse proxy servers, one as generic HTTP proxy as entrypoint to the local network and one to combine Gunicorn and Static assets on one application server, the follow setup can be used:</p>
+<pre><code class="bash">Internet -&gt; HTTP proxy (192.168.0.10) -&gt; Application server (192.168.0.20) -&gt; Gunicorn
+                                                                           -&gt; Static assets
+</code></pre>
+
+<p>The virtual host configuration on the HTTP Proxy looks like this:</p>
+<pre><code class="apache">&lt;VirtualHost *:443&gt;
+    ...
+
+    ProxyPass / http://app.local/
+    ProxyPassReverse / app.local/
+
+    &lt;Location /&gt;
+        RequestHeader set X-Forwarded-Proto 'https' env=HTTPS
+    &lt;/Location&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>On the application server the virtual host configuration is this:</p>
+<pre><code class="apache">&lt;VirtualHost *:80&gt;
+    ...
+
+    SSLEngine on
+    SSLCertificateFile ...
+    SSLCertificateKeyFile ...
+    SSLCACertificateFile ...
+    SSLProtocol All -SSLv2 -SSLv3
+    SSLCipherSuite 'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:\
+        EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:\
+        +SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:\
+        !ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA'
+
+    RemoteIPHeader X-Forwarded-For
+    RemoteIPTrustedProxy 192.168.0.10/32
+
+    Alias /static/ /srv/daiquiri/app/static_root/
+    &lt;Directory /srv/daiquiri/app/static_root/&gt;
+        Require all granted
+    &lt;/Directory&gt;
+
+    Alias /cms/ /opt/wordpress/
+    &lt;Directory /opt/wordpress/&gt;
+        AllowOverride all
+        Require all granted
+    &lt;/Directory&gt;
+
+    ProxyPass /static !
+    ProxyPass /cms !
+    ProxyPass / http://localhost:9000/
+    ProxyPassReverse / http://localhost:9000/
+
+    &lt;Location /cms/wp-json/&gt;
+        Deny from all
+    &lt;/Location&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>The <code>RemoteIPHeader</code> implies that the <code>remoteip</code> module for Apache is installed and enabled. Up to date TLS/SSL settings can be found on <a href="https://bettercrypto.org">bettercrypto.org</a>.</p>
               
             </div>
           </div>
@@ -238,7 +309,7 @@ define('PLUGINS_COOKIE_PATH',COOKIEPATH);
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../settings/" class="btn btn-neutral" title="Settings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../management/" class="btn btn-neutral" title="Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -264,7 +335,7 @@ define('PLUGINS_COOKIE_PATH',COOKIEPATH);
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../settings/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../management/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>
