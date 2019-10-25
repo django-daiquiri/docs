@@ -1,4 +1,4 @@
-dajngo-daiquiri docs
+django-daiquiri docs
 ====================
 
 Setup
