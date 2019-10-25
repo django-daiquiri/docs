@@ -5,7 +5,9 @@ nav:
   - Installation: installation.md
   - Deployment: deployment.md
   - Settings: settings.md
-  - Appendix: appendix.md
+  - Administration: administration.md
+  - Management: management.md
+  - Advanced features: advanced.md
 
 theme:
     name: readthedocs

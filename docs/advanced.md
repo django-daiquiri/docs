@@ -1,6 +1,8 @@
-# Appendix
+Advanced features
+=================
 
-## Apache2 and mod_wsgi
+Apache2 and mod_wsgi
+--------------------
 
 This is an alternative deployment without the need of systemd scripts for the web application. Any asyncronous workers, however, would still need these systemd scripts.
 
@@ -59,7 +61,8 @@ sudo systemctl enable httpd
 Your Daiquiri app should now be available on the configured virtual host, and the deployment can be continued as usual.
 
 
-## WordPress integration
+WordPress integration
+---------------------
 
 WordPress can be used as CMS for the documentation and/or the presentation of the project. For this documentation, we assume WordPress will be installed `/opt/wordpress`. First, you need to install PHP:
 
@@ -136,3 +139,73 @@ The go to http://<your url>/cms/ and follow the WordPress instalation. You can u
 * Activate the Daiquiri plugin under `Appearance -> Plugins`
 
 Logout of WordPress. Login to Daiquiri. You should now be logged in into WordPress as well. The syncronization of WordPress and Daiquiri users is done using [wp-cli](https://wp-cli.org/). See [settings](/settings/#daiquiriwordpresssettings) for more information about using WordPress with Daiquiri.
+
+
+Double reverse proxy setup
+--------------------------
+
+When running Daiquiri behind two reverse proxy servers, one as generic HTTP proxy as entrypoint to the local network and one to combine Gunicorn and Static assets on one application server, the follow setup can be used:
+
+```bash
+Internet -> HTTP proxy (192.168.0.10) -> Application server (192.168.0.20) -> Gunicorn
+                                                                           -> Static assets
+```
+
+The virtual host configuration on the HTTP Proxy looks like this:
+
+```apache
+<VirtualHost *:443>
+    ...
+
+    ProxyPass / http://app.local/
+    ProxyPassReverse / app.local/
+
+    <Location />
+        RequestHeader set X-Forwarded-Proto 'https' env=HTTPS
+    </Location>
+</VirtualHost>
+```
+
+On the application server the virtual host configuration is this:
+
+```apache
+<VirtualHost *:80>
+    ...
+
+    SSLEngine on
+    SSLCertificateFile ...
+    SSLCertificateKeyFile ...
+    SSLCACertificateFile ...
+    SSLProtocol All -SSLv2 -SSLv3
+    SSLCipherSuite 'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:\
+        EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:\
+        +SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:\
+        !ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA'
+
+    RemoteIPHeader X-Forwarded-For
+    RemoteIPTrustedProxy 192.168.0.10/32
+
+    Alias /static/ /srv/daiquiri/app/static_root/
+    <Directory /srv/daiquiri/app/static_root/>
+        Require all granted
+    </Directory>
+
+    Alias /cms/ /opt/wordpress/
+    <Directory /opt/wordpress/>
+        AllowOverride all
+        Require all granted
+    </Directory>
+
+    ProxyPass /static !
+    ProxyPass /cms !
+    ProxyPass / http://localhost:9000/
+    ProxyPassReverse / http://localhost:9000/
+
+    <Location /cms/wp-json/>
+        Deny from all
+    </Location>
+</VirtualHost>
+```
+
+The `RemoteIPHeader` implies that the `remoteip` module for Apache is installed and enabled. Up to date TLS/SSL settings can be found on [bettercrypto.org](https://bettercrypto.org).
+
