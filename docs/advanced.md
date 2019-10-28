@@ -6,6 +6,15 @@ Apache2 and mod_wsgi
 
 This is an alternative deployment without the need of systemd scripts for the web application. Any asyncronous workers, however, would still need these systemd scripts.
 
+The first thing, you have to do, is to uncomment:
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
+
+in `config/wsgi.py` in your `app`.
+
 Install the Apache server and `mod_wsgi` on Debian or Ubuntu using:
 
 ```bash

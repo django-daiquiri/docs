@@ -70,6 +70,7 @@ User=daiquiri
 Group=daiquiri
 
 WorkingDirectory=/srv/daiquiri/app
+EnvironmentFile=/srv/daiquiri/app/.env
 
 Environment=GUNICORN_BIN=/srv/daiquiri/app/env/bin/gunicorn
 Environment=GUNICORN_WORKER=5
@@ -240,6 +241,7 @@ User=daiquiri
 Group=daiquiri
 
 WorkingDirectory=/srv/daiquiri/app
+EnvironmentFile=/srv/daiquiri/app/.env
 
 Environment=CELERY_BIN=/srv/daiquiri/app/env/bin/celery
 Environment=CELERYD_NODE=daiquiri_default
@@ -285,6 +287,7 @@ User=daiquiri
 Group=daiquiri
 
 WorkingDirectory=/srv/daiquiri/app
+EnvironmentFile=/srv/daiquiri/app/.env
 
 Environment=CELERY_BIN=/srv/daiquiri/app/env/bin/celery
 Environment=CELERYD_NODE=daiquiri_query
@@ -330,6 +333,7 @@ User=daiquiri
 Group=daiquiri
 
 WorkingDirectory=/srv/daiquiri/app
+EnvironmentFile=/srv/daiquiri/app/.env
 
 Environment=CELERY_BIN=/srv/daiquiri/app/env/bin/celery
 Environment=CELERYD_NODE=daiquiri_download
