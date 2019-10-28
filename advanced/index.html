@@ -135,6 +135,12 @@
                 <h1 id="advanced-features">Advanced features</h1>
 <h2 id="apache2-and-mod_wsgi">Apache2 and mod_wsgi</h2>
 <p>This is an alternative deployment without the need of systemd scripts for the web application. Any asyncronous workers, however, would still need these systemd scripts.</p>
+<p>The first thing, you have to do, is to uncomment:</p>
+<pre><code class="python">from dotenv import load_dotenv
+load_dotenv()
+</code></pre>
+
+<p>in <code>config/wsgi.py</code> in your <code>app</code>.</p>
 <p>Install the Apache server and <code>mod_wsgi</code> on Debian or Ubuntu using:</p>
 <pre><code class="bash">sudo apt install apache2 libapache2-mod-wsgi-py3
 </code></pre>
