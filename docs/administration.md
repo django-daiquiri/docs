@@ -38,6 +38,27 @@ Command line tools
 
 In addition the web interface, Daiquiri provides several commands to inter, which can be
 
+#### Setup groups
+
+The permission system of Daiquiri utilizes a set of groups to manage access to the management interfaces and the WordPress integration. These groups can be created using:
+
+```bash
+python manage.py setup_groups
+```
+
+The groups creates are:
+
+```
+wordpress_editor
+wordpress_admin
+contact_manager
+meetings_manager
+metadata_manager
+stats_manager
+query_manager
+user_manager
+```
+
 #### Setup TAP_SCHEMA
 
 In order to setup the metadata for the TAP_SCHEMA run the following command (in your virtual environment):
