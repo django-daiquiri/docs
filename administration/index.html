@@ -94,6 +94,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#setup-groups">Setup groups</a></li>
+        
             <li><a class="toctree-l3" href="#setup-tap_schema">Setup TAP_SCHEMA</a></li>
         
             <li><a class="toctree-l3" href="#rebuild-tap_schema">Rebuild TAP_SCHEMA</a></li>
@@ -171,6 +173,22 @@
 </ol>
 <h2 id="command-line-tools">Command line tools</h2>
 <p>In addition the web interface, Daiquiri provides several commands to inter, which can be</p>
+<h4 id="setup-groups">Setup groups</h4>
+<p>The permission system of Daiquiri utilizes a set of groups to manage access to the management interfaces and the WordPress integration. These groups can be created using:</p>
+<pre><code class="bash">python manage.py setup_groups
+</code></pre>
+
+<p>The groups creates are:</p>
+<pre><code>wordpress_editor
+wordpress_admin
+contact_manager
+meetings_manager
+metadata_manager
+stats_manager
+query_manager
+user_manager
+</code></pre>
+
 <h4 id="setup-tap_schema">Setup TAP_SCHEMA</h4>
 <p>In order to setup the metadata for the TAP_SCHEMA run the following command (in your virtual environment):</p>
 <pre><code class="bash">python manage.py setup_tap_metadata
