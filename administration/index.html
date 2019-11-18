@@ -77,10 +77,30 @@
     <li class="toctree-l2"><a href="#administration">Administration</a></li>
     
 
-    <li class="toctree-l2"><a href="#tap-schema">TAP Schema</a></li>
+    <li class="toctree-l2"><a href="#admin-interface">Admin interface</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#site-configuration">Site configuration</a></li>
+        
+            <li><a class="toctree-l3" href="#users-and-groups">Users and Groups</a></li>
+        
+            <li><a class="toctree-l3" href="#social-accounts">Social accounts</a></li>
+        
+        </ul>
     
 
-    <li class="toctree-l2"><a href="#oai-schema">OAI Schema</a></li>
+    <li class="toctree-l2"><a href="#command-line-tools">Command line tools</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#setup-tap_schema">Setup TAP_SCHEMA</a></li>
+        
+            <li><a class="toctree-l3" href="#rebuild-tap_schema">Rebuild TAP_SCHEMA</a></li>
+        
+            <li><a class="toctree-l3" href="#rebuild-oai-schema">Rebuild OAI Schema</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -129,8 +149,43 @@
             <div class="section">
               
                 <h2 id="administration">Administration</h2>
-<h2 id="tap-schema">TAP Schema</h2>
-<h2 id="oai-schema">OAI Schema</h2>
+<h2 id="admin-interface">Admin interface</h2>
+<p>Daiquiri uses the <a href="https://docs.djangoproject.com/en/2.2/ref/contrib/admin/">Django Admin interfaca</a> as an interface for admins to intereact with a particular Daiquiri site. Please refer to the Django documentation for a detailed guide. Here we summarize the most important options:</p>
+<h4 id="site-configuration">Site configuration</h4>
+<p>Daiquiri uses Django&rsquo;s <a href="https://docs.djangoproject.com/en/stable/ref/contrib/sites">sites framework</a>. It is therefore necesary to configure the <strong>Domain name</strong> and the <strong>Display name</strong> of your RDMO installation. This can be done in the admin interface under <em>SITE</em>.</p>
+<h4 id="users-and-groups">Users and Groups</h4>
+<p>The users and groups of your Daiquiri site can be managed under <strong>AUTHENTICATION AND AUTHORIZATION</strong>. You can create and update users and set their password directly, but most of the time this will be done by the users themselves using the account menu.</p>
+<p>The user created in the installation process can access all features of Daiquiri. In order to allow other users to access the management or the admin interface, they need to have the required permissions assigned to them. This can be done in two ways: through groups or using the superuser flag.</p>
+<h4 id="social-accounts">Social accounts</h4>
+<p>Using the <a href="https://www.intenct.nl/projects/django-allauth/">django-allauth</a>, social authentication using the OAuth2 protocol can be used with Daiquiri. For this <code>'allauth.socialaccount'</code> and, e.g. for GitHub, <code>'allauth.socialaccount.providers.github'</code> need to be added to <code>INSTALLED_APPS</code> in <code>base.py</code>. In addition, your app needs to be registered with the provider. The callback url needed for the registration is</p>
+<pre><code>&lt;site url&gt;/account/&lt;provider&gt;/login/callback/
+</code></pre>
+
+<p>Once the credentials are obtained, you need to enter them in the admin interface under SOCIAL ACCOUNTS. Click on Add social application and:</p>
+<ol>
+<li>Select the corresponding provider</li>
+<li>Enter a Name of your choice</li>
+<li>Enter the Client id (or App ID) and the Secret key (or Client secret, Client key, App Secret)</li>
+<li>Add your site to the chosen sites.</li>
+<li>Click save.</li>
+</ol>
+<h2 id="command-line-tools">Command line tools</h2>
+<p>In addition the web interface, Daiquiri provides several commands to inter, which can be</p>
+<h4 id="setup-tap_schema">Setup TAP_SCHEMA</h4>
+<p>In order to setup the metadata for the TAP_SCHEMA run the following command (in your virtual environment):</p>
+<pre><code class="bash">python manage.py setup_tap_metadata
+</code></pre>
+
+<p>After this, <em>/metadata/management/</em> should show a schema entry for the <code>tap_schema</code>.</p>
+<h4 id="rebuild-tap_schema">Rebuild TAP_SCHEMA</h4>
+<p>The metadata is automatically synced between the metadata and the the TAP_SCHEMA. In order to rebuild the TAP_SCHEMA from scratch, you can use:</p>
+<pre><code class="bash">python manage.py rebuild_tap_schema
+</code></pre>
+
+<h4 id="rebuild-oai-schema">Rebuild OAI Schema</h4>
+<p>Similar to the TAP_SCHEMA, the records for the OAI-PMH interface are located in a seperate schema, whithin the scientific database. In order to create the <code>oai_schema</code> from scratch, use:</p>
+<pre><code class="bash">python manage.py rebuild_oai_schema
+</code></pre>
               
             </div>
           </div>

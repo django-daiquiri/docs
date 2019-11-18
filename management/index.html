@@ -137,11 +137,32 @@
             <div class="section">
               
                 <h1 id="management">Management</h1>
+<p>Some of the functionalities of Daiquiri can be configured using a user friendly managment intreface. This interfacae is meant to be used not only by admins, who could also use the <a href="http://localhost:8080/administration/#admin-interface">Admin interface</a>, but also regular users, who are members of particular groups.</p>
+<hr />
 <h2 id="user-management">User management</h2>
+<p>URL path: <em>/auth/users/</em></p>
+<p>Group: <em>user_manager</em></p>
+<p>Using the <a href="/settings/#daiquiriauthsettings">AUTH_WORKFLOW setting</a>, Daiquiri can be configured to use an <code>activation</code> or <code>confirmation</code> workflow. Using the <code>activation</code> workflow, after registration, users need to be manually activated. For the <code>confirmation</code> workflow, users need to be confirmed by through the interface, and then activated in a second step, usually ny a script through the API.</p>
+<hr />
 <h2 id="contact-messages">Contact messages</h2>
+<p>URL path: <em>/contact/messages/</em></p>
+<p>Group: <em>contact_manager</em></p>
+<p>Users can send contact messages to the operators of a Daiquiri site. The coantact messages intreface can be used to respond to these messages or mark them as spam.</p>
+<hr />
 <h2 id="metadata-management">Metadata management</h2>
+<p>URL path: <em>/metadata/management/</em></p>
+<p>Group: <em>metadata_manager</em></p>
+<p>The metadata for database schemas, tables and columns, to be used with the query interface can be accessed through the metadata management. From here, all metadata entries can be edited. The metadata is automatically synced to the TAP_SCHEMA in the scientific database. Access to schemas and tables can be restricted to internal users (who are logged in) or made private and only available to certain groups.</p>
+<hr />
 <h2 id="query-examples">Query examples</h2>
+<p>URL path: <em>/metadata/management/</em></p>
+<p>Group: <em>metadata_manager</em></p>
+<p>The different examples, visible in the query interface can be created and edited using the example queries interface. As with the database schemas and tables, examples can be restricted to internal users (who are logged in) or made private and only available to certain groups.</p>
+<hr />
 <h2 id="stats">Stats</h2>
+<p>URL path: <em>/stats/management/</em></p>
+<p>Group: <em>stats_manager</em></p>
+<p>A (very) basic overview over the statistics of the Daiquiri site is available in the stats management interface.</p>
               
             </div>
           </div>

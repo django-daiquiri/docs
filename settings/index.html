@@ -272,6 +272,16 @@
 <p>List of allowed hosts for this app.</p>
 <p>See also <a href="https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-ALLOWED_HOSTS">ALLOWED_HOSTS</a> in the Django documentation. Should be set in <code>.env</code>.</p>
 <hr />
+<h4 id="installed_apps">INSTALLED_APPS</h4>
+<p>The list of Django apps for this Daiquiri site. Usually it is set to</p>
+<pre><code class="python">INSTALLED_APPS = DJANGO_APPS + [
+    # the list of Daiquiri modules for this site
+    ...
+] + ADDITIONAL_APPS
+</code></pre>
+
+<p>See also <a href="https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS">INSTALLED_APPS</a> in the Django documentation.</p>
+<hr />
 <h4 id="time_zone">TIME_ZONE</h4>
 <p>Default: <code>'UTC'</code></p>
 <p>The time zone for this Daiquiri app (e.g. <code>Europe/Berlin</code>).</p>

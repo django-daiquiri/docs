@@ -94,6 +94,8 @@
         
             <li><a class="toctree-l3" href="#double-reverse-proxy-setup">Double reverse proxy setup</a></li>
         
+            <li><a class="toctree-l3" href="#daiquiri-client">Daiquiri client</a></li>
+        
         </ul>
     
 
@@ -307,6 +309,110 @@ define('PLUGINS_COOKIE_PATH',COOKIEPATH);
 </code></pre>
 
 <p>The <code>RemoteIPHeader</code> implies that the <code>remoteip</code> module for Apache is installed and enabled. Up to date TLS/SSL settings can be found on <a href="https://bettercrypto.org">bettercrypto.org</a>.</p>
+<h2 id="daiquiri-client">Daiquiri client</h2>
+<p><a href="https://github.com/django-daiquiri/client">Daiquiri client</a> is a is a python library meant to be used with the Daiquiri Framework. It provides a set of functions which can be used to use the API of a Daiquiri powered website inside a script. The nessesarry HTTP requests are abstracted in a transparent way.</p>
+<p>Daiquiri client can be installed using</p>
+<pre><code class="bash">pip install --upgrade https://github.com/django-daiquiri/client
+</code></pre>
+
+<p>A script for getting the emails of all users using Daiquiri Client could look like this:</p>
+<pre><code>from daiquiri_client import Client
+
+client = Client(DAIQUIRI_URL, TOKEN)
+
+for profile in client.auth.get_profiles():
+    print(profile['user']['email'])
+</code></pre>
+
+<p>where DAIQUIRI_URL is the url of the Daiquiri site and TOKEN is your API token, which can be obtained from the Daiquiri site at the URL <em>/accounts/token/</em>.</p>
+<p>A commen use case for Daiquiri client is the update of the metadata of a database schema. For this, first add the schema manually using the metadate management and make sure <code>Automatically discover tables and columns</code> is checked. Then prepare a yaml file of the form:</p>
+<pre><code class="yaml">- name: daiquiri_data_obs
+  title: Observational data
+  description: Some observational data
+  long_description: Some more information about the data.
+  attribution: Please cite the following paper ...
+  order: 1
+  license: CC0
+  doi: 10.1000/xyz123
+  published: 2020-01-01
+  updated: 2018-01-01
+  access_level: PUBLIC
+  metadata_access_level: PUBLIC
+  creators:
+  - name: Anna Admin
+    first_name: Anna
+    last_name: Admin
+    orcid: https://orcid.org/0000-0001-2345-6789
+    affiliations: &quot;Institute of applied Administration\nInstitute of theoretical Managament&quot;
+  - name: Manni Manager
+    orcid: https://orcid.org/0000-0001-2345-6790
+    affiliations: Institute of theoretical Managament
+  contributors:
+  - name: Some computer guy
+
+  tables:
+  - name: stars
+    title: Stars
+    description: Some stars data
+    order: 1
+    license: CC0
+    doi: 10.1000/xyz123/123
+    published: 2020-01-01
+    updated: 2018-01-01
+    access_level: PUBLIC
+    metadata_access_level: PUBLIC
+    creators:
+    - name: Anna Admin
+      first_name: Anna
+      last_name: Admin
+      orcid: https://orcid.org/0000-0001-2345-6789
+      affiliations: &quot;Institute of applied Administration\nInstitute of theoretical Managament&quot;
+    - name: Manni Manager
+      orcid: https://orcid.org/0000-0001-2345-6790
+      affiliations: Institute of theoretical Managament
+
+    columns:
+    - name: id
+      ucd: meta.id;meta.main
+    - name: ra
+      ucd: pos.eq.ra;meta.main
+    - name: dec
+      ucd: pos.eq.dec;meta.main
+    - name: parallax
+      ucd: pos.parallax
+</code></pre>
+
+<p>and a python script or notebook with the following content:</p>
+<pre><code class="python">import yaml
+from daiquiri_client import Client
+
+DAIQUIRI_URL = 'http://localhost:8000'
+TOKEN = 'a35b0eb94ef906648445c9214bed30265af1062d'
+
+with open('update_metadata.yml') as f:
+    local_schemas = yaml.safe_load(f.read())
+
+client = Client(DAIQUIRI_URL, TOKEN)
+
+for remote_schema in client.metadata.get_schemas(nested=True):
+    for local_schema in local_schemas:
+        if remote_schema['name'] == local_schema['name']:
+            client.metadata.update_schema(remote_schema['id'], local_schema)
+
+            for remote_table in remote_schema['tables']:
+                for local_table in local_schema['tables']:
+
+                    if remote_table['name'] == local_table['name']:
+                        client.metadata.update_table(remote_table['id'], local_table)
+
+                        for remote_column in remote_table['columns']:
+                            for local_column in local_table['columns']:
+
+                                if remote_column['name'] == local_column['name']:
+                                    client.metadata.update_column(remote_column['id'], local_column)
+</code></pre>
+
+<p>And execute it in a virtual environment where <code>daiquiri_client</code> is installed.</p>
               
             </div>
           </div>
