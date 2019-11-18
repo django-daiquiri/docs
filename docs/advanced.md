@@ -218,3 +218,120 @@ On the application server the virtual host configuration is this:
 
 The `RemoteIPHeader` implies that the `remoteip` module for Apache is installed and enabled. Up to date TLS/SSL settings can be found on [bettercrypto.org](https://bettercrypto.org).
 
+
+Daiquiri client
+---------------
+
+[Daiquiri client](https://github.com/django-daiquiri/client) is a is a python library meant to be used with the Daiquiri Framework. It provides a set of functions which can be used to use the API of a Daiquiri powered website inside a script. The nessesarry HTTP requests are abstracted in a transparent way.
+
+Daiquiri client can be installed using
+
+```bash
+pip install --upgrade https://github.com/django-daiquiri/client
+```
+
+A script for getting the emails of all users using Daiquiri Client could look like this:
+
+```
+from daiquiri_client import Client
+
+client = Client(DAIQUIRI_URL, TOKEN)
+
+for profile in client.auth.get_profiles():
+    print(profile['user']['email'])
+```
+
+where DAIQUIRI_URL is the url of the Daiquiri site and TOKEN is your API token, which can be obtained from the Daiquiri site at the URL */accounts/token/*.
+
+A commen use case for Daiquiri client is the update of the metadata of a database schema. For this, first add the schema manually using the metadate management and make sure `Automatically discover tables and columns` is checked. Then prepare a yaml file of the form:
+
+```yaml
+- name: daiquiri_data_obs
+  title: Observational data
+  description: Some observational data
+  long_description: Some more information about the data.
+  attribution: Please cite the following paper ...
+  order: 1
+  license: CC0
+  doi: 10.1000/xyz123
+  published: 2020-01-01
+  updated: 2018-01-01
+  access_level: PUBLIC
+  metadata_access_level: PUBLIC
+  creators:
+  - name: Anna Admin
+    first_name: Anna
+    last_name: Admin
+    orcid: https://orcid.org/0000-0001-2345-6789
+    affiliations: "Institute of applied Administration\nInstitute of theoretical Managament"
+  - name: Manni Manager
+    orcid: https://orcid.org/0000-0001-2345-6790
+    affiliations: Institute of theoretical Managament
+  contributors:
+  - name: Some computer guy
+
+  tables:
+  - name: stars
+    title: Stars
+    description: Some stars data
+    order: 1
+    license: CC0
+    doi: 10.1000/xyz123/123
+    published: 2020-01-01
+    updated: 2018-01-01
+    access_level: PUBLIC
+    metadata_access_level: PUBLIC
+    creators:
+    - name: Anna Admin
+      first_name: Anna
+      last_name: Admin
+      orcid: https://orcid.org/0000-0001-2345-6789
+      affiliations: "Institute of applied Administration\nInstitute of theoretical Managament"
+    - name: Manni Manager
+      orcid: https://orcid.org/0000-0001-2345-6790
+      affiliations: Institute of theoretical Managament
+
+    columns:
+    - name: id
+      ucd: meta.id;meta.main
+    - name: ra
+      ucd: pos.eq.ra;meta.main
+    - name: dec
+      ucd: pos.eq.dec;meta.main
+    - name: parallax
+      ucd: pos.parallax
+```
+
+and a python script or notebook with the following content:
+
+```python
+import yaml
+from daiquiri_client import Client
+
+DAIQUIRI_URL = 'http://localhost:8000'
+TOKEN = 'a35b0eb94ef906648445c9214bed30265af1062d'
+
+with open('update_metadata.yml') as f:
+    local_schemas = yaml.safe_load(f.read())
+
+client = Client(DAIQUIRI_URL, TOKEN)
+
+for remote_schema in client.metadata.get_schemas(nested=True):
+    for local_schema in local_schemas:
+        if remote_schema['name'] == local_schema['name']:
+            client.metadata.update_schema(remote_schema['id'], local_schema)
+
+            for remote_table in remote_schema['tables']:
+                for local_table in local_schema['tables']:
+
+                    if remote_table['name'] == local_table['name']:
+                        client.metadata.update_table(remote_table['id'], local_table)
+
+                        for remote_column in remote_table['columns']:
+                            for local_column in local_table['columns']:
+
+                                if remote_column['name'] == local_column['name']:
+                                    client.metadata.update_column(remote_column['id'], local_column)
+```
+
+And execute it in a virtual environment where `daiquiri_client` is installed.
