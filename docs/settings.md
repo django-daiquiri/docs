@@ -84,6 +84,20 @@ See also [ALLOWED_HOSTS](https://docs.djangoproject.com/en/2.1/ref/settings/#std
 
 ---
 
+#### INSTALLED_APPS
+
+The list of Django apps for this Daiquiri site. Usually it is set to
+
+```python
+INSTALLED_APPS = DJANGO_APPS + [
+    # the list of Daiquiri modules for this site
+    ...
+] + ADDITIONAL_APPS
+```
+See also [INSTALLED_APPS](https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS) in the Django documentation.
+
+---
+
 #### TIME_ZONE
 
 Default: `'UTC'`
