@@ -286,10 +286,13 @@ A commen use case for Daiquiri client is the update of the metadata of a databas
       first_name: Anna
       last_name: Admin
       orcid: https://orcid.org/0000-0001-2345-6789
-      affiliations: "Institute of applied Administration\nInstitute of theoretical Managament"
+      affiliations:
+      - Institute of applied Administration
+      - Institute of theoretical Managament
     - name: Manni Manager
       orcid: https://orcid.org/0000-0001-2345-6790
-      affiliations: Institute of theoretical Managament
+      affiliations:
+      - Institute of theoretical Managament
 
     columns:
     - name: id
