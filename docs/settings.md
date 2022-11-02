@@ -98,6 +98,14 @@ See also [INSTALLED_APPS](https://docs.djangoproject.com/en/2.1/ref/settings/#st
 
 ---
 
+#### USER_TABLESPACE
+
+Default: `'pg_default'`
+
+The tablespace where to store the user queryjob tables. Only supported for Postgres DB.
+
+---
+
 #### TIME_ZONE
 
 Default: `'UTC'`
