@@ -4,26 +4,22 @@ Settings
 A Daiquiri application can be customised using various settings. Since Daiquiri is based on Django, we use its [build-in settings system](https://docs.djangoproject.com/en/2.1/topics/settings/). Almost every setting has a default value, which is set in the Daiquiri library. The core settings are defined in the `daiquiri.core.settings` module:
 
 * [daiquiri.core.settings.django](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/django.py)
-* [daiquiri.core.settings.celery](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/celery.py)
 * [daiquiri.core.settings.daiquiri](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/daiquiri.py)
 * [daiquiri.core.settings.logging](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/logging.py)
 * [daiquiri.core.settings.vendor](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/vendor.py)
 
 Additional settings, which concern only a single Daiquiri module are defined in the `settings` module of the particular module:
 
-* [daiquiri.archive.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/archive/settings.py)
 * [daiquiri.auth.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/auth/settings.py)
 * [daiquiri.conesearch.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/conesearch/settings.py)
 * [daiquiri.cutout.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/cutout/settings.py)
 * [daiquiri.files.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/files/settings.py)
-* [daiquiri.meetings.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/meetings/settings.py)
 * [daiquiri.metadata.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/metadata/settings.py)
 * [daiquiri.oai.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/oai/settings.py)
 * [daiquiri.query.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/query/settings.py)
 * [daiquiri.serve.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/serve/settings.py)
 * [daiquiri.stats.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/stats/settings.py)
 * [daiquiri.tap.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/tap/settings.py)
-* [daiquiri.wordpress.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/wordpress/settings.py)
 
 All settings can be changed for your particular `app` in `config/settings/base.py` (app specific) or `config/settings/local.py` (machine specific, and ignored by git). In addition, selected settings can be configured as environment variables, in particular using the `.env` file `app` directory:
 
@@ -46,6 +42,7 @@ OAI_SCHEMA     | `OAI_SCHEMA`
 In the `.env` file, lists are seperated by comma, e.g. `ADMINS=Anna Admin <admin@example.com>, Manni Manager <manager@example.com>`. Since `SECRET_KEY`, `DATABASE_APP`, and `DATABASE_DATA` have no default value, they need to be set in any case.
 
 In the following all settings, which can be changed from their default values to customize you particular Daiquiri app are described in detail:
+
 
 daiquiri.core.settings.django
 -----------------------------
@@ -176,6 +173,20 @@ Default:
 ```
 
 Configuration object for the Django REST framework. Used to adjust the maximum rate in which queries are allowed to be submitted (by anyone). See also [Throttling](https://www.django-rest-framework.org/api-guide/throttling/) in the Django REST framework documentation.
+
+---
+
+#### CELERY_BROKER_URL
+
+Default: `amqp://`
+
+URL of the RabbitMQ server to be used. For a more sophisticated setup use:
+
+```
+CELERY_BROKER_URL=amqp://<user>:<password>@<host>:<port>/<vhost>
+```
+
+See also [deployment](/deployment/#asyncronous-workers). Should be set in `.env`.
 
 ---
 
@@ -409,23 +420,6 @@ Type for this Daiquiri site. Used in the VO registry entry.
 
 ---
 
-daiquiri.core.settings.celery
------------------------------
-
-#### CELERY_BROKER_URL
-
-Default: `amqp://`
-
-URL of the RabbitMQ server to be used. For a more sophisticated setup use:
-
-```
-CELERY_BROKER_URL=amqp://<user>:<password>@<host>:<port>/<vhost>
-```
-
-See also [deployment](/deployment/#asyncronous-workers). Should be set in `.env`.
-
----
-
 daiquiri.core.settings.logging
 ------------------------------
 
@@ -589,7 +583,7 @@ Designates whether terms of use are displayed on the signup page and need to be 
 
 ---
 
-daiquiri.cutout.settings
+daiquiri.conesearch.settings
 ------------------------
 
 #### CONESEARCH_ADAPTER
