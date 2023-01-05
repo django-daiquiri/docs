@@ -1,158 +1,123 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Advanced features - Daiquiri documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../style.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Advanced features";
-    var mkdocs_page_input_path = "advanced.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Advanced features - Daiquiri documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Advanced features";
+        var mkdocs_page_input_path = "advanced.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Daiquiri documentation</a>
-        <div role="search">
+          <a href=".." class="icon icon-home"> Daiquiri documentation
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deployment/">Deployment</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../settings/">Settings</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../administration/">Administration</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../management/">Management</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Advanced features</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#advanced-features">Advanced features</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#apache2-and-mod_wsgi">Apache2 and mod_wsgi</a></li>
-        
-            <li><a class="toctree-l3" href="#wagtail-integration">Wagtail integration</a></li>
-        
-            <li><a class="toctree-l3" href="#wordpress-integration">WordPress integration</a></li>
-        
-            <li><a class="toctree-l3" href="#double-reverse-proxy-setup">Double reverse proxy setup</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiri-client">Daiquiri client</a></li>
-        
-        </ul>
-    
-
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../administration/">Administration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../management/">Management</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Advanced features</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#apache2-and-mod_wsgi">Apache2 and mod_wsgi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wagtail-integration">Wagtail integration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wordpress-integration">WordPress integration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#double-reverse-proxy-setup">Double reverse proxy setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiri-client">Daiquiri client</a>
+    </li>
     </ul>
-	    </li>
-          
-        </ul>
+                </li>
+              </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Daiquiri documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Daiquiri documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Advanced features</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Advanced features</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="advanced-features">Advanced features</h1>
 <h2 id="apache2-and-mod_wsgi">Apache2 and mod_wsgi</h2>
 <p>This is an alternative deployment without the need of systemd scripts for the web application. Any asyncronous workers, however, would still need these systemd scripts.</p>
 <p>The first thing, you have to do, is to uncomment:</p>
-<pre><code class="python">from dotenv import load_dotenv
+<pre><code class="language-python">from dotenv import load_dotenv
 load_dotenv()
 </code></pre>
-
 <p>in <code>config/wsgi.py</code> in your <code>app</code>.</p>
 <p>Install the Apache server and <code>mod_wsgi</code> on Debian or Ubuntu using:</p>
-<pre><code class="bash">sudo apt install apache2 libapache2-mod-wsgi-py3
+<pre><code class="language-bash">sudo apt install apache2 libapache2-mod-wsgi-py3
 </code></pre>
-
 <p>On CentOS 7 you need to enable the [IUS repository] first. Then install using:</p>
 <pre><code>sudo yum install httpd python35u-mod_wsgi
 </code></pre>
-
 <p>Then, edit the virtual host configuration:</p>
 <pre><code># in /etc/httpd/sites-available/default  on Debian/Ubuntu
 # in /etc/httpd/conf.d/vhost.conf        on RHEL/CentOS
@@ -178,9 +143,8 @@ load_dotenv()
     &lt;/Directory&gt;
 &lt;/VirtualHost&gt;
 </code></pre>
-
 <p>Start the Apache server:</p>
-<pre><code class="bash"># on Debian/Ubuntu
+<pre><code class="language-bash"># on Debian/Ubuntu
 sudo systemctl start apache2
 sudo systemctl enable apache2
 
@@ -188,11 +152,10 @@ sudo systemctl enable apache2
 sudo systemctl start httpd
 sudo systemctl enable httpd
 </code></pre>
-
 <p>Your Daiquiri app should now be available on the configured virtual host, and the deployment can be continued as usual.</p>
 <h2 id="wagtail-integration">Wagtail integration</h2>
 <p>Since <a href="https://wagtail.io">Wagtail</a> is a Django-base CMS, it can be used together with Daiquiri easily. The main steps are explained <a href="https://docs.wagtail.io/en/stable/advanced_topics/add_to_django_project.html">in the Wagtail documentation</a>. Here we assume that the customization to daiquiri are located in a Django app called <code>daiquiri_app</code> in your <code>daiquiri-app</code> directory. The file layout should be like this:</p>
-<pre><code class="plain">├── config
+<pre><code class="language-plain">├── config
 ├── daiquiri_app
 │   ├── __init__.py
 │   ├── migrations
@@ -204,9 +167,8 @@ sudo systemctl enable httpd
 ├── static_root
 └── vendor
 </code></pre>
-
 <p>To enable Wagtail, add the following blocks to <code>config/settings/base.py</code>:</p>
-<pre><code class="python">from . import MIDDLEWARE
+<pre><code class="language-python">from . import MIDDLEWARE
 
 ...
 
@@ -237,9 +199,8 @@ MIDDLEWARE += [
     'wagtail.contrib.redirects.middleware.RedirectMiddleware'
 ]
 </code></pre>
-
 <p>This adds the Wagtail apps and a Wagtail-specific middleware. In <code>config/urls.py</code> add:</p>
-<pre><code class="python">from django.conf.urls.static import static
+<pre><code class="language-python">from django.conf.urls.static import static
 
 ...
 
@@ -256,15 +217,13 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 </code></pre>
-
 <p>This adds the Wagtail backend at <code>/wagtail/</code> and the content at <code>/cms/</code>. You can also use:</p>
-<pre><code class="python">    path('', include(wagtail_urls)),
+<pre><code class="language-python">    path('', include(wagtail_urls)),
 </code></pre>
-
 <p>to create the home page with Wagtail as well. In this case, it needs to be the last entry, since otherwise it would override all other urls.</p>
 <p>After this Wagtail pages can be created as explained in the Wagtail documentation, starting <a href="https://docs.wagtail.io/en/stable/topics/pages.html">here</a>. In our example the page models would reside in <code>daiquiri_app/models.py</code> and the corresponding templates in <code>daiquiri_app/templates/daiquiri_app</code>.</p>
 <p>Initially, Wagtail creates a home page model without content, which of little use. The first step is usually to remove this Page and Site and create a new Site with a different <code>HomePage</code> model. This can be done automatically with the following data migration (e.g. for the app <code>daiquiri_app</code>).</p>
-<pre><code class="python"># -*- coding: utf-8 -*-
+<pre><code class="language-python"># -*- coding: utf-8 -*-
 from django.db import migrations
 
 
@@ -298,11 +257,10 @@ class Migration(migrations.Migration):
         migrations.RunPython(data_migration),
     ]
 </code></pre>
-
 <h2 id="wordpress-integration">WordPress integration</h2>
 <p>WordPress can be used as CMS for the documentation and/or the presentation of the project as well. Since WordPress uses a separate technology stack, its integration is much more complicated. For new projects we suggest to use Wagtail. WordPress is mainly used for existing Daiquiri sites.</p>
 <p>For this documentation, we assume WordPress will be installed <code>/opt/wordpress</code>. First, you need to install PHP:</p>
-<pre><code class="bash"># Debian 10
+<pre><code class="language-bash"># Debian 10
 sudo apt-get install php7.3 php7.3-mysql php-pear
 pear install HTTP_Request2
 
@@ -310,32 +268,27 @@ pear install HTTP_Request2
 sudo apt-get install php7.2 php7.2-mysql php-pear
 pear install HTTP_Request2
 </code></pre>
-
 <p>The code needs to be downloaded from [WordPress.org] and extracted:</p>
-<pre><code class="bash"># as root
+<pre><code class="language-bash"># as root
 cd /opt
 wget https://wordpress.org/latest.tar.gz
 tar xzvf latest.tar.gz
 </code></pre>
-
 <p>The the [Daiquiri theme] and the [Daiquiri plugin] need to be installed:</p>
-<pre><code class="bash"># as root
+<pre><code class="language-bash"># as root
 cd /opt/wordpress/wp-content/themes
 git clone https://github.com/django-daiquiri/wordpress-theme daiquiri
 
 cd /opt/wordpress/wp-content/plugins
 git clone https://github.com/django-daiquiri/wordpress-plugin daiquiri
 </code></pre>
-
 <p>The WordPress directory need to be owned by the Apache2 user:</p>
-<pre><code class="bash">chown -R www-data:www-data /opt/wordpress  # Debian/Ubuntu
+<pre><code class="language-bash">chown -R www-data:www-data /opt/wordpress  # Debian/Ubuntu
 chown -R apache:apache /opt/wordpress      # CentOS
 </code></pre>
-
 <p>Then, create the <code>wp-config.php</code> file</p>
-<pre><code class="bash">cp /opt/wordpress/wp-config-sample.php /opt/wordpress/wp-config.php
+<pre><code class="language-bash">cp /opt/wordpress/wp-config-sample.php /opt/wordpress/wp-config.php
 </code></pre>
-
 <p>and edit the file for the database connection for WordPress (not the same as for Daiquiri, needs MySQL or MariaDB):</p>
 <pre><code>define( 'DB_NAME', 'database_name_here' );
 
@@ -345,7 +298,6 @@ define( 'DB_PASSWORD', 'password_here' );
 
 define( 'DB_HOST', 'localhost' );
 </code></pre>
-
 <p>In addition, update the salt values and add the following at the end of the file, but before <code>That's all, stop editing!</code>:</p>
 <pre><code>define('DAIQUIRI_DEBUG', False);
 define('DAIQUIRI_URL', 'https://&lt;the url your daiquiri app&gt;');
@@ -355,7 +307,6 @@ define('SITECOOKIEPATH',COOKIEPATH);
 define('ADMIN_COOKIE_PATH',COOKIEPATH);
 define('PLUGINS_COOKIE_PATH',COOKIEPATH);
 </code></pre>
-
 <p>The go to http://<your url>/cms/ and follow the WordPress instalation. You can use a username which you already registered in Daiquiri. After the installation log in into the WordPress backend. Then:</p>
 <ul>
 <li>Activate the Daiquiri theme under <code>Appearance -&gt; Themes</code></li>
@@ -364,12 +315,11 @@ define('PLUGINS_COOKIE_PATH',COOKIEPATH);
 <p>Logout of WordPress. Login to Daiquiri. You should now be logged in into WordPress as well. The syncronization of WordPress and Daiquiri users is done using <a href="https://wp-cli.org/">wp-cli</a>. See <a href="/settings/#daiquiriwordpresssettings">settings</a> for more information about using WordPress with Daiquiri.</p>
 <h2 id="double-reverse-proxy-setup">Double reverse proxy setup</h2>
 <p>When running Daiquiri behind two reverse proxy servers, one as generic HTTP proxy as entrypoint to the local network and one to combine Gunicorn and Static assets on one application server, the follow setup can be used:</p>
-<pre><code class="bash">Internet -&gt; HTTP proxy (192.168.0.10) -&gt; Application server (192.168.0.20) -&gt; Gunicorn
+<pre><code class="language-bash">Internet -&gt; HTTP proxy (192.168.0.10) -&gt; Application server (192.168.0.20) -&gt; Gunicorn
                                                                            -&gt; Static assets
 </code></pre>
-
 <p>The virtual host configuration on the HTTP Proxy looks like this:</p>
-<pre><code class="apache">&lt;VirtualHost *:443&gt;
+<pre><code class="language-apache">&lt;VirtualHost *:443&gt;
     ...
 
     ProxyPass / http://app.local/
@@ -380,9 +330,8 @@ define('PLUGINS_COOKIE_PATH',COOKIEPATH);
     &lt;/Location&gt;
 &lt;/VirtualHost&gt;
 </code></pre>
-
 <p>On the application server the virtual host configuration is this:</p>
-<pre><code class="apache">&lt;VirtualHost *:80&gt;
+<pre><code class="language-apache">&lt;VirtualHost *:80&gt;
     ...
 
     SSLEngine on
@@ -419,14 +368,12 @@ define('PLUGINS_COOKIE_PATH',COOKIEPATH);
     &lt;/Location&gt;
 &lt;/VirtualHost&gt;
 </code></pre>
-
 <p>The <code>RemoteIPHeader</code> implies that the <code>remoteip</code> module for Apache is installed and enabled. Up to date TLS/SSL settings can be found on <a href="https://bettercrypto.org">bettercrypto.org</a>.</p>
 <h2 id="daiquiri-client">Daiquiri client</h2>
 <p><a href="https://github.com/django-daiquiri/client">Daiquiri client</a> is a is a python library meant to be used with the Daiquiri Framework. It provides a set of functions which can be used to use the API of a Daiquiri powered website inside a script. The nessesarry HTTP requests are abstracted in a transparent way.</p>
 <p>Daiquiri client can be installed using</p>
-<pre><code class="bash">pip install --upgrade https://github.com/django-daiquiri/client
+<pre><code class="language-bash">pip install --upgrade https://github.com/django-daiquiri/client
 </code></pre>
-
 <p>A script for getting the emails of all users using Daiquiri Client could look like this:</p>
 <pre><code>from daiquiri_client import Client
 
@@ -435,10 +382,9 @@ client = Client(DAIQUIRI_URL, TOKEN)
 for profile in client.auth.get_profiles():
     print(profile['user']['email'])
 </code></pre>
-
 <p>where DAIQUIRI_URL is the url of the Daiquiri site and TOKEN is your API token, which can be obtained from the Daiquiri site at the URL <em>/accounts/token/</em>.</p>
 <p>A commen use case for Daiquiri client is the update of the metadata of a database schema. For this, first add the schema manually using the metadate management and make sure <code>Automatically discover tables and columns</code> is checked. Then prepare a yaml file of the form:</p>
-<pre><code class="yaml">- name: daiquiri_data_obs
+<pre><code class="language-yaml">- name: daiquiri_data_obs
   title: Observational data
   description: Some observational data
   long_description: Some more information about the data.
@@ -496,9 +442,8 @@ for profile in client.auth.get_profiles():
     - name: parallax
       ucd: pos.parallax
 </code></pre>
-
 <p>and a python script or notebook with the following content:</p>
-<pre><code class="python">import yaml
+<pre><code class="language-python">import yaml
 from daiquiri_client import Client
 
 DAIQUIRI_URL = 'http://localhost:8000'
@@ -526,31 +471,23 @@ for remote_schema in client.metadata.get_schemas(nested=True):
                                 if remote_column['name'] == local_column['name']:
                                     client.metadata.update_column(remote_column['id'], local_column)
 </code></pre>
-
 <p>And execute it in a virtual environment where <code>daiquiri_client</code> is installed.</p>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="../management/" class="btn btn-neutral" title="Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../management/" class="btn btn-neutral float-left" title="Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -558,18 +495,24 @@ for remote_schema in client.metadata.get_schemas(nested=True):
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../management/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../management/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

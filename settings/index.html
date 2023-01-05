@@ -1,193 +1,371 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Settings - Daiquiri documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../style.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Settings";
-    var mkdocs_page_input_path = "settings.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Settings - Daiquiri documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Settings";
+        var mkdocs_page_input_path = "settings.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Daiquiri documentation</a>
-        <div role="search">
+          <a href=".." class="icon icon-home"> Daiquiri documentation
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deployment/">Deployment</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Settings</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#settings">Settings</a></li>
-    
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Settings</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiricoresettingsdjango">daiquiri.core.settings.django</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#daiquiricoresettingsdjango">daiquiri.core.settings.django</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiricoresettingsdaiquiri">daiquiri.core.settings.daiquiri</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiricoresettingscelery">daiquiri.core.settings.celery</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiricoresettingslogging">daiquiri.core.settings.logging</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiricoresettingsvendor">daiquiri.core.settings.vendor</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiriarchivesettings">daiquiri.archive.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiriauthsettings">daiquiri.auth.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiricutoutsettings">daiquiri.cutout.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiricutoutsettings_1">daiquiri.cutout.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquirifilessettings">daiquiri.files.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquirimeetingssettings">daiquiri.meetings.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquirimetadatasettings">daiquiri.metadata.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquirioaisettings">daiquiri.oai.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiriquerysettings">daiquiri.query.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiriservesettings">daiquiri.serve.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiristatssettings">daiquiri.stats.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiritapsettings">daiquiri.tap.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiriuwssettings">daiquiri.uws.settings</a></li>
-        
-            <li><a class="toctree-l3" href="#daiquiriwordpresssettings">daiquiri.wordpress.settings</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#secret_key">SECRET_KEY</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#base_url">BASE_URL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#allowed_hosts">ALLOWED_HOSTS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#installed_apps">INSTALLED_APPS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user_tablespace">USER_TABLESPACE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#time_zone">TIME_ZONE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#account_logout_on_get">ACCOUNT_LOGOUT_ON_GET</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#account_username_min_length">ACCOUNT_USERNAME_MIN_LENGTH</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#account_password_min_length">ACCOUNT_PASSWORD_MIN_LENGTH</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#account_email_verification">ACCOUNT_EMAIL_VERIFICATION</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#account_login_on_email_confirmation">ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rest_framework">REST_FRAMEWORK</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#celery_broker_url">CELERY_BROKER_URL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#email_backend">EMAIL_BACKEND</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#email_host">EMAIL_HOST</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#email_port">EMAIL_PORT</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#email_host_user">EMAIL_HOST_USER</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#email_host_password">EMAIL_HOST_PASSWORD</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#email_use_tls">EMAIL_USE_TLS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#email_use_ssl">EMAIL_USE_SSL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#default_from_email">DEFAULT_FROM_EMAIL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sendfile_backend">SENDFILE_BACKEND</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#memcache_key_prefix">MEMCACHE_KEY_PREFIX</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiricoresettingsdaiquiri">daiquiri.core.settings.daiquiri</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#async">ASYNC</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ipv4_privacy_mask">IPV4_PRIVACY_MASK</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ipv6_privacy_mask">IPV6_PRIVACY_MASK</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_url">SITE_URL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_identifier">SITE_IDENTIFIER</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_title">SITE_TITLE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_description">SITE_DESCRIPTION</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_license">SITE_LICENSE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_creator">SITE_CREATOR</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_contact">SITE_CONTACT</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_publisher">SITE_PUBLISHER</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_created">SITE_CREATED</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_updated">SITE_UPDATED</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_subjects">SITE_SUBJECTS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#site_type">SITE_TYPE</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiricoresettingslogging">daiquiri.core.settings.logging</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#log_level">LOG_LEVEL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#log_dir">LOG_DIR</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiricoresettingsvendor">daiquiri.core.settings.vendor</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vendor_cdn">VENDOR_CDN</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiriarchivesettings">daiquiri.archive.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#archive_base_path">ARCHIVE_BASE_PATH</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#archive_download_dir">ARCHIVE_DOWNLOAD_DIR</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#archive_anonymous">ARCHIVE_ANONYMOUS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#archive_schema">ARCHIVE_SCHEMA</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#archive_table">ARCHIVE_TABLE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#archive_columns">ARCHIVE_COLUMNS</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiriauthsettings">daiquiri.auth.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#auth_signup">AUTH_SIGNUP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#auth_workflow">AUTH_WORKFLOW</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#auth_detail_keys">AUTH_DETAIL_KEYS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#auth_terms_of_use">AUTH_TERMS_OF_USE</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiriconesearchsettings">daiquiri.conesearch.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#conesearch_adapter">CONESEARCH_ADAPTER</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conesearch_anonymous">CONESEARCH_ANONYMOUS</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiricutoutsettings">daiquiri.cutout.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#cutout_adapter">CUTOUT_ADAPTER</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cutout_anonymous">CUTOUT_ANONYMOUS</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquirifilessettings">daiquiri.files.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#files_base_path">FILES_BASE_PATH</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#files_base_url">FILES_BASE_URL</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquirimeetingssettings">daiquiri.meetings.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#meetings_contribution_types">MEETINGS_CONTRIBUTION_TYPES</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#meetings_payment_choices">MEETINGS_PAYMENT_CHOICES</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#meetings_participant_detail_keys">MEETINGS_PARTICIPANT_DETAIL_KEYS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#meetings_abstract_max_length">MEETINGS_ABSTRACT_MAX_LENGTH</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquirimetadatasettings">daiquiri.metadata.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#metadata_column_permissions">METADATA_COLUMN_PERMISSIONS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#metadata_base_url">METADATA_BASE_URL</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquirioaisettings">daiquiri.oai.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#oai_schema">OAI_SCHEMA</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#oai_adapter">OAI_ADAPTER</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#oai_page_size">OAI_PAGE_SIZE</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiriquerysettings">daiquiri.query.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#query_anonymous">QUERY_ANONYMOUS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_user_schema_prefix">QUERY_USER_SCHEMA_PREFIX</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_quota">QUERY_QUOTA</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_sync_timeout">QUERY_SYNC_TIMEOUT</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_max_active_jobs">QUERY_MAX_ACTIVE_JOBS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_queues">QUERY_QUEUES</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_languages">QUERY_LANGUAGES</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_forms">QUERY_FORMS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_dropdowns">QUERY_DROPDOWNS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_download_dir">QUERY_DOWNLOAD_DIR</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_default_download_format">QUERY_DEFAULT_DOWNLOAD_FORMAT</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_download_formats">QUERY_DOWNLOAD_FORMATS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_upload">QUERY_UPLOAD</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiriservesettings">daiquiri.serve.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#serve_download_dir">SERVE_DOWNLOAD_DIR</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#serve_resolver">SERVE_RESOLVER</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiristatssettings">daiquiri.stats.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#stats_resource_types">STATS_RESOURCE_TYPES</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiritapsettings">daiquiri.tap.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#tap_schema">TAP_SCHEMA</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tap_upload">TAP_UPLOAD</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiriuwssettings">daiquiri.uws.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#uws_resources">UWS_RESOURCES</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiriwordpresssettings">daiquiri.wordpress.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#wordpress_path">WORDPRESS_PATH</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#wordpress_ssh">WORDPRESS_SSH</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#wordpress_cli">WORDPRESS_CLI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#wordpress_url">WORDPRESS_URL</a>
+    </li>
+        </ul>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../administration/">Administration</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../management/">Management</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../advanced/">Advanced features</a>
-	    </li>
-          
-        </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../administration/">Administration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../management/">Management</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced features</a>
+                </li>
+              </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Daiquiri documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Daiquiri documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Settings</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Settings</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="settings">Settings</h1>
 <p>A Daiquiri application can be customised using various settings. Since Daiquiri is based on Django, we use its <a href="https://docs.djangoproject.com/en/2.1/topics/settings/">build-in settings system</a>. Almost every setting has a default value, which is set in the Daiquiri library. The core settings are defined in the <code>daiquiri.core.settings</code> module:</p>
 <ul>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/django.py">daiquiri.core.settings.django</a></li>
-<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/celery.py">daiquiri.core.settings.celery</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/daiquiri.py">daiquiri.core.settings.daiquiri</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/logging.py">daiquiri.core.settings.logging</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/vendor.py">daiquiri.core.settings.vendor</a></li>
 </ul>
 <p>Additional settings, which concern only a single Daiquiri module are defined in the <code>settings</code> module of the particular module:</p>
 <ul>
-<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/archive/settings.py">daiquiri.archive.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/auth/settings.py">daiquiri.auth.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/conesearch/settings.py">daiquiri.conesearch.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/cutout/settings.py">daiquiri.cutout.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/files/settings.py">daiquiri.files.settings</a></li>
-<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/meetings/settings.py">daiquiri.meetings.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/metadata/settings.py">daiquiri.metadata.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/oai/settings.py">daiquiri.oai.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/query/settings.py">daiquiri.query.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/serve/settings.py">daiquiri.serve.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/stats/settings.py">daiquiri.stats.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/tap/settings.py">daiquiri.tap.settings</a></li>
-<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/wordpress/settings.py">daiquiri.wordpress.settings</a></li>
 </ul>
 <p>All settings can be changed for your particular <code>app</code> in <code>config/settings/base.py</code> (app specific) or <code>config/settings/local.py</code> (machine specific, and ignored by git). In addition, selected settings can be configured as environment variables, in particular using the <code>.env</code> file <code>app</code> directory:</p>
 <table>
@@ -274,13 +452,16 @@
 <hr />
 <h4 id="installed_apps">INSTALLED_APPS</h4>
 <p>The list of Django apps for this Daiquiri site. Usually it is set to</p>
-<pre><code class="python">INSTALLED_APPS = DJANGO_APPS + [
+<pre><code class="language-python">INSTALLED_APPS = DJANGO_APPS + [
     # the list of Daiquiri modules for this site
     ...
 ] + ADDITIONAL_APPS
 </code></pre>
-
 <p>See also <a href="https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS">INSTALLED_APPS</a> in the Django documentation.</p>
+<hr />
+<h4 id="user_tablespace">USER_TABLESPACE</h4>
+<p>Default: <code>'pg_default'</code></p>
+<p>The tablespace where to store the user queryjob tables. Only supported for Postgres DB.</p>
 <hr />
 <h4 id="time_zone">TIME_ZONE</h4>
 <p>Default: <code>'UTC'</code></p>
@@ -323,8 +504,14 @@
     }
 }
 </code></pre>
-
 <p>Configuration object for the Django REST framework. Used to adjust the maximum rate in which queries are allowed to be submitted (by anyone). See also <a href="https://www.django-rest-framework.org/api-guide/throttling/">Throttling</a> in the Django REST framework documentation.</p>
+<hr />
+<h4 id="celery_broker_url">CELERY_BROKER_URL</h4>
+<p>Default: <code>amqp://</code></p>
+<p>URL of the RabbitMQ server to be used. For a more sophisticated setup use:</p>
+<pre><code>CELERY_BROKER_URL=amqp://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;vhost&gt;
+</code></pre>
+<p>See also <a href="/deployment/#asyncronous-workers">deployment</a>. Should be set in <code>.env</code>.</p>
 <hr />
 <h4 id="email_backend">EMAIL_BACKEND</h4>
 <p>Default: <code>'django.core.mail.backends.console.EmailBackend'</code></p>
@@ -408,7 +595,6 @@
     'logo': None
 }
 </code></pre>
-
 <hr />
 <h4 id="site_contact">SITE_CONTACT</h4>
 <p>Default: <code>None</code></p>
@@ -420,7 +606,6 @@
     'telephone': '+49 30 123467'
 }
 </code></pre>
-
 <hr />
 <h4 id="site_publisher">SITE_PUBLISHER</h4>
 <p>Default: <code>None</code></p>
@@ -444,21 +629,11 @@
     }
 ]
 </code></pre>
-
 <p>Subjects for this Daiquiri app. Used for VO and OAI metadata.</p>
 <hr />
 <h4 id="site_type">SITE_TYPE</h4>
 <p>Default: <code>'service'</code></p>
 <p>Type for this Daiquiri site. Used in the VO registry entry.</p>
-<hr />
-<h2 id="daiquiricoresettingscelery">daiquiri.core.settings.celery</h2>
-<h4 id="celery_broker_url">CELERY_BROKER_URL</h4>
-<p>Default: <code>amqp://</code></p>
-<p>URL of the RabbitMQ server to be used. For a more sophisticated setup use:</p>
-<pre><code>CELERY_BROKER_URL=amqp://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;vhost&gt;
-</code></pre>
-
-<p>See also <a href="/deployment/#asyncronous-workers">deployment</a>. Should be set in <code>.env</code>.</p>
 <hr />
 <h2 id="daiquiricoresettingslogging">daiquiri.core.settings.logging</h2>
 <h4 id="log_level">LOG_LEVEL</h4>
@@ -495,7 +670,7 @@
 <p>Sets the table for the archive in the schema set by <code>ARCHIVE_SCHEMA</code> the <code>data</code> database.</p>
 <h4 id="archive_columns">ARCHIVE_COLUMNS</h4>
 <p>Default:</p>
-<pre><code class="python">[
+<pre><code class="language-python">[
     {
         'name': 'id',
         'hidden': True
@@ -519,7 +694,6 @@
     }
 ]
 </code></pre>
-
 <p>Sets the additional columns for the archive in the table set by <code>ARCHIVE_TABLE</code> the <code>data</code> database.</p>
 <hr />
 <h2 id="daiquiriauthsettings">daiquiri.auth.settings</h2>
@@ -539,7 +713,7 @@
 <h4 id="auth_detail_keys">AUTH_DETAIL_KEYS</h4>
 <p>Default: <code>[]</code></p>
 <p>Sets additional details to be asked from the users when registering. An example would be:</p>
-<pre><code class="python">AUTH_DETAIL_KEYS = [
+<pre><code class="language-python">AUTH_DETAIL_KEYS = [
     {
         'key': 'affiliation',
         'label': 'Affiliation',
@@ -550,7 +724,6 @@
 
 ]
 </code></pre>
-
 <p>where:</p>
 <ul>
 <li><code>key</code> is the internal identifier,</li>
@@ -564,7 +737,7 @@
 <p>Default: <code>False</code></p>
 <p>Designates whether terms of use are displayed on the signup page and need to be accepted to register. The text of to displayed needs to be configured in a template <code>account/terms_of_use.html</code>.</p>
 <hr />
-<h2 id="daiquiricutoutsettings">daiquiri.cutout.settings</h2>
+<h2 id="daiquiriconesearchsettings">daiquiri.conesearch.settings</h2>
 <h4 id="conesearch_adapter">CONESEARCH_ADAPTER</h4>
 <p>Default: <code>'daiquiri.conesearch.adapter.SimpleConeSearchAdapter'</code></p>
 <p>Sets the adapter class to be used by the cone search api. The adapter class encapsulated all operations creating a cone search votable output from the api request. Custom adapter need to enherit from <code>daiquiri.conesearch.adapter.BaseConeSearchAdapter</code>.</p>
@@ -573,7 +746,7 @@
 <p>Default: <code>False</code></p>
 <p>Designates if cone searches can be done by by anonymus users.</p>
 <hr />
-<h2 id="daiquiricutoutsettings_1">daiquiri.cutout.settings</h2>
+<h2 id="daiquiricutoutsettings">daiquiri.cutout.settings</h2>
 <h4 id="cutout_adapter">CUTOUT_ADAPTER</h4>
 <p>Default: <code>'daiquiri.cutout.adapter.SimpleCutOutAdapter'</code></p>
 <p>Sets the adapter class to be used by the cutout api. The adapter class encapsulated all operations creating a cut out from the api request. Custom adapter need to enherit from <code>daiquiri.cutout.adapter.BaseCutOutAdapter</code>.</p>
@@ -594,28 +767,26 @@
 <h2 id="daiquirimeetingssettings">daiquiri.meetings.settings</h2>
 <h4 id="meetings_contribution_types">MEETINGS_CONTRIBUTION_TYPES</h4>
 <p>Default:</p>
-<pre><code class="python">[
+<pre><code class="language-python">[
     ('talk', _('Talk')),
     ('poster', _('Poster'))
 ]
 </code></pre>
-
 <p>Sets the types of contributions to be selected by partcipants when registering.</p>
 <hr />
 <h4 id="meetings_payment_choices">MEETINGS_PAYMENT_CHOICES</h4>
 <p>Default:</p>
-<pre><code class="python">[
+<pre><code class="language-python">[
     ('cash', _('cash')),
     ('wire', _('wire transfer')),
 ]
 </code></pre>
-
 <p>Sets the different payment choices to be selected by partcipants when registering.</p>
 <hr />
 <h4 id="meetings_participant_detail_keys">MEETINGS_PARTICIPANT_DETAIL_KEYS</h4>
 <p>Default: <code>[]</code></p>
 <p>Sets additional details to be asked from the participants when registering. An example would be:</p>
-<pre><code class="python">MEETINGS_PARTICIPANT_DETAIL_KEYS = [
+<pre><code class="language-python">MEETINGS_PARTICIPANT_DETAIL_KEYS = [
     {
         'key': 'affiliation',
         'label': 'Affiliation',
@@ -634,7 +805,6 @@
     }
 ]
 </code></pre>
-
 <p>where:</p>
 <ul>
 <li><code>key</code> is the internal identifier,</li>
@@ -667,7 +837,6 @@
 <p>Sets the adapter class to be used by the OAI-PMH api. The adapter class encapsulated all operations to set up and retrieve the OAI records. Custom adapter need to enherit from <code>daiquiri.metadata.adapter.BaseOaiAdapter</code>. Usually this will be done in the Daiquiri app, e.g.</p>
 <pre><code>OAI_ADAPTER = 'app.adapter.OaiAdapter'
 </code></pre>
-
 <hr />
 <h4 id="oai_page_size">OAI_PAGE_SIZE</h4>
 <p>Default: <code>500</code></p>
@@ -684,16 +853,15 @@
 <hr />
 <h4 id="query_quota">QUERY_QUOTA</h4>
 <p>Default:</p>
-<pre><code class="python">{
+<pre><code class="language-python">{
     'anonymous': '100Mb',
     'user': '10000Mb',
     'users': {},
     'groups': {}
 }
 </code></pre>
-
 <p>Sets the maximum quota for tables in a user&rsquo;s personal schema. The quota need to be set for the <code>anonymous</code> user as well as regular loggen in users (<code>user</code>). Additionally, users or groups can be asigned individual quotas, e.g.:</p>
-<pre><code class="python">{
+<pre><code class="language-python">{
     'anonymous': '100Mb',
     'user': '10000Mb',
     'users': {
@@ -704,7 +872,6 @@
     }
 }
 </code></pre>
-
 <p>If more than one quota applies, the maximum is used.</p>
 <hr />
 <h4 id="query_sync_timeout">QUERY_SYNC_TIMEOUT</h4>
@@ -713,16 +880,15 @@
 <hr />
 <h4 id="query_max_active_jobs">QUERY_MAX_ACTIVE_JOBS</h4>
 <p>Default:</p>
-<pre><code class="python">{
+<pre><code class="language-python">{
     'anonymous': '1'
 }
 </code></pre>
-
 <p>Sets the maximum of simultanous jobs for users. The setting work analog to &lsquo;QUERY_QUOTA&rsquo;. If more than one maximum applies, the maximum is used. If no maximum is given, like the default setting for logged users, no maximum is enforced.</p>
 <hr />
 <h4 id="query_queues">QUERY_QUEUES</h4>
 <p>Default:</p>
-<pre><code class="python">[
+<pre><code class="language-python">[
     {
         'key': 'default',
         'label': 'Default',
@@ -733,7 +899,6 @@
     }
 ]
 </code></pre>
-
 <p>Set the different queue, which can be selected by the users. Each queue is represented by a dictionary where:</p>
 <ul>
 <li><code>key</code> is the internal identifier,</li>
@@ -746,7 +911,7 @@
 <hr />
 <h4 id="query_languages">QUERY_LANGUAGES</h4>
 <p>Default:</p>
-<pre><code class="python">[
+<pre><code class="language-python">[
     {
         'key': 'adql',
         'version': 2.0,
@@ -756,7 +921,6 @@
     }
 ]
 </code></pre>
-
 <p>Sets the different query languages, which can be selected by the users. Each query language is represented by a dictionary where:</p>
 <ul>
 <li><code>key</code> is the internal identifier,</li>
@@ -768,7 +932,7 @@
 <hr />
 <h4 id="query_forms">QUERY_FORMS</h4>
 <p>Default:</p>
-<pre><code class="python">[
+<pre><code class="language-python">[
     {
         'key': 'sql',
         'label': 'SQL query',
@@ -777,7 +941,6 @@
     }
 ]
 </code></pre>
-
 <p>Sets the form available for the users in the query interface. Each form is represented by a dictionary where:</p>
 <ul>
 <li><code>key</code> is the internal identifier,</li>
@@ -789,7 +952,7 @@
 <hr />
 <h4 id="query_dropdowns">QUERY_DROPDOWNS</h4>
 <p>Default:</p>
-<pre><code class="python">[
+<pre><code class="language-python">[
     {
         'key': 'simbad',
         'service': 'query/js/dropdowns/simbad.js',
@@ -809,7 +972,6 @@
     }
 ]
 </code></pre>
-
 <p>Sets the additional drop down menus above the SQL query interface available for the users. Each drop down is represented by a dictionary where:</p>
 <ul>
 <li><code>key</code> is the internal identifier,</li>
@@ -829,7 +991,7 @@
 <hr />
 <h4 id="query_download_formats">QUERY_DOWNLOAD_FORMATS</h4>
 <p>Default:</p>
-<pre><code class="python">[
+<pre><code class="language-python">[
     {
         'key': 'votable',
         'extension': 'xml',
@@ -853,7 +1015,6 @@
     }
 ]
 </code></pre>
-
 <p>Sets the available default download formats. Each format is represented by a dictionary where:</p>
 <ul>
 <li><code>key</code> is the internal identifier,</li>
@@ -876,7 +1037,6 @@
     'groups': {}
 }
 </code></pre>
-
 <p>Sets the maximum quota for uploads by a user. The quota need to be set for the <code>anonymous</code> user as well as regular loggen in users (<code>user</code>). Additionally, users or groups can be asigned individual quotas, much like with <code>QUERY_QUOTA</code>.</p>
 <hr />
 <h2 id="daiquiriservesettings">daiquiri.serve.settings</h2>
@@ -891,7 +1051,7 @@
 <h2 id="daiquiristatssettings">daiquiri.stats.settings</h2>
 <h4 id="stats_resource_types">STATS_RESOURCE_TYPES</h4>
 <p>Default:</p>
-<pre><code class="python">[
+<pre><code class="language-python">[
     {
         'key': 'ARCHIVE_DOWNLOAD',
         'label': 'Archive downloads'
@@ -914,7 +1074,6 @@
     }
 ]
 </code></pre>
-
 <p>Sets the aggegated stats shown in the stats management overview.</p>
 <hr />
 <h2 id="daiquiritapsettings">daiquiri.tap.settings</h2>
@@ -930,13 +1089,12 @@
 <h4 id="uws_resources">UWS_RESOURCES</h4>
 <p>Default: <code>[]</code></p>
 <p>Configures UWS services (in addition to the TAP module). E.g.:</p>
-<pre><code class="python">{
+<pre><code class="language-python">{
     'prefix': r'query',
     'viewset': 'daiquiri.query.viewsets.UWSQueryJobViewSet',
     'base_name': 'uws_query'
 }
 </code></pre>
-
 <p>where:</p>
 <ul>
 <li><code>prefix</code> is part of the base URL of the service (e.g. http://example.com/usw/query),</li>
@@ -954,7 +1112,6 @@
 <p>Sets the destination for a SSH connection to use with <code>wp-cli</code>. Use this setting if WordPress <strong>is not</strong> installed on the same host as Daiquiri. The local <code>wp-cli</code> will then connect to the remote system using ssh. An example would be:</p>
 <pre><code>WORDPRESS_SSH=example.com:/opt/daiquiri
 </code></pre>
-
 <p>This option overided <code>WORDPRESS_PATH</code>.</p>
 <hr />
 <h4 id="wordpress_cli">WORDPRESS_CLI</h4>
@@ -966,29 +1123,21 @@
 <p>Sets the base url of the WordPress instance.</p>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../deployment/" class="btn btn-neutral float-left" title="Deployment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../administration/" class="btn btn-neutral float-right" title="Administration">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../deployment/" class="btn btn-neutral" title="Deployment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -996,20 +1145,26 @@
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../deployment/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../administration/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../deployment/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../administration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

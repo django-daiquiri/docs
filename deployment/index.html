@@ -1,140 +1,108 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Deployment - Daiquiri documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../style.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Deployment";
-    var mkdocs_page_input_path = "deployment.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Deployment - Daiquiri documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Deployment";
+        var mkdocs_page_input_path = "deployment.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Daiquiri documentation</a>
-        <div role="search">
+          <a href=".." class="icon icon-home"> Daiquiri documentation
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Deployment</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#deployment">Deployment</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#configuration">Configuration</a></li>
-        
-            <li><a class="toctree-l3" href="#web-server">Web server</a></li>
-        
-            <li><a class="toctree-l3" href="#static-assets">Static assets</a></li>
-        
-            <li><a class="toctree-l3" href="#asyncronous-workers">Asyncronous workers</a></li>
-        
-            <li><a class="toctree-l3" href="#caching">Caching</a></li>
-        
-        </ul>
-    
-
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Deployment</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#web-server">Web server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#static-assets">Static assets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#asyncronous-workers">Asyncronous workers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#caching">Caching</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../settings/">Settings</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../administration/">Administration</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../management/">Management</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../advanced/">Advanced features</a>
-	    </li>
-          
-        </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../administration/">Administration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../management/">Management</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced features</a>
+                </li>
+              </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Daiquiri documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Daiquiri documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Deployment</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Deployment</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="deployment">Deployment</h1>
 <h3 id="configuration">Configuration</h3>
@@ -148,25 +116,21 @@ ADMINS=Anna Admin &lt;admin@example.com&gt;, Manni Manager &lt;manager@example.c
 
 LOG_DIR=/var/log/django/daiquiri
 </code></pre>
-
 <h3 id="web-server">Web server</h3>
 <p>Daiquiri can be run in different configurations, both with <a href="https://httpd.apache.org/">Apache2</a> and <a href="https://www.nginx.com/">NGINX</a> as web server. Daiquiri itself is using the <a href="https://docs.djangoproject.com/en/stable/howto/deployment/wsgi/">wsgi</a> protocol for the communication between the HTTP and the Python layer. The recommended way of deploying Daiquiri is using <a href="https://httpd.apache.org/">Apache2</a> as a reverse proxy and <a href="https://gunicorn.org/">Gunicorn</a> as <a href="https://docs.djangoproject.com/en/stable/howto/deployment/wsgi/">wsgi</a> server.</p>
 <p>For this setup, you need to add:</p>
 <pre><code>PROXY=True
 </code></pre>
-
 <p>to your <code>.env</code> file.</p>
 <p>First install Gunicorn inside your virtual environment:</p>
-<pre><code class="bash">pip install gunicorn
+<pre><code class="language-bash">pip install gunicorn
 </code></pre>
-
 <p>Then, test <code>gunicorn</code> using:</p>
-<pre><code class="bash">gunicorn --bind 0.0.0.0:8000 config.wsgi:application
+<pre><code class="language-bash">gunicorn --bind 0.0.0.0:8000 config.wsgi:application
 </code></pre>
-
 <p>This should serve the application like <code>runserver</code>, but without the static assets, like CSS files and images. After the test kill the <code>gunicorn</code> process again.</p>
 <p>Systemd will launch the <code>gunicorn</code> process on startup and keep running. In order to start/restart/stop the web application as well as the asyncronous workers with one command, first create a pseudo-service for your Daiquiri application by creating the file <code>/etc/systemd/system/daiquiri.service</code> (you will need root/sudo permissions for that):</p>
-<pre><code class="bash">[Unit]
+<pre><code class="language-bash">[Unit]
 Description=pseudo-service for all Daiquiri services
 
 [Service]
@@ -177,7 +141,6 @@ RemainAfterExit=yes
 [Install]
 WantedBy=network.target
 </code></pre>
-
 <p>Then create the systemd service file for the actual web application in <code>/etc/systemd/system/daiquiri-app.service</code>:</p>
 <pre><code>[Unit]
 Description=Daiquiri gunicorn daemon
@@ -215,7 +178,6 @@ ExecStop=/bin/sh -c '/usr/bin/pkill -TERM -F ${GUNICORN_PID_FILE}'
 [Install]
 WantedBy=daiquiri.target
 </code></pre>
-
 <p>The setup needs to have several directories for logfiles set up with the correct permissions. This can be done using <a href="https://www.freedesktop.org/software/systemd/man/tmpfiles.d.html">tmpfiles.d</a>. First, create a file <code>/etc/tmpfiles.d/daiquiri.conf</code>:</p>
 <pre><code>d /run/celery/daiquiri        750 daiquiri daiquiri
 d /run/gunicorn/daiquiri      750 daiquiri daiquiri
@@ -224,29 +186,24 @@ d /var/log/django/daiquiri    750 daiquiri daiquiri
 d /var/log/celery/daiquiri    750 daiquiri daiquiri
 d /var/log/gunicorn/daiquiri  755 daiquiri daiquiri
 </code></pre>
-
 <p>Then run:</p>
-<pre><code class="bash">systemd-tmpfiles --create
+<pre><code class="language-bash">systemd-tmpfiles --create
 </code></pre>
-
 <p>The <code>daiquiri</code> systemd service needs to be started and enabled like any other service:</p>
-<pre><code class="bash">sudo systemctl daemon-reload
+<pre><code class="language-bash">sudo systemctl daemon-reload
 sudo systemctl start daiquiri
 sudo systemctl enable daiquiri
 </code></pre>
-
 <p>Next, install the web server. On Debian/Ubuntu use:</p>
-<pre><code class="bash">sudo apt install apache2 libapache2-mod-xsendfile
+<pre><code class="language-bash">sudo apt install apache2 libapache2-mod-xsendfile
 
 sudo a2enmod proxy
 sudo a2enmod remoteip
 sudo a2enmod headers
 </code></pre>
-
 <p>and on CentOS 7/8 use</p>
-<pre><code class="bash">sudo yum install httpd mod_xsendfile
+<pre><code class="language-bash">sudo yum install httpd mod_xsendfile
 </code></pre>
-
 <p>Then, edit the virtual host configuration to create a reverse proxy to the Gunicorn server:</p>
 <pre><code># in /etc/apache2/sites-available/000-default.conf  on Debian/Ubuntu
 # in /etc/httpd/conf.d/vhost.conf                   on RHEL/CentOS
@@ -282,27 +239,23 @@ sudo a2enmod headers
     &lt;/Location&gt;
 &lt;/VirtualHost&gt;
 </code></pre>
-
 <p>On CentOS <code>selinux</code> needs to be set to persive (or configured properly):</p>
-<pre><code class="bash">setenforce permissive
+<pre><code class="language-bash">setenforce permissive
 </code></pre>
-
 <p>Start the Apache server:</p>
-<pre><code class="bash">sudo systemctl restart apache2  # on Debian/Ubuntu
+<pre><code class="language-bash">sudo systemctl restart apache2  # on Debian/Ubuntu
 sudo systemctl restart httpd    # on RHEL/CentOS
 </code></pre>
-
 <p>Your Daiquiri app should now be available on the configured virtual host, but again, without the static assets, like CSS files and images.</p>
 <h3 id="static-assets">Static assets</h3>
 <p>As you can see from the virtual host configurations, the static assets such as CSS and JavaScript files are served independently from the WSGI-python script. In order to do so, they need to be gathered in the <code>static_root</code> directory. This can be achieved by running:</p>
-<pre><code class="bash">python manage.py collectstatic
+<pre><code class="language-bash">python manage.py collectstatic
 </code></pre>
-
 <p>in your virtual environment. The Apache user needs to have read permissions to <code>/srv/daiquiri/app/static_root/</code>.</p>
 <p>In order to apply changes to the code, the <code>daiquiri-app</code> job needs to be reloaded.</p>
 <h3 id="asyncronous-workers">Asyncronous workers</h3>
 <p>In production, and especially if you intent to run several Daiquiri applications on the same RabbitMQ instance, it is recomended to use <a href="https://www.rabbitmq.com/vhosts.html">virtual hosts</a> and users with RabbitMQ. In order to create a virtual host and a user use the following commands on your RabbitMQ host:</p>
-<pre><code class="bash"># first enable the managemetn interface and crate an admin user
+<pre><code class="language-bash"># first enable the managemetn interface and crate an admin user
 rabbitmq-plugins enable rabbitmq_management
 rabbitmqctl add_user admin &lt;a secret password&gt;
 rabbitmqctl set_user_tags admin administrator
@@ -313,11 +266,9 @@ rabbitmqctl add_user &lt;user&gt; &lt;a secret password&gt;
 rabbitmqctl set_permissions -p &lt;user&gt; &lt;user&gt; &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
 rabbitmqctl set_permissions -p &lt;user&gt; admin &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
 </code></pre>
-
 <p>Then add <code>CELERY_BROKER_URL</code> to the <code>.env</code> file of your Daiquiri application:</p>
-<pre><code class="bash">CELERY_BROKER_URL=amqp://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;vhost&gt;
+<pre><code class="language-bash">CELERY_BROKER_URL=amqp://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;vhost&gt;
 </code></pre>
-
 <p>As with the Gunicorn process, the asyncronous workers are also using systemd to launch and keep running. Create the following service files for the three workers:</p>
 <pre><code># in /etc/systemd/system/daiquiri-default-worker.service
 [Unit]
@@ -363,7 +314,6 @@ ExecReload=/bin/sh -c '${CELERY_BIN} multi restart ${CELERYD_NODE} \
 [Install]
 WantedBy=daiquiri.service
 </code></pre>
-
 <pre><code># in /etc/systemd/system/daiquiri-query-worker.service
 [Unit]
 Description=celery worker for the query queue
@@ -408,7 +358,6 @@ ExecReload=/bin/sh -c '${CELERY_BIN} multi restart ${CELERYD_NODE} \
 [Install]
 WantedBy=daiquiri.service
 </code></pre>
-
 <pre><code># in /etc/systemd/system/daiquiri-download-worker.service
 [Unit]
 Description=celery worker for the download queue
@@ -453,9 +402,8 @@ ExecReload=/bin/sh -c '${CELERY_BIN} multi restart ${CELERYD_NODE} \
 [Install]
 WantedBy=daiquiri.service
 </code></pre>
-
 <p>Then, the worker can be started and enabled as before:</p>
-<pre><code class="bash">sudo systemctl daemon-reload
+<pre><code class="language-bash">sudo systemctl daemon-reload
 
 sudo systemctl start daiquiri-default-worker
 sudo systemctl start daiquiri-query-worker
@@ -465,13 +413,11 @@ sudo systemctl enable daiquiri-default-worker
 sudo systemctl enable daiquiri-query-worker
 sudo systemctl enable daiquiri-download-worker
 </code></pre>
-
 <h2 id="caching">Caching</h2>
 <p>To use <a href="https://memcached.org/">memcached</a> as cache, first install it from the distribution:</p>
-<pre><code class="bash">apt install memcached  # Debian/Ubuntu
+<pre><code class="language-bash">apt install memcached  # Debian/Ubuntu
 yum install memcached  # CentOS
 </code></pre>
-
 <p>On CentOS memcached needs to be restricted to listen only to localhost in <code>/etc/sysconfig/memcached</code>:</p>
 <pre><code>PORT=&quot;11211&quot;
 USER=&quot;memcached&quot;
@@ -479,36 +425,27 @@ MAXCONN=&quot;1024&quot;
 CACHESIZE=&quot;64&quot;
 OPTIONS=&quot;-l 127.0.0.1,::1&quot;
 </code></pre>
-
 <p>Then memcached can be enabled and started:</p>
-<pre><code class="bash">systemctl start memcached
+<pre><code class="language-bash">systemctl start memcached
 systemctl enable memcached
 </code></pre>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../settings/" class="btn btn-neutral float-right" title="Settings">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -516,20 +453,26 @@ systemctl enable memcached
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../settings/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../settings/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
