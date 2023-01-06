@@ -14,15 +14,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Checkout
-    - uses: actions/checkout@v3.3.0
+    - name: Checkout git repo
+      uses: actions/checkout@v3.3.0
     - run: /usr/bin/git fetch --all
     - run: /usr/bin/git pull --ff-only origin master
     - run: /usr/bin/git checkout gh-pages
     - run: /usr/bin/git pull --ff-only origin gh-pages
     - run: /usr/bin/git checkout master
-    - name: Install
-    - uses: py-actions/py-dependency-install@v4.0.0
+    - name: Install mkdocs deps
+      uses: py-actions/py-dependency-install@v4.0.0
     - name: Gen and Push
-    - run: mkdocs gh-deploy
+      run: mkdocs gh-deploy
     - run: echo "You still need to deploy, not automatic."
