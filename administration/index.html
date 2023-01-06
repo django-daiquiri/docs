@@ -144,7 +144,7 @@ user_manager
 <pre><code class="language-bash">python manage.py rebuild_oai_schema
 </code></pre>
 <h4 id="dump-fixtures">Dump Fixtures</h4>
-<pre><code># extract examples
+<pre><code class="language-bash"># extract examples
 python manage.py dumpdata daiquiri_query.example &gt; examples.json
 
 # extract files
@@ -160,7 +160,7 @@ python manage.py dumpdata auth.group &gt; groups.json
 python manage.py dumpdata auth.user daiquiri_auth.profile account.emailaddress &gt; users.json
 </code></pre>
 <h4 id="load-fixtures">Load Fixtures</h4>
-<pre><code># extract examples
+<pre><code class="language-bash"># extract examples
 python manage.py loaddata examples.json
 
 # extract files
