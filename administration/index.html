@@ -143,6 +143,38 @@ user_manager
 <p>Similar to the TAP_SCHEMA, the records for the OAI-PMH interface are located in a seperate schema, whithin the scientific database. In order to create the <code>oai_schema</code> from scratch, use:</p>
 <pre><code class="language-bash">python manage.py rebuild_oai_schema
 </code></pre>
+<h4 id="dump-fixtures">Dump Fixtures</h4>
+<pre><code># extract examples
+python manage.py dumpdata daiquiri_query.example &gt; examples.json
+
+# extract files
+python manage.py dumpdata daiquiri_files.directory &gt; directories.json
+
+# extract functions
+python manage.py dumpdata daiquiri_metadata.function &gt; functions.json
+
+# extract groups
+python manage.py dumpdata auth.group &gt; groups.json
+
+# extract users
+python manage.py dumpdata auth.user daiquiri_auth.profile account.emailaddress &gt; users.json
+</code></pre>
+<h4 id="load-fixtures">Load Fixtures</h4>
+<pre><code># extract examples
+python manage.py loaddata examples.json
+
+# extract files
+python manage.py loaddata directories.json
+
+# extract functions
+python manage.py loaddata functions.json
+
+# extract groups
+python manage.py loaddata groups.json
+
+# extract users
+python manage.py loaddata users.json
+</code></pre>
               
             </div>
           </div><footer>
