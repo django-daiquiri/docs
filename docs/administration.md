@@ -84,3 +84,41 @@ Similar to the TAP_SCHEMA, the records for the OAI-PMH interface are located in 
 ```bash
 python manage.py rebuild_oai_schema
 ```
+
+#### Dump Fixtures
+
+```
+# extract examples
+python manage.py dumpdata daiquiri_query.example > examples.json
+
+# extract files
+python manage.py dumpdata daiquiri_files.directory > directories.json
+
+# extract functions
+python manage.py dumpdata daiquiri_metadata.function > functions.json
+
+# extract groups
+python manage.py dumpdata auth.group > groups.json
+
+# extract users
+python manage.py dumpdata auth.user daiquiri_auth.profile account.emailaddress > users.json
+```
+
+#### Load Fixtures
+
+```
+# extract examples
+python manage.py loaddata examples.json
+
+# extract files
+python manage.py loaddata directories.json
+
+# extract functions
+python manage.py loaddata functions.json
+
+# extract groups
+python manage.py loaddata groups.json
+
+# extract users
+python manage.py loaddata users.json
+```
