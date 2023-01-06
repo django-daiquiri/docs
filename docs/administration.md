@@ -87,7 +87,7 @@ python manage.py rebuild_oai_schema
 
 #### Dump Fixtures
 
-```
+```bash
 # extract examples
 python manage.py dumpdata daiquiri_query.example > examples.json
 
@@ -106,7 +106,7 @@ python manage.py dumpdata auth.user daiquiri_auth.profile account.emailaddress >
 
 #### Load Fixtures
 
-```
+```bash
 # extract examples
 python manage.py loaddata examples.json
 
