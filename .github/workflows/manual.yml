@@ -17,6 +17,6 @@ jobs:
     - uses: actions/checkout@v3.3.0
     - run: /usr/bin/git fetch --all
     - run: /usr/bin/git pull --ff-only origin master
-    - run: /usr/bin/git pull --ff-only origin gh-pages
+    - run: /usr/bin/git pull --no-rebase origin gh-pages
     - uses: py-actions/py-dependency-install@v4.0.0
     - run: mkdocs gh-pages
