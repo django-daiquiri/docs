@@ -15,17 +15,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: actions/checkout@v3.3.0
-    - name: Python Dependency Installation
-      # You may pin to the exact commit or the version.
-      # uses: py-actions/py-dependency-install@9c419aa98bfb42280bdae2b0a736befd9b01e3b1
-      uses: py-actions/py-dependency-install@v4.0.0
-      with:
-        # Path to requirements.txt file
-        path: requirements.txt # optional, default is requirements.txt
-        # Boolean for pip upgrade prior to the dependency installation (default='true')
-        update-pip: true # optional, default is true
-        # Boolean for setuptools install/upgrade prior to the dependency installation (default='true')
-        update-setuptools: true # optional, default is true
-        # Boolean for wheel install/upgrade prior to the dependency installation (default='true')
-        update-wheel: true # optional, default is true
+    - run: /usr/bin/git fetch --all
+    - run: /usr/bin/git pull origin master
+    - run: /usr/bin/git pull origin gh-deploy
+    - uses: py-actions/py-dependency-install@v4.0.0
     - run: mkdocs gh-deploy
