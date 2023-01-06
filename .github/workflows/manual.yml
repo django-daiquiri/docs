@@ -25,4 +25,4 @@ jobs:
     - uses: py-actions/py-dependency-install@v4.0.0
     - name: Gen and Push
     - run: mkdocs gh-deploy
-    - name: You still need to deploy, not automatic
+    - run: echo "You still need to deploy, not automatic."
