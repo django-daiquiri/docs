@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Gen and Push
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -9,16 +9,20 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  gen-and-trigger:
+  gen-and-push:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Checkout
     - uses: actions/checkout@v3.3.0
     - run: /usr/bin/git fetch --all
     - run: /usr/bin/git pull --ff-only origin master
     - run: /usr/bin/git checkout gh-pages
     - run: /usr/bin/git pull --ff-only origin gh-pages
     - run: /usr/bin/git checkout master
+    - name: Install
     - uses: py-actions/py-dependency-install@v4.0.0
+    - name: Gen and Push
     - run: mkdocs gh-deploy
+    - name: You still need to deploy, not automatic
