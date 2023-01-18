@@ -922,6 +922,38 @@ Included in Daiquiri are `sql` and (simplyfied) `cone` and `box` services.
 
 ---
 
+#### QUERY_PLOTS
+
+Default:
+
+```python
+[
+    {
+        'key': 'scatter_plot',
+        'label': 'Scatter',
+        'is_active': True,
+    },
+    {
+        'key': 'scatter_cmap_plot',
+        'label': 'Scatter (color coded)',
+        'is_active': True,
+    },
+    {
+        'key': 'histogram',
+        'label': 'Histogram',
+        'is_active': True,
+    }
+]
+```
+
+Sets the visibility of the available plot types in the web interface.
+
+* `key` is the internal identifier,
+* `label` is the type name showed in the web interface, and
+* `is_active` controls whether the plot type is used in the web interface.
+
+---
+
 #### QUERY_DROPDOWNS
 
 Default:
@@ -948,7 +980,8 @@ Default:
 ]
 ```
 
-Sets the additional drop down menus above the SQL query interface available for the users. Each drop down is represented by a dictionary where:
+Sets the additional drop down menus above the SQL query interface available for the users. 
+Each drop down is represented by a dictionary where:
 
 * `key` is the internal identifier,
 * `service` the path AngularJS service containing the client side logic,
