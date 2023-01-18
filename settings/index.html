@@ -256,6 +256,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#query_forms">QUERY_FORMS</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query_plots">QUERY_PLOTS</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#query_dropdowns">QUERY_DROPDOWNS</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#query_download_dir">QUERY_DOWNLOAD_DIR</a>
@@ -950,6 +952,33 @@
 </ul>
 <p>Included in Daiquiri are <code>sql</code> and (simplyfied) <code>cone</code> and <code>box</code> services.</p>
 <hr />
+<h4 id="query_plots">QUERY_PLOTS</h4>
+<p>Default:</p>
+<pre><code class="language-python">[
+    {
+        'key': 'scatter_plot',
+        'label': 'Scatter',
+        'is_active': True,
+    },
+    {
+        'key': 'scatter_cmap_plot',
+        'label': 'Scatter (color coded)',
+        'is_active': True,
+    },
+    {
+        'key': 'histogram',
+        'label': 'Histogram',
+        'is_active': True,
+    }
+]
+</code></pre>
+<p>Sets the visibility of the available plot types in the web interface.</p>
+<ul>
+<li><code>key</code> is the internal identifier,</li>
+<li><code>label</code> is the type name showed in the web interface, and</li>
+<li><code>is_active</code> controls whether the plot type is used in the web interface.</li>
+</ul>
+<hr />
 <h4 id="query_dropdowns">QUERY_DROPDOWNS</h4>
 <p>Default:</p>
 <pre><code class="language-python">[
@@ -972,7 +1001,8 @@
     }
 ]
 </code></pre>
-<p>Sets the additional drop down menus above the SQL query interface available for the users. Each drop down is represented by a dictionary where:</p>
+<p>Sets the additional drop down menus above the SQL query interface available for the users. 
+Each drop down is represented by a dictionary where:</p>
 <ul>
 <li><code>key</code> is the internal identifier,</li>
 <li><code>service</code> the path AngularJS service containing the client side logic,</li>
