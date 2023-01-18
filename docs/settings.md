@@ -949,8 +949,8 @@ Default:
 Sets the visibility of the available plot types in the web interface.
 
 * `key` is the internal identifier,
-* `label` is the type name showed in the web interface, and
-* `is_active` controls whether the plot type is used in the web interface.
+* `label` is the type name shown in the interface, and
+* `is_active` controls whether the plot type is used in the interface.
 
 ---
 
