@@ -8,6 +8,7 @@ nav:
   - Administration: administration.md
   - Management: management.md
   - Advanced features: advanced.md
+  - OAI Metadata: oai-metadata.md
 
 theme:
     name: readthedocs
