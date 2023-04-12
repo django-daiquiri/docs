@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>OAI Metadata - Daiquiri documentation</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../style.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "OAI Metadata";
+    var mkdocs_page_input_path = "oai-metadata.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Daiquiri documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../administration/">Administration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../management/">Management</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced features</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">OAI Metadata</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Daiquiri documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>OAI Metadata</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="overview">Overview</h3>
+<p>The API of the Daiquiri OAI supports the following metadata schemas:</p>
+<ul>
+<li><a href="https://schema.datacite.org/meta/kernel-4.4/">Datacite</a></li>
+<li><a href="https://www.dublincore.org/specifications/dublin-core/dces/">Dublin Core</a></li>
+<li><a href="link">OAI-PMH</a></li>
+</ul>
+<p>The entry values for OAI is generated from the four different resources:</p>
+<ul>
+<li>Metadata model <code>metadata.models</code></li>
+<li>SETTINGS</li>
+<li>constant values, hard encoded in the oai renderer</li>
+<li>Datalink tables ( Not implemented in default daiquiri and is specific for every app )</li>
+</ul>
+<h2 id="datacite">DataCite</h2>
+<p>Note: Since in most cases <code>metadata.models.Schema</code> and <code>metadata.models.Table</code> 
+have the same attributes, the source given for a Schema is also valid for a Tables, 
+unless otherwise noted.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>DataCite-Property</th>
+<th>Source</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Identifier</td>
+<td><code>metadata.models.Schema.doi</code></td>
+<td><code>DOI</code> or default <code>obj/pk</code></td>
+</tr>
+<tr>
+<td>1.a</td>
+<td>identifierType</td>
+<td>constant <code>DOI</code></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Creator</td>
+<td><code>metadata.models.Schema.creator</code></td>
+<td>JSON field</td>
+</tr>
+<tr>
+<td>2.1</td>
+<td>creatorName</td>
+<td><code>..creator.name</code></td>
+<td>If not present <code>creator.last_name, creator.first_name</code></td>
+</tr>
+<tr>
+<td>2.2.a</td>
+<td>nameType</td>
+<td><code>..creator.name_type</code></td>
+<td>must be <code>Organizational</code> or <code>Personal</code></td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>givenName</td>
+<td><code>..creator.first_name</code></td>
+<td></td>
+</tr>
+<tr>
+<td>2.3</td>
+<td>familyName</td>
+<td><code>..creator.last_name</code></td>
+<td></td>
+</tr>
+<tr>
+<td>2.4</td>
+<td>nameIdentifier</td>
+<td><code>..creator.orcid</code></td>
+<td></td>
+</tr>
+<tr>
+<td>2.4.a</td>
+<td>nameIdentifierScheme</td>
+<td>constant <code>ORCID</code></td>
+<td></td>
+</tr>
+<tr>
+<td>2.4.b</td>
+<td>schemeURI</td>
+<td>constant <code>http://orcid.org/</code></td>
+<td></td>
+</tr>
+<tr>
+<td>2.5</td>
+<td>affiliation</td>
+<td><code>..creator.affiliation</code></td>
+<td>List of Dict</td>
+</tr>
+<tr>
+<td>2.5.a</td>
+<td>affiliationIdentifier</td>
+<td><code>..affiliation.affiliation_identifier</code></td>
+<td>e.g., <code>https://ror.org/03mrbr458</code></td>
+</tr>
+<tr>
+<td>2.5.b</td>
+<td>affiliationIdentifierScheme</td>
+<td><code>..affiliation.affiliation_identifier_scheme</code></td>
+<td>e.g., <code>ROR</code></td>
+</tr>
+<tr>
+<td>2.5.c</td>
+<td>schemeURI</td>
+<td><code>..affiliation.scheme_uri</code></td>
+<td>e.g., <code>https://ror.org/</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Title</td>
+<td><code>metadata.models.Schema.title</code></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Publisher</td>
+<td><code>core.settings.daiquiri.SITE_PUBLISHER</code></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>PublicationYear</td>
+<td><code>metadata.models.Schema.published.year</code></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Subject</td>
+<td><code>core.setttings.daiquiri.SITE_SUBJECTS.subject</code></td>
+<td></td>
+</tr>
+<tr>
+<td>6.a</td>
+<td>subjectScheme</td>
+<td><code>..SITE_SUBJECTS.subjectScheme</code></td>
+<td></td>
+</tr>
+<tr>
+<td>6.b</td>
+<td>schemeURI</td>
+<td><code>..SITE_SUBJECTS.schemeURI</code></td>
+<td></td>
+</tr>
+<tr>
+<td>6.c</td>
+<td>valueURI</td>
+<td><code>..SITE_SUBJECTS.valueURI</code></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Contributor</td>
+<td><code>metadata.models.Schema.contributors</code></td>
+<td>JSON Field (list of dict)</td>
+</tr>
+<tr>
+<td>7.a</td>
+<td>contributorType</td>
+<td><code>..contributor.contributor_type</code></td>
+<td>If not present, <code>DataManager</code></td>
+</tr>
+<tr>
+<td>7.1</td>
+<td>creatorName</td>
+<td><code>..contributor.name</code></td>
+<td>If not present <code>..contributor.last_name, ..contributor.first_name</code></td>
+</tr>
+<tr>
+<td>7.2.a</td>
+<td>nameType</td>
+<td><code>..contributor.name_type</code></td>
+<td>must be <code>Organizational</code> or <code>Personal</code></td>
+</tr>
+<tr>
+<td>7.2</td>
+<td>givenName</td>
+<td><code>..contributor.first_name</code></td>
+<td></td>
+</tr>
+<tr>
+<td>7.3</td>
+<td>familyName</td>
+<td><code>..contributor.last_name</code></td>
+<td></td>
+</tr>
+<tr>
+<td>7.4</td>
+<td>nameIdentifier</td>
+<td><code>..contributor.orcid</code></td>
+<td></td>
+</tr>
+<tr>
+<td>7.4.a</td>
+<td>nameIdentifierScheme</td>
+<td>constant <code>ORCID</code></td>
+<td></td>
+</tr>
+<tr>
+<td>7.4.b</td>
+<td>schemeURI</td>
+<td>constant <code>http://orcid.org/</code></td>
+<td></td>
+</tr>
+<tr>
+<td>7.5</td>
+<td>affiliation</td>
+<td><code>..contributor.affiliation</code></td>
+<td>List of Dict</td>
+</tr>
+<tr>
+<td>7.5.a</td>
+<td>affiliationIdentifier</td>
+<td><code>..affiliation.affiliation_identifier</code></td>
+<td>e.g., <code>https://ror.org/03mrbr458</code></td>
+</tr>
+<tr>
+<td>7.5.b</td>
+<td>affiliationIdentifierScheme</td>
+<td><code>..affiliation.affiliation_identifier_scheme</code></td>
+<td>e.g., <code>ROR</code></td>
+</tr>
+<tr>
+<td>7.5.c</td>
+<td>schemeURI</td>
+<td><code>..affiliation.scheme_uri</code></td>
+<td>e.g., <code>https://ror.org/</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Date</td>
+<td><code>metadata.models.Schema.updated</code> and <code>..published</code></td>
+<td></td>
+</tr>
+<tr>
+<td>8.a</td>
+<td>dateType</td>
+<td>constant <code>Updated</code> and <code>Issued</code></td>
+<td>the used value corresponds to <code>Date</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Language</td>
+<td><code>.core.settings.daiquiri.SITE_LANGUAGE</code></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>ResourceType</td>
+<td>constant <code>Database table</code> or <code>Database schema</code></td>
+<td></td>
+</tr>
+<tr>
+<td>10.a</td>
+<td>resourceTypeGeneral</td>
+<td>constant <code>Dataset</code></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>alternateIdentifier</td>
+<td><code>DataciteSchemaSerializer.get_alternate_identifiers</code></td>
+<td>abs. url to the metadata of the Table/Schema created on the fly</td>
+</tr>
+<tr>
+<td>11.a</td>
+<td>alternateIdentifierType</td>
+<td>constant <code>URL</code></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>RelatedIdentifer</td>
+<td><code>metadata.models.Schema.related_identifier</code></td>
+<td>JSON Field</td>
+</tr>
+<tr>
+<td>12.a</td>
+<td>relatedIdentifierType</td>
+<td><code>..related_identifier.related_identifer_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td>12.b</td>
+<td>relationType</td>
+<td><code>..related_identifier.relation_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Size</td>
+<td><code>DataciteSchemaSerializer.get_alternate_identifiers</code></td>
+<td>for schemas: <code>n tables</code>, for tables:  <code>&lt;size&gt;n columns&lt;/size&gt;&lt;size&gt;m rows&lt;/size&gt;</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Format</td>
+<td><code>query.settings.QUERY_DOWNLOAD_FORMATS.content_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Version</td>
+<td>supposed to be at <code>metadata.models.Schema.version</code></td>
+<td>Not implemented in metadata. Always empty.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Rights</td>
+<td><code>DataciteSchemaSerializer.license_label</code></td>
+<td>created from <code>metadata.settings.LICENCE_CHOICES</code> via <code>metadata.models.Schema.license</code></td>
+</tr>
+<tr>
+<td>16.a</td>
+<td>rightURI</td>
+<td><code>DataciteSchemaSerializer.license_url</code></td>
+<td>created from <code>metadata.settings.LICENCE_URL</code> via <code>metadata.models.Schema.license</code></td>
+</tr>
+<tr>
+<td>16.b</td>
+<td>rightsIdentifier</td>
+<td><code>DataciteSchemaSerializer.license_identifiers</code></td>
+<td>created from <code>metadata.settings.LICENCE_IDENTIFIERS</code> via <code>metadata.models.Schema.license</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Description</td>
+<td><code>metadata.models.Schema.long_description</code></td>
+<td>If not present or <code>null</code>, <code>metadata.models.Schema.description</code></td>
+</tr>
+<tr>
+<td>17.a</td>
+<td>descriptionType</td>
+<td>constant <code>Abstract</code></td>
+<td>Additionally, it uses the attribute <code>xml:lang</code> which renders <code>core.settings.daiquiri.SITE_LANGUAGE</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dublin-core">Dublin Core</h2>
+<h2 id="oai-pmh">OAI-PMH</h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../advanced/" class="btn btn-neutral" title="Advanced features"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../advanced/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
