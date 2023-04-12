@@ -210,29 +210,35 @@ python manage.py loaddata users.json
 <pre><code class="language-bash">python manage.py sqlcreate --datalink=&lt;extra-datalink-tablename&gt;
 </code></pre>
 <h4 id="notes-on-datalink">Notes on datalink</h4>
-<p>The extra datalink tables have four purposes:
-1. improving the metadata with non-standard entries
-2. creating relation between objects and groups
-3. simplifying the discovery and access of files
-4. declaring cross-table information for given object</p>
+<p>The extra datalink tables have four purposes:</p>
+<ol>
+<li>improving the metadata with non-standard entries</li>
+<li>creating relation between objects and groups</li>
+<li>simplifying the discovery and access of files</li>
+<li>declaring cross-table information for given object</li>
+</ol>
 <h5 id="improving-the-metadata">Improving the metadata</h5>
 <p>Tables and schemas with a filled doi field will automatically get 3 datalink entries relating the schema/table name to its documentation, related identifier and doi url.
 However not only tables and schema may have DOI, also objects or groups of objects may also diserve DOIs. In this case it is possible to use the extra datalink tables to 
 create this relation: objects/doi.</p>
 <p>The extra datalink tables should be named like: <code>&lt;release_schema&gt;.&lt;object_category&gt;_doi</code>.
-The table should filled as follow:
-1. the <code>ID</code> should be filled with a unique string identifying the object in the database: <code>&lt;object_id&gt;</code>
-2. the <code>access_url</code> should be filled with the <code>&lt;doi_url&gt;</code>
-3. the <code>semantics</code> field should be filled with <code>#doi</code></p>
+The table should filled as follow:</p>
+<ol>
+<li>the <code>ID</code> should be filled with a unique string identifying the object in the database: <code>&lt;object_id&gt;</code></li>
+<li>the <code>access_url</code> should be filled with the <code>&lt;doi_url&gt;</code></li>
+<li>the <code>semantics</code> field should be filled with <code>#doi</code></li>
+</ol>
 <p>This way after <code>rebuild_datalink_table</code> and <code>rebuild_oai_schema</code> the object will have entries in both the global datalink table and the oai schema.
 The first ones can be queried either via <code>ivoa.TAP</code> or <code>ivoa.DATATLINK</code> protocol, the second via the <code>OAI-PMH</code> api.</p>
 <h5 id="creating-relation-between-object-and-groups">Creating relation between object and groups</h5>
 <p>Several objects maybe part of a group of objects, i.e.: fields, observations, survey&hellip; In order to create a discoverable link it is possible to use the extra datalink tables.</p>
 <p>The extra datalink table should names like: <code>&lt;release_schema&gt;.&lt;group_category&gt;_datalink</code>.
-The table should be field as follow:
-1. the <code>ID</code> field should be filled with <code>&lt;group_name&gt;/&lt;group_id&gt;</code>
-2. the <code>access_url</code> should be filled with a url pointing to the linked ressource: datalink url of the object, viewer url of the object or doi url of the object.
-3. the <code>semantics</code> field should be filled with <code>#auxilliary</code></p>
+The table should be field as follow:</p>
+<ol>
+<li>the <code>ID</code> field should be filled with <code>&lt;group_name&gt;/&lt;group_id&gt;</code></li>
+<li>the <code>access_url</code> should be filled with a url pointing to the linked ressource: datalink url of the object, viewer url of the object or doi url of the object.</li>
+<li>the <code>semantics</code> field should be filled with <code>#auxilliary</code></li>
+</ol>
 <p>This way after <code>rebuild_datalink_table</code> and <code>rebuild_oai_schema</code> the groups will have entries in both the global datalink table and the oai schema.
 The first ones can be queried either via <code>ivoa.TAP</code> or <code>ivoa.DATATLINK</code> protocol, the second via the <code>OAI-PMH</code> api.</p>
 <p>Notes that a OAI Set with the group name is automatically created in the OAI schema, if the <code>ID</code> is build like <code>&lt;group_name&gt;/&lt;group_id&gt;</code>.</p>
@@ -240,12 +246,14 @@ The first ones can be queried either via <code>ivoa.TAP</code> or <code>ivoa.DAT
 <p>It is very frequent to not only provide table-data but also data in form of downloadable files. It is natural to link these downloadable files to a specific object.
 In this case datalink is naturally useful:</p>
 <p>The extra datalink table should be named like: <code>&lt;release_schema&gt;.&lt;object_categoty&gt;_files</code>.
-The table should be filled as follow:
-1. the <code>ID</code> field should be filled with <code>&lt;object_id&gt;</code>
-2. the <code>access_url</code> should be filled with the downloadable url of the file
-3. the <code>semantics</code> should be filled with the relevant value, i.e.: https://www.ivoa.net/rdf/datalink/core/2022-01-27/datalink.html
-4. the <code>content_type</code> should be filled with the relevant value: i.e.: http://www.iana.org/assignments/media-types/media-types.xhtml
-5. the <code>content_size</code> should be filled with the size of the file in bytes.</p>
+The table should be filled as follow:</p>
+<ol>
+<li>the <code>ID</code> field should be filled with <code>&lt;object_id&gt;</code></li>
+<li>the <code>access_url</code> should be filled with the downloadable url of the file</li>
+<li>the <code>semantics</code> should be filled with the relevant value, i.e.: https://www.ivoa.net/rdf/datalink/core/2022-01-27/datalink.html</li>
+<li>the <code>content_type</code> should be filled with the relevant value: i.e.: http://www.iana.org/assignments/media-types/media-types.xhtml</li>
+<li>the <code>content_size</code> should be filled with the size of the file in bytes.</li>
+</ol>
 <p>This way after <code>rebuild_datalink_table</code> and the object will have entries linking to the download links of related files in the global datalink table, queriable either via <code>ivoa.TAP</code> or <code>ivoa.DATALINK</code> protocol.</p>
 <h5 id="declaring-cross-tables-information-for-given-objects">Declaring cross-tables information for given objects</h5>
 <p>Usually it may be relevant to split the information on object over sevral tables. Especially if the object somehow differ from nature and do not hold information in all tables.
@@ -253,10 +261,12 @@ Typically light sources in the sky may be either stellar objects, galaxies, &hel
 <p>In this case it is usefull to provide in the main table flags to declare the existance of specific information in an annex table. Typically <code>stellar_flag</code>, <code>galaxy_flag</code>&hellip; these flags can be queried via TAP and convinienty helps the user to find his/her way through the database.</p>
 <p>However, this still requires a knowledge about the naming and the existance of these flags. This is not sufficient for blind discovery. In order to allow user to blindly discover further specific information in annex tables, the extra datalink tables can be used:</p>
 <p>The extra datalink table should named like: <code>&lt;release_schema&gt;.&lt;object_category&gt;_annex</code>
-The table should be filled as follow:
-1. the <code>ID</code> should be filled with the unique string identifying the object in the database: <code>&lt;object _id&gt;</code>
-2. the <code>access_url</code> should be filled with the <code>&lt;doi_url&gt;</code> of the annex table, or its datalink url
-3. the <code>semantics</code> field should be filled with <code>#auxilliary</code></p>
+The table should be filled as follow:</p>
+<ol>
+<li>the <code>ID</code> should be filled with the unique string identifying the object in the database: <code>&lt;object _id&gt;</code></li>
+<li>the <code>access_url</code> should be filled with the <code>&lt;doi_url&gt;</code> of the annex table, or its datalink url</li>
+<li>the <code>semantics</code> field should be filled with <code>#auxilliary</code></li>
+</ol>
 <p>This way after <code>rebuild_datalink_table</code> the object will have blindly discoverable auxilliary information, that can be queried via TAP. The name of the table where the information can be found is present in the <code>access_url</code> and the <code>value</code> to query is the <code>ID</code> value.</p>
 <p>Notes: for a large number of objects, this method must not be employed because the datalink table may become much to large and dynamic datalink feature (not yet implemented) should be used instead.</p>
               
