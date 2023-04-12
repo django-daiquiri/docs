@@ -156,6 +156,7 @@ python manage.py sqlcreate --datalink=<extra-datalink-tablename>
 #### Notes on datalink
 
 The extra datalink tables have four purposes:
+
 1. improving the metadata with non-standard entries
 2. creating relation between objects and groups
 3. simplifying the discovery and access of files
@@ -169,6 +170,7 @@ create this relation: objects/doi.
 
 The extra datalink tables should be named like: `<release_schema>.<object_category>_doi`.
 The table should filled as follow:
+
 1. the `ID` should be filled with a unique string identifying the object in the database: `<object_id>`
 2. the `access_url` should be filled with the `<doi_url>`
 3. the `semantics` field should be filled with `#doi`
@@ -182,6 +184,7 @@ Several objects maybe part of a group of objects, i.e.: fields, observations, su
 
 The extra datalink table should names like: `<release_schema>.<group_category>_datalink`.
 The table should be field as follow:
+
 1. the `ID` field should be filled with `<group_name>/<group_id>`
 2. the `access_url` should be filled with a url pointing to the linked ressource: datalink url of the object, viewer url of the object or doi url of the object.
 3. the `semantics` field should be filled with `#auxilliary`
@@ -198,6 +201,7 @@ In this case datalink is naturally useful:
 
 The extra datalink table should be named like: `<release_schema>.<object_categoty>_files`.
 The table should be filled as follow:
+
 1. the `ID` field should be filled with `<object_id>`
 2. the `access_url` should be filled with the downloadable url of the file
 3. the `semantics` should be filled with the relevant value, i.e.: https://www.ivoa.net/rdf/datalink/core/2022-01-27/datalink.html
@@ -217,6 +221,7 @@ However, this still requires a knowledge about the naming and the existance of t
 
 The extra datalink table should named like: `<release_schema>.<object_category>_annex`
 The table should be filled as follow:
+
 1. the `ID` should be filled with the unique string identifying the object in the database: `<object _id>`
 2. the `access_url` should be filled with the `<doi_url>` of the annex table, or its datalink url
 3. the `semantics` field should be filled with `#auxilliary`
