@@ -229,3 +229,72 @@ The table should be filled as follow:
 This way after `rebuild_datalink_table` the object will have blindly discoverable auxilliary information, that can be queried via TAP. The name of the table where the information can be found is present in the `access_url` and the `value` to query is the `ID` value.
 
 Notes: for a large number of objects, this method must not be employed because the datalink table may become much to large and dynamic datalink feature (not yet implemented) should be used instead.
+
+# Metadata trigerring features
+
+
+## ucd
+
+### meta.ref
+
+Declares a column to be a reference. In the results tap of the query, this column will be rendered as a link toward the custom resolver (`resolver.py`).
+The value of the column will be passed to the custom resolver to allow value specific rendering.
+
+### meta.main
+
+Declares a column as MAIN. This metadata identify the given column as a major contribution to the information of the table, this will be used by various
+daiquiri services to present information: conesearch and default viewer.
+
+#### Conesearch
+
+The VO Conesearch service accepts to select either the entire tables dataset, a reduced sub-set, or just identifer and position information. The reduced sub-set is defined via the metadata `meta.main`.
+
+#### Default viewer
+
+In the default viewer, in case a table is provided as additional information in the datalink entries of a given object, a query on the columns marked as `meta.main` will be submitted.
+
+### meta.ID
+
+This declares a column to be the datalink ID of the table. In combinaison with `meta.ref` and `meta.main` the column link will directly to the datalink viewer.
+
+## datatype and arraysize
+
+supported types:
+
+* char
+* boolean
+* short
+* int
+* long
+* float
+* double
+* spoint (ADQL)
+
+supported array types:
+
+* short
+* int
+* long
+* float
+* double
+* boolean
+
+### array of known dimension
+
+For array of known dimension the metadata should be:
+```
+datatype: <type>[]
+arraysize: <size>
+```
+
+### array of unknown dimension
+
+For array of unknown dimension the metadata should be:
+```
+datatype: <type>[]
+arraysize: None (null)
+```
+
+### Notes on Postgres array storage
+
+On postgres side array should be stored as `ARRAY` of type `_<type>`.
