@@ -257,6 +257,14 @@ In the default viewer, in case a table is provided as additional information in 
 
 This declares a column to be the datalink ID of the table. In combinaison with `meta.ref` and `meta.main` the column link will directly to the datalink viewer.
 
+### meta.ref;meta.file
+
+This declares a column to be the path to a FILE, it will be rendered as an URL and redirects to a download.
+
+### meta.ref;meta.image
+
+This declare a column to be the path to a PREVIEW, it will be rendered as an URL and redirects to a front-view of the image with a download button.
+
 ## datatype and arraysize
 
 supported types:
