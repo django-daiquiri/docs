@@ -253,7 +253,7 @@ The VO Conesearch service accepts to select either the entire tables dataset, a 
 
 In the default viewer, in case a table is provided as additional information in the datalink entries of a given object, a query on the columns marked as `meta.main` will be submitted.
 
-### meta.ID
+### meta.id
 
 This declares a column to be the datalink ID of the table. In combinaison with `meta.ref` and `meta.main` the column link will directly to the datalink viewer.
 
