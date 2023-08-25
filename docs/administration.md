@@ -178,6 +178,19 @@ The table should filled as follow:
 This way after `rebuild_datalink_table` and `rebuild_oai_schema` the object will have entries in both the global datalink table and the oai schema.
 The first ones can be queried either via `ivoa.TAP` or `ivoa.DATATLINK` protocol, the second via the `OAI-PMH` api.
 
+The following table lists additional datalink entries that can be used for every objects to enrich the metadata for `OAI-PMH`
+
+| __semantic__     | __OAI-PMH entry__                                                                                               |
+|------------------|-----------------------------------------------------------------------------------------------------------------|
+| #this            | `<relatedIdentifier relatedIdentifierType="URL" relationType="IsDescribedBy">access_url</relatedIdentifier>`    |
+| #preview         | `<alternateIdentifier alternateIdentifierType="DOI Landing Page">access_url</alternateIdentifier>`              |
+| #preview-image   | `<relatedIdentifier relatedIdentifierType="URL" relationType="IsSupplementedBy">access_url</relatedIdentifier>` |
+| #detached-header | `<relatedIdentifier relatedIdentifierType="URL" relationType="IsSupplementedBy">access_url</relatedIdentifier>` |
+| #documentation   | `<relatedIdentifier relatedIdentifierType="URL" relationType="IsDocumentedBy">access_url</relatedIdentifier>`   |
+| #progenitor      | `<relatedIdentifier relatedIdentifierType="URL" relationType="IsDerivedFrom">access_url</relatedIdentifier>`    |
+| #auxiliary       | `<relatedIdentifier relatedIdentifierType="URL" relationType="References">access_url</relatedIdentifier>`       |
+
+
 ##### Creating relation between object and groups
 
 Several objects maybe part of a group of objects, i.e.: fields, observations, survey... In order to create a discoverable link it is possible to use the extra datalink tables.
