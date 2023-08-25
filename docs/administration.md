@@ -190,6 +190,16 @@ The following table lists additional datalink entries that can be used for every
 | #progenitor      | `<relatedIdentifier relatedIdentifierType="URL" relationType="IsDerivedFrom">access_url</relatedIdentifier>`    |
 | #auxiliary       | `<relatedIdentifier relatedIdentifierType="URL" relationType="References">access_url</relatedIdentifier>`       |
 
+The examples for the use of the semantics are 
+| __semantic__     | __Used for...__                                                                                                 |
+|------------------|-----------------------------------------------------------------------------------------------------------------|
+| #this            | fits, hdf5, csv files, and resources holding the data                                                           |
+| #preview         | viewers and doi-landing pages                                                                                   |
+| #preview-image   | png, jpeg holding the represantation of the data                                                                |
+| #detached-header | fits header, e.g., from previous releases                                                                       |
+| #documentation   | related documentation pages                                                                                     |
+
+More info on semantics: https://www.ivoa.net/rdf/datalink/core
 
 ##### Creating relation between object and groups
 
