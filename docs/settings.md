@@ -12,6 +12,7 @@ Additional settings, which concern only a single Daiquiri module are defined in 
 
 * [daiquiri.auth.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/auth/settings.py)
 * [daiquiri.conesearch.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/conesearch/settings.py)
+* [daiquiri.contact.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/contact/settings.py)
 * [daiquiri.cutout.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/cutout/settings.py)
 * [daiquiri.files.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/files/settings.py)
 * [daiquiri.metadata.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/metadata/settings.py)
@@ -598,7 +599,26 @@ Sets the adapter class to be used by the cone search api. The adapter class enca
 
 Default: `False`
 
-Designates if cone searches can be done by by anonymus users.
+Designates if cone searches can be done by by anonymous users.
+
+---
+
+daiquiri.contact.settings
+------------------------
+
+#### ANNOUNCEMENT_MESSAGE_FILTER
+
+Default: `daiquiri.contact.filters.DefaultMessageFilter`
+
+Sets the filter class to be used by the announcement messages.
+The filter class encapsulates all filter methods used to show announcements to a filtered set of users.
+Custom filter class must enherit from `daiquiri.contact.filters.DefaultMessageFilter`.
+All custom filter methods are required to have a single parameter `request`.
+
+The announcement messages can be added in the Django admin site. In order to show
+the messages on a webpage, one has to load the announcement tags in the template
+`{% load announcement_tags %}` and then place `{% show_announcements %}` where
+the messages should be shown.
 
 ---
 
@@ -637,6 +657,30 @@ Sets the absolute base path of the files served by the files module in the local
 Default: `None`
 
 Sets the absolute URL for this Daiquiri app to be prepended to file references when downloading query results. This is done for columns with the `meta.ref;meta.file`, `meta.ref;meta.image` or `meta.ref;meta.note` UCD. Should be set in `.env`.
+
+---
+
+#### FILES_DOCS_REL_PATH
+
+Default: `None`
+
+Sets the relative file path to the documentation files on which the file search will be executed.
+The path is given relative to the `FILES_BASE_PATH`.
+
+In order to use the search function for the files, one has to include the search field
+into the template.
+```
+{% include 'files/search-input.html' %}
+```
+The layout of the results page can be changed by overloading the template `files/search-results.html` in the daiquri app.
+
+---
+
+#### FILES_SEARCH_RESULTS_PER_PAGE
+
+Default: `5`
+
+Sets the number of search results per page.
 
 ---
 
