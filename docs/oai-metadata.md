@@ -1,23 +1,17 @@
 
 ### Overview
 
-The API of the Daiquiri OAI supports the following metadata schemas:
-
- - [Datacite](https://schema.datacite.org/meta/kernel-4.4/)
- - [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dces/)
- - [OAI-PMH](link)
+In the following, we show the API of the Daiquiri OAI for the [Datacite](https://schema.datacite.org/meta/kernel-4.4/) metadata schema.
 
 The entry values for OAI is generated from the four different resources:
 
  - Metadata model `metadata.models`
  - SETTINGS
  - constant values, hard encoded in the oai renderer
- - Datalink tables ( Not implemented in default daiquiri and is specific for every app )
-
-## DataCite 
+ - Datalink (Tables and dynamic datalink),which is not implemented in the default daiquiri and is specific for every app.
 
 Note: Since in most cases `metadata.models.Schema` and `metadata.models.Table` 
-have the same attributes, the source given for a Schema is also valid for a Tables, 
+have the same attributes, the source given for a Schema is also valid for the Tables, 
 unless otherwise noted.
 
 | ID    | DataCite-Property         | Source                            | Notes
@@ -74,11 +68,5 @@ unless otherwise noted.
 | 16.b  | rightsIdentifier          | `DataciteSchemaSerializer.license_identifiers`   | created from `metadata.settings.LICENCE_IDENTIFIERS` via `metadata.models.Schema.license` 
 | 17    | Description               | `metadata.models.Schema.long_description` | If not present or `null`, `metadata.models.Schema.description`
 | 17.a  | descriptionType           | constant `Abstract`                       | Additionally, it uses the attribute `xml:lang` which renders `core.settings.daiquiri.SITE_LANGUAGE`
-
-
-## Dublin Core 
-
-
-## OAI-PMH
 
 
