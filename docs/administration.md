@@ -116,25 +116,31 @@ python manage.py dumpdata auth.group > groups.json
 
 # extract users
 python manage.py dumpdata auth.user daiquiri_auth.profile account.emailaddress > users.json
+
+# extract announcement messages
+python manage.py dumpdata daiquiri_contact.annoucementmessage > announcement_messages.json
 ```
 
 #### Load Fixtures
 
 ```bash
-# extract examples
+# load examples
 python manage.py loaddata examples.json
 
-# extract files
+# load files
 python manage.py loaddata directories.json
 
-# extract functions
+# load functions
 python manage.py loaddata functions.json
 
-# extract groups
+# load groups
 python manage.py loaddata groups.json
 
-# extract users
+# load users
 python manage.py loaddata users.json
+
+# load announcement messages
+python manage.py loaddata announcement_messages.json
 ```
 
 #### Setup the scientific database
