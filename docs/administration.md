@@ -115,7 +115,7 @@ python manage.py dumpdata daiquiri_metadata.function > functions.json
 python manage.py dumpdata auth.group > groups.json
 
 # extract users
-python manage.py dumpdata auth.user daiquiri_auth.profile account.emailaddress > users.json
+python manage.py dumpdata auth.user daiquiri_auth.profile account.emailaddress socialaccount > users.json
 
 # extract announcement messages
 python manage.py dumpdata daiquiri_contact.annoucementmessage > announcement_messages.json
