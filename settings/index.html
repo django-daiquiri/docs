@@ -1,65 +1,59 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Settings - Daiquiri documentation</title>
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  <link href="../style.css" rel="stylesheet" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Settings";
-    var mkdocs_page_input_path = "settings.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Settings - Daiquiri documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Settings";
+        var mkdocs_page_input_path = "settings.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Daiquiri documentation</a>
-        <div role="search">
+          <a href=".." class="icon icon-home"> Daiquiri documentation
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Settings</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Settings</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#daiquiricoresettingsdjango">daiquiri.core.settings.django</a>
         <ul>
@@ -197,6 +191,12 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#daiquiricontactsettings">daiquiri.contact.settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#announcement_message_filter">ANNOUNCEMENT_MESSAGE_FILTER</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#daiquiricutoutsettings">daiquiri.cutout.settings</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#cutout_adapter">CUTOUT_ADAPTER</a>
@@ -210,6 +210,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#files_base_path">FILES_BASE_PATH</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#files_base_url">FILES_BASE_URL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#files_docs_rel_path">FILES_DOCS_REL_PATH</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#files_search_results_per_page">FILES_SEARCH_RESULTS_PER_PAGE</a>
     </li>
         </ul>
     </li>
@@ -316,55 +320,46 @@
         </ul>
     </li>
     </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../administration/">Administration</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../management/">Management</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced features</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../oai-metadata/">OAI Metadata</a>
-                    </li>
-                </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../administration/">Administration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../management/">Management</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced features</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../oai-metadata/">OAI Metadata</a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Daiquiri documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Daiquiri documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Settings</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Settings</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
-  
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="settings">Settings</h1>
 <p>A Daiquiri application can be customised using various settings. Since Daiquiri is based on Django, we use its <a href="https://docs.djangoproject.com/en/2.1/topics/settings/">build-in settings system</a>. Almost every setting has a default value, which is set in the Daiquiri library. The core settings are defined in the <code>daiquiri.core.settings</code> module:</p>
@@ -378,6 +373,7 @@
 <ul>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/auth/settings.py">daiquiri.auth.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/conesearch/settings.py">daiquiri.conesearch.settings</a></li>
+<li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/contact/settings.py">daiquiri.contact.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/cutout/settings.py">daiquiri.cutout.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/files/settings.py">daiquiri.files.settings</a></li>
 <li><a href="https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/metadata/settings.py">daiquiri.metadata.settings</a></li>
@@ -764,7 +760,19 @@
 <hr />
 <h4 id="conesearch_anonymous">CONESEARCH_ANONYMOUS</h4>
 <p>Default: <code>False</code></p>
-<p>Designates if cone searches can be done by by anonymus users.</p>
+<p>Designates if cone searches can be done by by anonymous users.</p>
+<hr />
+<h2 id="daiquiricontactsettings">daiquiri.contact.settings</h2>
+<h4 id="announcement_message_filter">ANNOUNCEMENT_MESSAGE_FILTER</h4>
+<p>Default: <code>daiquiri.contact.filters.DefaultMessageFilter</code></p>
+<p>Sets the filter class to be used by the announcement messages.
+The filter class encapsulates all filter methods used to show announcements to a filtered set of users.
+Custom filter class must enherit from <code>daiquiri.contact.filters.DefaultMessageFilter</code>.
+All custom filter methods are required to have a single parameter <code>request</code>.</p>
+<p>The announcement messages can be added in the Django admin site. In order to show
+the messages on a webpage, one has to load the announcement tags in the template
+<code>{% load announcement_tags %}</code> and then place <code>{% show_announcements %}</code> where
+the messages should be shown.</p>
 <hr />
 <h2 id="daiquiricutoutsettings">daiquiri.cutout.settings</h2>
 <h4 id="cutout_adapter">CUTOUT_ADAPTER</h4>
@@ -783,6 +791,20 @@
 <h4 id="files_base_url">FILES_BASE_URL</h4>
 <p>Default: <code>None</code></p>
 <p>Sets the absolute URL for this Daiquiri app to be prepended to file references when downloading query results. This is done for columns with the <code>meta.ref;meta.file</code>, <code>meta.ref;meta.image</code> or <code>meta.ref;meta.note</code> UCD. Should be set in <code>.env</code>.</p>
+<hr />
+<h4 id="files_docs_rel_path">FILES_DOCS_REL_PATH</h4>
+<p>Default: <code>None</code></p>
+<p>Sets the relative file path to the documentation files on which the file search will be executed.
+The path is given relative to the <code>FILES_BASE_PATH</code>.</p>
+<p>In order to use the search function for the files, one has to include the search field
+into the template.</p>
+<pre><code>{% include 'files/search-input.html' %}
+</code></pre>
+<p>The layout of the results page can be changed by overloading the template <code>files/search-results.html</code> in the daiquri app.</p>
+<hr />
+<h4 id="files_search_results_per_page">FILES_SEARCH_RESULTS_PER_PAGE</h4>
+<p>Default: <code>5</code></p>
+<p>Sets the number of search results per page.</p>
 <hr />
 <h2 id="daiquirimeetingssettings">daiquiri.meetings.settings</h2>
 <h4 id="meetings_contribution_types">MEETINGS_CONTRIBUTION_TYPES</h4>
@@ -1171,29 +1193,21 @@ Each drop down is represented by a dictionary where:</p>
 <p>Sets the base url of the WordPress instance.</p>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../deployment/" class="btn btn-neutral float-left" title="Deployment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../administration/" class="btn btn-neutral float-right" title="Administration">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../deployment/" class="btn btn-neutral" title="Deployment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -1201,24 +1215,26 @@ Each drop down is represented by a dictionary where:</p>
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../deployment/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../administration/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../deployment/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../administration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

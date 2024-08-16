@@ -1,126 +1,109 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Advanced features - Daiquiri documentation</title>
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  <link href="../style.css" rel="stylesheet" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Advanced features";
-    var mkdocs_page_input_path = "advanced.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Advanced features - Daiquiri documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Advanced features";
+        var mkdocs_page_input_path = "advanced.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Daiquiri documentation</a>
-        <div role="search">
+          <a href=".." class="icon icon-home"> Daiquiri documentation
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../administration/">Administration</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../management/">Management</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Advanced features</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../administration/">Administration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../management/">Management</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Advanced features</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#apache2-and-mod_wsgi">Apache2 and mod_wsgi</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#wagtail-integration">Wagtail integration</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#wordpress-integration">WordPress integration</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#double-reverse-proxy-setup">Double reverse proxy setup</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#daiquiri-client">Daiquiri client</a>
     </li>
     </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../oai-metadata/">OAI Metadata</a>
-                    </li>
-                </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../oai-metadata/">OAI Metadata</a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Daiquiri documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Daiquiri documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Advanced features</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Advanced features</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
-  
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="advanced-features">Advanced features</h1>
 <h2 id="apache2-and-mod_wsgi">Apache2 and mod_wsgi</h2>
@@ -275,62 +258,6 @@ class Migration(migrations.Migration):
         migrations.RunPython(data_migration),
     ]
 </code></pre>
-<h2 id="wordpress-integration">WordPress integration</h2>
-<p>WordPress can be used as CMS for the documentation and/or the presentation of the project as well. Since WordPress uses a separate technology stack, its integration is much more complicated. For new projects we suggest to use Wagtail. WordPress is mainly used for existing Daiquiri sites.</p>
-<p>For this documentation, we assume WordPress will be installed <code>/opt/wordpress</code>. First, you need to install PHP:</p>
-<pre><code class="language-bash"># Debian 10
-sudo apt-get install php7.3 php7.3-mysql php-pear
-pear install HTTP_Request2
-
-# Ubuntu 18.04
-sudo apt-get install php7.2 php7.2-mysql php-pear
-pear install HTTP_Request2
-</code></pre>
-<p>The code needs to be downloaded from [WordPress.org] and extracted:</p>
-<pre><code class="language-bash"># as root
-cd /opt
-wget https://wordpress.org/latest.tar.gz
-tar xzvf latest.tar.gz
-</code></pre>
-<p>The the [Daiquiri theme] and the [Daiquiri plugin] need to be installed:</p>
-<pre><code class="language-bash"># as root
-cd /opt/wordpress/wp-content/themes
-git clone https://github.com/django-daiquiri/wordpress-theme daiquiri
-
-cd /opt/wordpress/wp-content/plugins
-git clone https://github.com/django-daiquiri/wordpress-plugin daiquiri
-</code></pre>
-<p>The WordPress directory need to be owned by the Apache2 user:</p>
-<pre><code class="language-bash">chown -R www-data:www-data /opt/wordpress  # Debian/Ubuntu
-chown -R apache:apache /opt/wordpress      # CentOS
-</code></pre>
-<p>Then, create the <code>wp-config.php</code> file</p>
-<pre><code class="language-bash">cp /opt/wordpress/wp-config-sample.php /opt/wordpress/wp-config.php
-</code></pre>
-<p>and edit the file for the database connection for WordPress (not the same as for Daiquiri, needs MySQL or MariaDB):</p>
-<pre><code>define( 'DB_NAME', 'database_name_here' );
-
-define( 'DB_USER', 'username_here' );
-
-define( 'DB_PASSWORD', 'password_here' );
-
-define( 'DB_HOST', 'localhost' );
-</code></pre>
-<p>In addition, update the salt values and add the following at the end of the file, but before <code>That's all, stop editing!</code>:</p>
-<pre><code>define('DAIQUIRI_DEBUG', False);
-define('DAIQUIRI_URL', 'https://&lt;the url your daiquiri app&gt;');
-
-define('COOKIEPATH','/');
-define('SITECOOKIEPATH',COOKIEPATH);
-define('ADMIN_COOKIE_PATH',COOKIEPATH);
-define('PLUGINS_COOKIE_PATH',COOKIEPATH);
-</code></pre>
-<p>The go to http://<your url>/cms/ and follow the WordPress instalation. You can use a username which you already registered in Daiquiri. After the installation log in into the WordPress backend. Then:</p>
-<ul>
-<li>Activate the Daiquiri theme under <code>Appearance -&gt; Themes</code></li>
-<li>Activate the Daiquiri plugin under <code>Appearance -&gt; Plugins</code></li>
-</ul>
-<p>Logout of WordPress. Login to Daiquiri. You should now be logged in into WordPress as well. The syncronization of WordPress and Daiquiri users is done using <a href="https://wp-cli.org/">wp-cli</a>. See <a href="/settings/#daiquiriwordpresssettings">settings</a> for more information about using WordPress with Daiquiri.</p>
 <h2 id="double-reverse-proxy-setup">Double reverse proxy setup</h2>
 <p>When running Daiquiri behind two reverse proxy servers, one as generic HTTP proxy as entrypoint to the local network and one to combine Gunicorn and Static assets on one application server, the follow setup can be used:</p>
 <pre><code class="language-bash">Internet -&gt; HTTP proxy (192.168.0.10) -&gt; Application server (192.168.0.20) -&gt; Gunicorn
@@ -492,29 +419,21 @@ for remote_schema in client.metadata.get_schemas(nested=True):
 <p>And execute it in a virtual environment where <code>daiquiri_client</code> is installed.</p>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../management/" class="btn btn-neutral float-left" title="Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../oai-metadata/" class="btn btn-neutral float-right" title="OAI Metadata">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../management/" class="btn btn-neutral" title="Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -522,24 +441,26 @@ for remote_schema in client.metadata.get_schemas(nested=True):
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../management/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../oai-metadata/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../management/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../oai-metadata/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>
