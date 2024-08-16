@@ -170,13 +170,22 @@ and PostgreSQL for the other. For an SQLite3 database
 use `sqlite:///database.sqlite3` to create the database in the app directory.
 For PostgreSQL and peer auth use `postgresql://@/<db>`.
 
+**Note:** The [queryparser](https://github.com/aipescience/queryparser) has
+dropped the active support of MySQL, thus we strongly recommend to use
+PostgreSQL.
+
 In order to use the different database connections, 
 install the corresponding package with `pip`:
 
 ```bash
-pip install psycopg2-binary  # for PostgreSQL
+pip install psycopg[binary]  # for PostgreSQL
 pip install mysqlclient      # for MySQL or MariaDB
 ```
+
+**Note:** For the full ADQL support, it is required to install the
+[pg_sphere](https://github.com/kimakan/pgsphere/tree/aiprdbms16)
+extension on the `data` PostgreSQL database. It is not required for the `default`
+database.
 
 In your virtualenv, you can get the, which you need to perform on your
 database with the `sqlcreate` command:
