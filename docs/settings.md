@@ -1078,7 +1078,14 @@ Default:
         'content_type': 'application/fits',
         'label': 'FITS',
         'help': 'Flexible Image Transport System (FITS) file format.'
-    }
+    },
+    {
+        'key': 'parquet',
+        'extension': 'parquet',
+        'content_type': 'application/parquet',
+        'label': 'Parquet',
+        'help': 'Apache Parquet file format.',
+    },
 ]
 ```
 
@@ -1089,6 +1096,8 @@ Sets the available default download formats. Each format is represented by a dic
 * `content_type` the content type,
 * `label` the text shown in the interface, and
 * `help` a more verbose help text for the format.
+
+**NOTE**: If you want faster `parquet` file generation, get the lastest binary of [`pg2parquet`](https://github.com/exyi/pg2parquet) and put it somewhere covered by your `PATH` variable. This rust-binary is up to 4 times faster as the Python-based `fastparquet` solution that works as a fallback.
 
 ---
 
