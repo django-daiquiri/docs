@@ -123,37 +123,37 @@ quiet a bit</strong></p>
 <ul>
 <li>Clone <code>dq-dev</code> and the default daiquiri-app</li>
 </ul>
-<p><code>bash
-  git clone https://github.com/django-daiquiri/app.git
-  git clone https://github.com/django-daiquiri/dq-dev.git</code></p>
+<pre><code class="language-bash">git clone https://github.com/django-daiquiri/app.git
+git clone https://github.com/django-daiquiri/dq-dev.git
+</code></pre>
 <ul>
 <li>Install <code>dq-dev</code> packages</li>
 </ul>
-<p><code>bash
-  cd dq-dev
-  pip install .</code></p>
+<pre><code class="language-bash">cd dq-dev
+pip install .
+</code></pre>
 <ul>
 <li>Create new profile in <code>dq-dev</code> and then activate it</li>
 </ul>
-<p><code>bash
-  python manage.py -c myapp
-  python manage.py -s myapp</code></p>
+<pre><code class="language-bash">python manage.py -c myapp
+python manage.py -s myapp
+</code></pre>
 <ul>
 <li>Set the absolute path to the default app on your system in <code>dq-dev/usr/profiles/myapp/conf.toml</code></li>
 </ul>
-<p><code>toml
-  [folders_on_host]
-  dq_app = '/path/to/the/default/app'</code></p>
+<pre><code class="language-toml">[folders_on_host]
+dq_app = '/path/to/the/default/app'
+</code></pre>
 <p>The other <code>dq_app</code> variable should remain untouched</p>
-<p><code>toml
-  [docker_volume_mountpoints]
-  dq_app = "/home/dq/app"</code></p>
+<pre><code class="language-toml">[docker_volume_mountpoints]
+dq_app = &quot;/home/dq/app&quot;
+</code></pre>
 <p><em>Important</em>: Make sure that all <code>dq_source</code> variables in <code>conf.toml</code> are commented out.</p>
 <ul>
 <li>Run dq-dev containerization in the dq-dev folder</li>
 </ul>
-<p><code>bash
-  python manage.py  -r</code></p>
+<pre><code class="language-bash">python manage.py  -r
+</code></pre>
 <ul>
 <li>Wait until the containers are up and running. Then you can access the default app at <code>http://localhost:9280</code></li>
 </ul>
