@@ -1,6 +1,52 @@
 Installation
 ============
 
+
+* The installation procedure below might be outdated and will be updated soon. Currently,
+we are using our containerization setup 'dq-dev' which simplifies things 
+quiet a bit.
+
+Installation with `dq-dev`
+---------------------------
+
+1. Clone `dq-dev` and the default daiquiri-app
+```bash
+git clone https://github.com/django-daiquiri/app.git
+git clone https://github.com/django-daiquiri/dq-dev.git
+```
+2. Install `dq-dev` packages
+```bash
+cd dq-dev
+pip install .
+```
+3. Create new profile in `dq-dev` and then activate it
+```bash
+python manage.py -c myapp
+python manage.py -s myapp
+```
+4. Set the absolute path to the default app on your system in `dq-dev/usr/profiles/myapp/conf.toml`
+```toml
+[folders_on_host]
+dq_app = '/path/to/the/default/app'
+```
+The other `dq_app` variable should remain untouched
+```toml
+[docker_volume_mountpoints]
+dq_app = "/home/dq/app"
+```
+*Important*: Make sure that all `dq_source` variables in `conf.toml` are commented out.
+5. Run dq-dev containerization in the dq-dev folder
+```
+python manage.py  -r
+```
+6. Wait until the containers are up and running. Then you can access the default app at 'http://localhost:9280'
+
+
+If you run into any problems, don't hesitate to write an issue for `dq-dev` (https://github.com/django-daiquiri/dq-dev/issues)
+
+Outdated installation notes
+----------------------------
+
 A usual installation of Daiquiri contains of a set of different components:
 
 1. A **directory** holding all the settings and customisations, custom to your

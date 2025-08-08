@@ -42,16 +42,15 @@ Daiquiri enables collaboration and institutions to create customized websites, c
 
 Daiquiri is based on [Django](https://www.djangoproject.com/) and is written in Python. The following requirements are mandatory:
 
-* Python `>=3.5`
-* PostgreSQL `>=10`, MariaDB `>=10.1` or MySQL `>=5.6`
-* RabbitMQ `>=3.5` (for asyncronous tasks like the query queue)
+* Python `>=3.9`
+* PostgreSQL `>=13` (MariaDB `>=10.1` or MySQL `>=5.6` not actively supported anymore)
+* RabbitMQ `>=3.8` (for asyncronous tasks like the query queue)
 
-For demonstration, development or testing purposes, Daiquiri can be installed on Linux, macOS, or even Windows. If you, however, intent to set up a production enviroment, serving Daiquiri over a Network or the Internet, we strongly suggest that you use a recent Linux distribution, namely:
+For demonstration, development or testing purposes, Daiquiri can be installed on Linux, macOS, or even Windows. If you, however, intent to set up a production environment, serving Daiquiri over a Network or the Internet, we strongly suggest that you use a recent Linux distribution, namely:
 
-* Debian 10
-* Ubuntu 18.04
-* CentOS 7
-* *CentOS 8 (there are still some packages missing as of October 2019)*
+* Debian 12
+* Ubuntu 20.04
+
 
 ## Usage
 
