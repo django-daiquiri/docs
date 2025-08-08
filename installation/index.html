@@ -47,6 +47,10 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation-with-dq-dev">Installation with dq-dev</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outdated-installation-notes">Outdated installation notes</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#obtaining-the-app-directory">Obtaining the app directory</a>
@@ -112,6 +116,49 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="installation">Installation</h1>
+<ul>
+<li>The installation procedure below might be outdated and will be updated soon. Currently,
+we are using our containerization setup &lsquo;dq-dev&rsquo; which simplifies things 
+quiet a bit.</li>
+</ul>
+<h2 id="installation-with-dq-dev">Installation with <code>dq-dev</code></h2>
+<ol>
+<li>Clone <code>dq-dev</code> and the default daiquiri-app</li>
+</ol>
+<pre><code class="language-bash">git clone https://github.com/django-daiquiri/app.git
+git clone https://github.com/django-daiquiri/dq-dev.git
+</code></pre>
+<ol>
+<li>Install <code>dq-dev</code> packages</li>
+</ol>
+<pre><code class="language-bash">cd dq-dev
+pip install .
+</code></pre>
+<ol>
+<li>Create new profile in <code>dq-dev</code> and then activate it</li>
+</ol>
+<pre><code class="language-bash">python manage.py -c myapp
+python manage.py -s myapp
+</code></pre>
+<ol>
+<li>Set the absolute path to the default app on your system in <code>dq-dev/usr/profiles/myapp/conf.toml</code></li>
+</ol>
+<pre><code class="language-toml">[folders_on_host]
+dq_app = '/path/to/the/default/app'
+</code></pre>
+<p>The other <code>dq_app</code> variable should remain untouched</p>
+<pre><code class="language-toml">[docker_volume_mountpoints]
+dq_app = &quot;/home/dq/app&quot;
+</code></pre>
+<p><em>Important</em>: Make sure that all <code>dq_source</code> variables in <code>conf.toml</code> are commented out.
+5. Run dq-dev containerization in the dq-dev folder</p>
+<pre><code>python manage.py  -r
+</code></pre>
+<ol>
+<li>Wait until the containers are up and running. Then you can access the default app at &lsquo;http://localhost:9280&rsquo;</li>
+</ol>
+<p>If you run into any problems, don&rsquo;t hesitate to write an issue for <code>dq-dev</code> (https://github.com/django-daiquiri/dq-dev/issues)</p>
+<h2 id="outdated-installation-notes">Outdated installation notes</h2>
 <p>A usual installation of Daiquiri contains of a set of different components:</p>
 <ol>
 <li>A <strong>directory</strong> holding all the settings and customisations, custom to your
