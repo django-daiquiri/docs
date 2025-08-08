@@ -1082,7 +1082,14 @@ Each drop down is represented by a dictionary where:</p>
         'content_type': 'application/fits',
         'label': 'FITS',
         'help': 'Flexible Image Transport System (FITS) file format.'
-    }
+    },
+    {
+        'key': 'parquet',
+        'extension': 'parquet',
+        'content_type': 'application/parquet',
+        'label': 'Parquet',
+        'help': 'Apache Parquet file format.',
+    },
 ]
 </code></pre>
 <p>Sets the available default download formats. Each format is represented by a dictionary where:</p>
@@ -1093,6 +1100,7 @@ Each drop down is represented by a dictionary where:</p>
 <li><code>label</code> the text shown in the interface, and</li>
 <li><code>help</code> a more verbose help text for the format.</li>
 </ul>
+<p><strong>NOTE</strong>: If you want faster <code>parquet</code> file generation, get the lastest binary of <a href="https://github.com/exyi/pg2parquet"><code>pg2parquet</code></a> and put it somewhere covered by your <code>PATH</code> variable. This rust-binary is up to 4 times faster as the Python-based <code>fastparquet</code> solution that works as a fallback.</p>
 <hr />
 <h4 id="query_upload">QUERY_UPLOAD</h4>
 <p>Default: <code>True</code></p>
