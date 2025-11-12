@@ -440,17 +440,6 @@ Directory for log files. In development `log` is suitable, in production `/var/l
 
 ---
 
-daiquiri.core.settings.vendor
------------------------------
-
-#### VENDOR_CDN
-
-Default: `False`
-
-Use content delivery networks to host the static vendor assets (js and css files). Using the default of `False` implies that the assets need to be collected using `python manage.py download_vendor_files`.
-
----
-
 daiquiri.archive.settings
 -------------------------
 
@@ -681,84 +670,6 @@ The layout of the results page can be changed by overloading the template `files
 Default: `5`
 
 Sets the number of search results per page.
-
----
-
-daiquiri.meetings.settings
---------------------------
-
-#### MEETINGS_CONTRIBUTION_TYPES
-
-Default:
-
-```python
-[
-    ('talk', _('Talk')),
-    ('poster', _('Poster'))
-]
-```
-
-Sets the types of contributions to be selected by partcipants when registering.
-
----
-
-#### MEETINGS_PAYMENT_CHOICES
-
-Default:
-
-```python
-[
-    ('cash', _('cash')),
-    ('wire', _('wire transfer')),
-]
-```
-
-Sets the different payment choices to be selected by partcipants when registering.
-
----
-
-#### MEETINGS_PARTICIPANT_DETAIL_KEYS
-
-Default: `[]`
-
-Sets additional details to be asked from the participants when registering. An example would be:
-
-```python
-MEETINGS_PARTICIPANT_DETAIL_KEYS = [
-    {
-        'key': 'affiliation',
-        'label': 'Affiliation',
-        'data_type': 'text',
-        'required': True
-    },
-    {
-        'key': 'dinner',
-        'label': 'Conference dinner',
-        'data_type': 'radio',
-        'required': True,
-        'options': [
-            {'id': 'yes', 'label': 'yes'},
-            {'id': 'no', 'label': 'no'}
-        ]
-    }
-]
-```
-
-where:
-
-* `key` is the internal identifier,
-* `label` the text shown in the interface,
-* `datatype` the type of the detail which affects the widget to be used (`'text'`, `'textarea'`, `'select'`, `'radio'`, `'multiselect'`, or `'checkbox'`),
-* `required` whether this detail is required or not, and
-* `options` a list of options for select, radio or checkboxes widgets of the form `[{'id': id, 'label': label}, ...]`.
-
----
-
-#### MEETINGS_ABSTRACT_MAX_LENGTH
-
-Default: `2000`
-
-Sets the maximum lenght of an abstract.
 
 ---
 
@@ -1223,43 +1134,3 @@ where:
 * `viewset` is the ViewSet class handling the requests (neets to enherit from `daiquiri.jobs.viewsets.AsyncJobViewSet`), and
 * `base_name` a basename needed for the integration in the Django REST framework.
 
----
-
-daiquiri.wordpress.settings
----------------------------
-
-#### WORDPRESS_PATH
-
-Default: `'/opt/wordpress'`
-
-Sets the location of the WordPress installation on the local file system.
-
----
-
-#### WORDPRESS_SSH
-
-Default: `None`
-
-Sets the destination for a SSH connection to use with `wp-cli`. Use this setting if WordPress **is not** installed on the same host as Daiquiri. The local `wp-cli` will then connect to the remote system using ssh. An example would be:
-
-```
-WORDPRESS_SSH=example.com:/opt/daiquiri
-```
-
-This option overided `WORDPRESS_PATH`.
-
----
-
-#### WORDPRESS_CLI
-
-Default: `'/opt/wp-cli/wp'`
-
-Sets the location of the `wp-cli` script on the local file system.
-
----
-
-#### WORDPRESS_URL
-
-Default: `'/cms/'`
-
-Sets the base url of the WordPress instance.
