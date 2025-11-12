@@ -1,6 +1,8 @@
 django-daiquiri docs
 ====================
 
+[https://django-daiquiri.github.io/docs/]
+
 Setup
 -----
 

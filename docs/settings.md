@@ -40,7 +40,7 @@ TAP_SCHEMA     | `TAP_SCHEMA`
 TAP_UPLOAD     | `TAP_UPLOAD`
 OAI_SCHEMA     | `OAI_SCHEMA`
 
-In the `.env` file, lists are seperated by comma, e.g. `ADMINS=Anna Admin <admin@example.com>, Manni Manager <manager@example.com>`. Since `SECRET_KEY`, `DATABASE_APP`, and `DATABASE_DATA` have no default value, they need to be set in any case.
+In the `.env` file, lists are separated by comma, e.g. `ADMINS=Anna Admin <admin@example.com>, Manni Manager <manager@example.com>`. Since `SECRET_KEY`, `DATABASE_APP`, and `DATABASE_DATA` have no default value, they need to be set in any case.
 
 In the following all settings, which can be changed from their default values to customize you particular Daiquiri app are described in detail:
 
