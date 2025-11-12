@@ -149,12 +149,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#daiquiricoresettingsvendor">daiquiri.core.settings.vendor</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#vendor_cdn">VENDOR_CDN</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#daiquiriarchivesettings">daiquiri.archive.settings</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#archive_base_path">ARCHIVE_BASE_PATH</a>
@@ -214,18 +208,6 @@
     <li class="toctree-l3"><a class="reference internal" href="#files_docs_rel_path">FILES_DOCS_REL_PATH</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#files_search_results_per_page">FILES_SEARCH_RESULTS_PER_PAGE</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#daiquirimeetingssettings">daiquiri.meetings.settings</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#meetings_contribution_types">MEETINGS_CONTRIBUTION_TYPES</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#meetings_payment_choices">MEETINGS_PAYMENT_CHOICES</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#meetings_participant_detail_keys">MEETINGS_PARTICIPANT_DETAIL_KEYS</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#meetings_abstract_max_length">MEETINGS_ABSTRACT_MAX_LENGTH</a>
     </li>
         </ul>
     </li>
@@ -304,18 +286,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#daiquiriuwssettings">daiquiri.uws.settings</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#uws_resources">UWS_RESOURCES</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#daiquiriwordpresssettings">daiquiri.wordpress.settings</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#wordpress_path">WORDPRESS_PATH</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#wordpress_ssh">WORDPRESS_SSH</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#wordpress_cli">WORDPRESS_CLI</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#wordpress_url">WORDPRESS_URL</a>
     </li>
         </ul>
     </li>
@@ -446,7 +416,7 @@
 </tr>
 </tbody>
 </table>
-<p>In the <code>.env</code> file, lists are seperated by comma, e.g. <code>ADMINS=Anna Admin &lt;admin@example.com&gt;, Manni Manager &lt;manager@example.com&gt;</code>. Since <code>SECRET_KEY</code>, <code>DATABASE_APP</code>, and <code>DATABASE_DATA</code> have no default value, they need to be set in any case.</p>
+<p>In the <code>.env</code> file, lists are separated by comma, e.g. <code>ADMINS=Anna Admin &lt;admin@example.com&gt;, Manni Manager &lt;manager@example.com&gt;</code>. Since <code>SECRET_KEY</code>, <code>DATABASE_APP</code>, and <code>DATABASE_DATA</code> have no default value, they need to be set in any case.</p>
 <p>In the following all settings, which can be changed from their default values to customize you particular Daiquiri app are described in detail:</p>
 <h2 id="daiquiricoresettingsdjango">daiquiri.core.settings.django</h2>
 <h4 id="secret_key">SECRET_KEY</h4>
@@ -660,11 +630,6 @@
 <p>Default: <code>None</code></p>
 <p>Directory for log files. In development <code>log</code> is suitable, in production <code>/var/log/django/daiquiri/</code> might be a sensible choice. Note that this directory must exist for Daiquiri to work. Should be set in <code>.env</code>.</p>
 <hr />
-<h2 id="daiquiricoresettingsvendor">daiquiri.core.settings.vendor</h2>
-<h4 id="vendor_cdn">VENDOR_CDN</h4>
-<p>Default: <code>False</code></p>
-<p>Use content delivery networks to host the static vendor assets (js and css files). Using the default of <code>False</code> implies that the assets need to be collected using <code>python manage.py download_vendor_files</code>.</p>
-<hr />
 <h2 id="daiquiriarchivesettings">daiquiri.archive.settings</h2>
 <h4 id="archive_base_path">ARCHIVE_BASE_PATH</h4>
 <p>Default: <code>os.path.join(BASE_DIR, 'files')</code></p>
@@ -805,60 +770,6 @@ into the template.</p>
 <h4 id="files_search_results_per_page">FILES_SEARCH_RESULTS_PER_PAGE</h4>
 <p>Default: <code>5</code></p>
 <p>Sets the number of search results per page.</p>
-<hr />
-<h2 id="daiquirimeetingssettings">daiquiri.meetings.settings</h2>
-<h4 id="meetings_contribution_types">MEETINGS_CONTRIBUTION_TYPES</h4>
-<p>Default:</p>
-<pre><code class="language-python">[
-    ('talk', _('Talk')),
-    ('poster', _('Poster'))
-]
-</code></pre>
-<p>Sets the types of contributions to be selected by partcipants when registering.</p>
-<hr />
-<h4 id="meetings_payment_choices">MEETINGS_PAYMENT_CHOICES</h4>
-<p>Default:</p>
-<pre><code class="language-python">[
-    ('cash', _('cash')),
-    ('wire', _('wire transfer')),
-]
-</code></pre>
-<p>Sets the different payment choices to be selected by partcipants when registering.</p>
-<hr />
-<h4 id="meetings_participant_detail_keys">MEETINGS_PARTICIPANT_DETAIL_KEYS</h4>
-<p>Default: <code>[]</code></p>
-<p>Sets additional details to be asked from the participants when registering. An example would be:</p>
-<pre><code class="language-python">MEETINGS_PARTICIPANT_DETAIL_KEYS = [
-    {
-        'key': 'affiliation',
-        'label': 'Affiliation',
-        'data_type': 'text',
-        'required': True
-    },
-    {
-        'key': 'dinner',
-        'label': 'Conference dinner',
-        'data_type': 'radio',
-        'required': True,
-        'options': [
-            {'id': 'yes', 'label': 'yes'},
-            {'id': 'no', 'label': 'no'}
-        ]
-    }
-]
-</code></pre>
-<p>where:</p>
-<ul>
-<li><code>key</code> is the internal identifier,</li>
-<li><code>label</code> the text shown in the interface,</li>
-<li><code>datatype</code> the type of the detail which affects the widget to be used (<code>'text'</code>, <code>'textarea'</code>, <code>'select'</code>, <code>'radio'</code>, <code>'multiselect'</code>, or <code>'checkbox'</code>),</li>
-<li><code>required</code> whether this detail is required or not, and</li>
-<li><code>options</code> a list of options for select, radio or checkboxes widgets of the form <code>[{'id': id, 'label': label}, ...]</code>.</li>
-</ul>
-<hr />
-<h4 id="meetings_abstract_max_length">MEETINGS_ABSTRACT_MAX_LENGTH</h4>
-<p>Default: <code>2000</code></p>
-<p>Sets the maximum lenght of an abstract.</p>
 <hr />
 <h2 id="daiquirimetadatasettings">daiquiri.metadata.settings</h2>
 <h4 id="metadata_column_permissions">METADATA_COLUMN_PERMISSIONS</h4>
@@ -1179,26 +1090,6 @@ Each drop down is represented by a dictionary where:</p>
 <li><code>viewset</code> is the ViewSet class handling the requests (neets to enherit from <code>daiquiri.jobs.viewsets.AsyncJobViewSet</code>), and</li>
 <li><code>base_name</code> a basename needed for the integration in the Django REST framework.</li>
 </ul>
-<hr />
-<h2 id="daiquiriwordpresssettings">daiquiri.wordpress.settings</h2>
-<h4 id="wordpress_path">WORDPRESS_PATH</h4>
-<p>Default: <code>'/opt/wordpress'</code></p>
-<p>Sets the location of the WordPress installation on the local file system.</p>
-<hr />
-<h4 id="wordpress_ssh">WORDPRESS_SSH</h4>
-<p>Default: <code>None</code></p>
-<p>Sets the destination for a SSH connection to use with <code>wp-cli</code>. Use this setting if WordPress <strong>is not</strong> installed on the same host as Daiquiri. The local <code>wp-cli</code> will then connect to the remote system using ssh. An example would be:</p>
-<pre><code>WORDPRESS_SSH=example.com:/opt/daiquiri
-</code></pre>
-<p>This option overided <code>WORDPRESS_PATH</code>.</p>
-<hr />
-<h4 id="wordpress_cli">WORDPRESS_CLI</h4>
-<p>Default: <code>'/opt/wp-cli/wp'</code></p>
-<p>Sets the location of the <code>wp-cli</code> script on the local file system.</p>
-<hr />
-<h4 id="wordpress_url">WORDPRESS_URL</h4>
-<p>Default: <code>'/cms/'</code></p>
-<p>Sets the base url of the WordPress instance.</p>
               
             </div>
           </div><footer>
