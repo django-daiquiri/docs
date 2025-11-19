@@ -584,11 +584,47 @@ Sets the adapter class to be used by the cone search api. The adapter class enca
 
 ---
 
+#### CONESEARCH_RESOURCES
+
+Default: `{}`
+
+Defines which database resources are available for the
+cone-search service. Keys must be "<schema.table>" identifiers. Each entry
+contains:
+- schema_name: schema where the table is located
+- table_name:  table to query
+- column_names: columns exposed in the cone search
+
+Example:
+```
+CONESEARCH_RESOURCES = {
+        'schema_name.table_name': {
+            'schema_name': '<SCHEMA_NAME>',
+            'table_name': '<TABLE_NAME>',
+            'column_names': ['source_id', 'ra', 'dec'],
+        },
+        'schema_name.table_name': {
+            'schema_name': '<SCHEMA_NAME>',
+            'table_name': '<TABLE_NAME>',
+            'column_names': ['source_id', 'ra_component', 'dec_component'],
+        }
+}
+```
+---
+
 #### CONESEARCH_ANONYMOUS
 
 Default: `False`
 
 Designates if cone searches can be done by by anonymous users.
+
+---
+
+#### CONESEARCH_SUBJECTS
+
+Default: ['cone search']
+
+Defines the list of subjects associated with cone-search functionality.
 
 ---
 
