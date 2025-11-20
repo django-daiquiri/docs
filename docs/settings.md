@@ -628,6 +628,39 @@ Defines the list of subjects associated with cone-search functionality.
 
 ---
 
+#### CONESEARCH_RANGES
+
+Default: {
+            'RA': {
+                'min': 0,
+                'max': 360
+            },
+            'DEC': {
+                'min': -90,
+                'max': 90
+            },
+            'SR': {
+                'min': 0,
+                'max': 10
+            }
+        }
+
+Defines the maximum and minimum value for RA, DEC and SR.
+
+---
+
+#### CONESEARCH_DEFAULTS
+
+Default: {
+            'RA': 20,
+            'DEC': 20,
+            'SR': 10,
+         }
+
+Defines the default values for RA, DEC and SR.
+
+---
+
 daiquiri.contact.settings
 ------------------------
 
