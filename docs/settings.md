@@ -13,7 +13,9 @@ Additional settings, which concern only a single Daiquiri module are defined in 
 * [daiquiri.conesearch.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/conesearch/settings.py)
 * [daiquiri.contact.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/contact/settings.py)
 * [daiquiri.cutout.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/cutout/settings.py)
+* [daiquiri.datalink.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/datalink/settings.py)
 * [daiquiri.files.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/files/settings.py)
+* [daiquiri.jobs.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/jobs/settings.py)
 * [daiquiri.metadata.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/metadata/settings.py)
 * [daiquiri.oai.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/oai/settings.py)
 * [daiquiri.query.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/query/settings.py)
@@ -255,6 +257,16 @@ Sets the `From` field for emails sent by Daiquiri. This setting can be set in `.
 
 ---
 
+#### EMAIL_REPLY_TO
+
+Default: `None`
+
+Sets the `Reply-To` address for emails sent by Daiquiri. This is useful when
+replies should be directed to a service or support address different from the
+sender configured by `DEFAULT_FROM_EMAIL`; it can be set in `.env`.
+
+---
+
 #### SENDFILE_BACKEND
 
 Default: `'django_sendfile.backends.simple'`
@@ -378,6 +390,25 @@ Contact information for the Daiquiri site. Used in the VO and OAI metadata. It h
 Default: `None`
 
 Publisher of the Daiquiri site. Used for VO and OAI metadata.
+
+---
+
+#### SITE_PUBLISHER_PROPERTIES
+
+Default: `{}`
+
+Additional properties describing the publisher of the Daiquiri site. These
+properties are included in VO, DataCite, and Datalink metadata; for example,
+they can describe a publisher identifier and the scheme used for that
+identifier.
+
+```python
+SITE_PUBLISHER_PROPERTIES = {
+    'publisherIdentifier': 'https://ror.org/<id>',
+    'publisherIdentifierScheme': 'ROR',
+    'schemeURI': 'https://ror.org/',
+}
+```
 
 ---
 
@@ -593,6 +624,62 @@ Defines the default values for RA, DEC and SR.
 
 ---
 
+#### CONESEARCH_MAX_RECORDS
+
+Default: `10000`
+
+Maximum number of records returned by a cone-search request. Increase this
+value only when the service and its clients can handle larger response
+payloads.
+
+---
+
+daiquiri.datalink.settings
+--------------------------
+
+#### DATALINK_ADAPTER
+
+Default: `'daiquiri.datalink.adapter.DefaultDatalinkAdapter'`
+
+Sets the adapter class used by the Datalink service. A custom adapter can
+provide application-specific resource discovery and Datalink links and
+should inherit from the appropriate Datalink adapter class.
+
+---
+
+#### DATALINK_TABLES
+
+Default: `[]`
+
+List of Datalink tables that should be included by the table-based Datalink
+adapter and the OAI Datalink integration. Each entry is a database table name
+in the form `schema_name.table_name`.
+
+```python
+DATALINK_TABLES = [
+    'release_schema.datalink',
+]
+```
+
+---
+
+#### DATALINK_CUSTOM_SEMANTICS
+
+Default:
+
+```python
+{
+    '#doi': 'The access_url points to the Digital Object Identifier (DOI) of the object.',
+}
+```
+
+Maps custom Datalink semantic identifiers to their descriptions. When a link
+uses one of these identifiers, Daiquiri exposes it through the site's
+Datalink semantics page and converts the relative identifier into a service
+URL.
+
+---
+
 daiquiri.contact.settings
 ------------------------
 
@@ -674,6 +761,29 @@ Sets the number of search results per page.
 
 ---
 
+daiquiri.jobs.settings
+----------------------
+
+#### JOB_MAX_RECORDS
+
+Default:
+
+```python
+{
+    'anonymous': 5000000,
+    'user': 5000000,
+    'users': {},
+    'groups': {},
+}
+```
+
+Sets the maximum number of records processed by jobs for anonymous and
+authenticated users. The `users` and `groups` mappings can provide higher
+limits for specific users or groups; when several limits apply, the largest
+applicable value is used.
+
+---
+
 daiquiri.metadata.settings
 --------------------------
 
@@ -690,6 +800,23 @@ Designates if permissions can be assigned to individual columns (in addition to 
 Default: `None`
 
 Sets the absolute URL of the metadata module, e.g. http://example.com/metadata/. The URL is used to create links to the landing pages for schemas and tables in VOTables if a DOI is not set.
+
+---
+
+#### METADATA_COLUMN_WIDTH
+
+Default:
+
+```python
+{
+    'default': 200,
+}
+```
+
+Sets the default width of columns in query results and the `serve` app. A
+specific column can be given a different width using a key of the form
+`schema_name.table_name.column_name`; columns without a specific entry use
+the `default` value.
 
 ---
 
@@ -790,6 +917,16 @@ If more than one quota applies, the maximum is used.
 Default: `5`
 
 Sets the timeout for synchronous (TAP) queries in seconds.
+
+---
+
+#### QUERY_ARCHIVE_MAX_NROWS
+
+Default: `1000`
+
+Sets the maximum number of rows in a query result that can be processed by an
+archive job. Archive processing is rejected when the result contains more
+rows than this limit.
 
 ---
 
@@ -993,11 +1130,48 @@ example dropdowns.
 
 ---
 
+#### QUERY_DOWNLOADS
+
+Default:
+
+```python
+[
+    {
+        'key': 'table',
+        'model': 'daiquiri.query.models.DownloadJob',
+        'params': ['format_key'],
+    },
+    {
+        'key': 'archive',
+        'model': 'daiquiri.query.models.QueryArchiveJob',
+        'params': ['column_name'],
+    },
+]
+```
+
+Defines the download jobs available for query results. Each entry identifies
+the download type with `key`, provides the job model with `model`, and lists
+the request parameters used to create the job in `params`. Custom download
+job types can be added by extending this list with a compatible job model.
+
+---
+
 #### QUERY_DOWNLOAD_DIR
 
 Default: `None`
 
 Sets the absolute base path of the download files served by the query module in the local file system. It is read from `.env`; the query application requires a download directory to be configured.
+
+---
+
+#### QUERY_UPLOAD_DIR
+
+Default: `None`
+
+Sets the absolute base path for files uploaded through the query interface.
+It is read from `.env`; uploaded files are stored below a user-specific
+subdirectory, so this directory must be configured when query uploads are
+enabled.
 
 ---
 
