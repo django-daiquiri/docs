@@ -1,46 +1,54 @@
 Settings
 ========
 
-A Daiquiri application can be customised using various settings. Since Daiquiri is based on Django, we use its [build-in settings system](https://docs.djangoproject.com/en/2.1/topics/settings/). Almost every setting has a default value, which is set in the Daiquiri library. The core settings are defined in the `daiquiri.core.settings` module:
+A Daiquiri application can be customised using various settings. Since Daiquiri is based on Django, we use its [built-in settings system](https://docs.djangoproject.com/en/5.2/topics/settings/). Almost every setting has a default value, which is set in the Daiquiri library. The core settings are defined in the `daiquiri.core.settings` module:
 
-* [daiquiri.core.settings.django](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/django.py)
-* [daiquiri.core.settings.daiquiri](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/daiquiri.py)
-* [daiquiri.core.settings.logging](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/logging.py)
-* [daiquiri.core.settings.vendor](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/settings/vendor.py)
+* [daiquiri.core.settings.django](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/core/settings/django.py)
+* [daiquiri.core.settings.daiquiri](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/core/settings/daiquiri.py)
+* [daiquiri.core.settings.logging](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/core/settings/logging.py)
 
 Additional settings, which concern only a single Daiquiri module are defined in the `settings` module of the particular module:
 
-* [daiquiri.auth.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/auth/settings.py)
-* [daiquiri.conesearch.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/conesearch/settings.py)
-* [daiquiri.contact.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/contact/settings.py)
-* [daiquiri.cutout.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/cutout/settings.py)
-* [daiquiri.files.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/files/settings.py)
-* [daiquiri.metadata.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/metadata/settings.py)
-* [daiquiri.oai.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/oai/settings.py)
-* [daiquiri.query.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/query/settings.py)
-* [daiquiri.serve.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/serve/settings.py)
-* [daiquiri.stats.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/stats/settings.py)
-* [daiquiri.tap.settings](https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/tap/settings.py)
+* [daiquiri.auth.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/auth/settings.py)
+* [daiquiri.conesearch.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/conesearch/settings.py)
+* [daiquiri.contact.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/contact/settings.py)
+* [daiquiri.cutout.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/cutout/settings.py)
+* [daiquiri.datalink.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/datalink/settings.py)
+* [daiquiri.files.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/files/settings.py)
+* [daiquiri.jobs.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/jobs/settings.py)
+* [daiquiri.metadata.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/metadata/settings.py)
+* [daiquiri.oai.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/oai/settings.py)
+* [daiquiri.query.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/query/settings.py)
+* [daiquiri.serve.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/serve/settings.py)
+* [daiquiri.stats.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/stats/settings.py)
+* [daiquiri.tap.settings](https://github.com/django-daiquiri/daiquiri/blob/main/daiquiri/tap/settings.py)
 
-All settings can be changed for your particular `app` in `config/settings/base.py` (app specific) or `config/settings/local.py` (machine specific, and ignored by git). In addition, selected settings can be configured as environment variables, in particular using the `.env` file `app` directory:
+All settings can be changed for your particular `app` in `config/settings/base.py` (app specific) or `config/settings/local.py` (machine specific, and ignored by git). In addition, selected settings can be configured as environment variables, in particular using the `.env` file in the `app` directory:
 
 Setting        | Default
 -------------- | -----------------------
-SECRET_KEY     | 🚫
-SITE_URL       | `http://localhost:8000`
-DEBUG          | `False`
-ASYNC          | `False`
-ALLOWED_HOSTS  | `['localhost']`
+SECRET_KEY     | `None` (must be supplied)
+SITE_URL       | `None`
+DEBUG          | `None`
+ASYNC          | `None`
+ALLOWED_HOSTS  | `['localhost', '127.0.0.1', '::1']`
 TIME_ZONE      | `'UTC'`
-PROXY          | `False`
+PROXY          | `None`
 ADMINS         | `[]`
-DATABASE_APP   | 🚫
-DATABASE_DATA  | 🚫
-TAP_SCHEMA     | `TAP_SCHEMA`
-TAP_UPLOAD     | `TAP_UPLOAD`
-OAI_SCHEMA     | `OAI_SCHEMA`
+DATABASE_APP   | `None` (must be supplied)
+DATABASE_DATA  | `None` (must be supplied)
+TAP_SCHEMA     | `tap_schema`
+TAP_UPLOAD     | `tap_upload`
+OAI_SCHEMA     | `oai_schema`
 
-In the `.env` file, lists are separated by comma, e.g. `ADMINS=Anna Admin <admin@example.com>, Manni Manager <manager@example.com>`. Since `SECRET_KEY`, `DATABASE_APP`, and `DATABASE_DATA` have no default value, they need to be set in any case.
+In the `.env` file, lists are separated by commas, e.g. `ADMINS=Anna Admin <admin@example.com>, Manni Manager <manager@example.com>`. Boolean values accept `1`, `t`, `true`, `y`, `yes`, and `on` for true; other non-empty values are false. Paths read from the environment are made absolute. Since `SECRET_KEY`, `DATABASE_APP`, and `DATABASE_DATA` have no usable default value, they need to be set.
+
+`DATABASE_APP` and `DATABASE_DATA` are database URLs understood by
+`dj-database-url`. The `default` database uses `DATABASE_APP`; the `data`,
+`tap`, and `oai` aliases use `DATABASE_DATA`, with the TAP and OAI namespaces
+selected by `TAP_SCHEMA`, `TAP_UPLOAD`, and `OAI_SCHEMA`. `PROXY=True` enables
+the forwarded-host and forwarded-protocol handling needed behind a reverse
+proxy.
 
 In the following all settings, which can be changed from their default values to customize you particular Daiquiri app are described in detail:
 
@@ -50,17 +58,19 @@ daiquiri.core.settings.django
 
 #### SECRET_KEY
 
-Secret key for Django.
+Default: `None`
 
-See also [SECRET_KEY](https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-SECRET_KEY) in the Django documentation. Should be set in `.env`.
+Secret key for Django. It must be set in `.env` and must not be committed.
+
+See also [SECRET_KEY](https://docs.djangoproject.com/en/5.2/ref/settings/#std-setting-SECRET_KEY) in the Django documentation.
 
 ---
 
 #### DEBUG
 
-Default: `False`
+Default: `None`
 
-Debug mode. See also [DEBUG](https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-DEBUG) in the Django documentation. Should be set in `.env`.
+Debug mode. Set it to `False` in production. See also [DEBUG](https://docs.djangoproject.com/en/5.2/ref/settings/#std-setting-DEBUG) in the Django documentation. This setting can be set in `.env`.
 
 ---
 
@@ -68,17 +78,17 @@ Debug mode. See also [DEBUG](https://docs.djangoproject.com/en/2.1/ref/settings/
 
 Default: `/`
 
-Base URL for the Daiquiri app. Set if your Daiquiri app runs under a alias path on your web server, e.g. `/daiquiri/`.
+Base URL for the Daiquiri app. Set if your Daiquiri app runs under an alias path on your web server, e.g. `/daiquiri/`. The value is normalized to include a trailing slash.
 
 ---
 
 #### ALLOWED_HOSTS
 
-Default: `['localhost']`
+Default: `['localhost', '127.0.0.1', '::1']`
 
 List of allowed hosts for this app.
 
-See also [ALLOWED_HOSTS](https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-ALLOWED_HOSTS) in the Django documentation. Should be set in `.env`.
+See also [ALLOWED_HOSTS](https://docs.djangoproject.com/en/5.2/ref/settings/#std-setting-ALLOWED_HOSTS) in the Django documentation. This setting can be set in `.env` as a comma-separated list.
 
 ---
 
@@ -92,15 +102,15 @@ INSTALLED_APPS = DJANGO_APPS + [
     ...
 ] + ADDITIONAL_APPS
 ```
-See also [INSTALLED_APPS](https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS) in the Django documentation.
+See also [INSTALLED_APPS](https://docs.djangoproject.com/en/5.2/ref/settings/#std-setting-INSTALLED_APPS) in the Django documentation.
 
 ---
 
 #### USER_TABLESPACE
 
-Default: `'pg_default'`
+Default: `'pg_default'` for PostgreSQL, otherwise `None`
 
-The tablespace where to store the user queryjob tables. Only supported for Postgres DB.
+The tablespace where to store the user query-job tables. This setting is only used for the PostgreSQL scientific database.
 
 ---
 
@@ -108,15 +118,15 @@ The tablespace where to store the user queryjob tables. Only supported for Postg
 
 Default: `'UTC'`
 
-The time zone for this Daiquiri app (e.g. `Europe/Berlin`).
+The time zone for this Daiquiri app (e.g. `Europe/Berlin`). It can be set in `.env`.
 
 ---
 
 #### ACCOUNT_LOGOUT_ON_GET
 
-Default: False
+Default: `True`
 
-Designates if a GET request is sufficient to logout. The seeting needs to be set to `TRUE` if the WordPress integration is used.
+Designates if a GET request is sufficient to log out. It is enabled by the current source configuration.
 
 ---
 
@@ -130,7 +140,7 @@ The minimal length of usernames.
 
 #### ACCOUNT_PASSWORD_MIN_LENGTH
 
-Default: 4
+Default: 8
 
 The minimal length of passwords.
 
@@ -146,7 +156,7 @@ Designates if new users need to verify their email addresses before logging in. 
 * `'optional'`
 * `'none'`
 
-See also [ACCOUNT_EMAIL_VERIFICATION](https://django-allauth.readthedocs.io/en/latest/configuration.html) in the django-allauth documentation.
+See also [ACCOUNT_EMAIL_VERIFICATION](https://docs.allauth.org/en/latest/account/configuration.html) in the django-allauth documentation.
 
 ---
 
@@ -187,7 +197,7 @@ URL of the RabbitMQ server to be used. For a more sophisticated setup use:
 CELERY_BROKER_URL=amqp://<user>:<password>@<host>:<port>/<vhost>
 ```
 
-See also [deployment](/deployment/#asyncronous-workers). Should be set in `.env`.
+See also [deployment](deployment.md#asyncronous-workers). This setting can be set in `.env`.
 
 ---
 
@@ -195,13 +205,13 @@ See also [deployment](/deployment/#asyncronous-workers). Should be set in `.env`
 
 Default: `'django.core.mail.backends.console.EmailBackend'`
 
-Sets the backend used for email delivery. On a production system, this will be `django.core.mail.backends.smtp.EmailBackend`. For testing/demonstration `django.core.mail.backends.console.EmailBackend` can be used. See also [Sending email](https://docs.djangoproject.com/en/2.1/topics/email/) in the Django documentation. Can be set in `.env`.
+Sets the backend used for email delivery. On a production system, this will be `django.core.mail.backends.smtp.EmailBackend`. For testing/demonstration `django.core.mail.backends.console.EmailBackend` can be used. See also [Sending email](https://docs.djangoproject.com/en/5.2/topics/email/) in the Django documentation. This setting can be set in `.env`.
 
 ---
 
 #### EMAIL_HOST
 
-Default: `'localhost'`
+Default: `None`
 
 Hostname of the SMTP server. Can be set in `.env`.
 
@@ -217,7 +227,7 @@ Port of the SMTP server. Can be set in `.env`.
 
 #### EMAIL_HOST_USER
 
-Default: `''`
+Default: `None`
 
 User for the SMTP server. Can be set in `.env`.
 
@@ -225,7 +235,7 @@ User for the SMTP server. Can be set in `.env`.
 
 #### EMAIL_HOST_PASSWORD
 
-Default: `''`
+Default: `None`
 
 Password for the SMTP server. Can be set in `.env`.
 
@@ -233,33 +243,44 @@ Password for the SMTP server. Can be set in `.env`.
 
 #### EMAIL_USE_TLS
 
-Default: `False`
+Default: `None`
 
-Designates whether a `STARTTLS` is used (usually on port 587). Can be set in `.env`.
-
----
-
-#### EMAIL_USE_SSL
-
-Default: `False`
-
-Designates whether a implicit TLS connection is used (usually on port 465). Can be set in `.env`.
+Designates whether `STARTTLS` is used (usually on port 587). This setting can be set in `.env`.
 
 ---
 
 #### DEFAULT_FROM_EMAIL
 
-Default: `''`
+Default: `'info@example.com'`
 
-Sets the FROM field for the E-mails send. Can be set in `.env`.
+Sets the `From` field for emails sent by Daiquiri. This setting can be set in `.env`.
+
+---
+
+#### EMAIL_REPLY_TO
+
+Default: `None`
+
+Sets the `Reply-To` recipients for emails sent through Daiquiri's email helper.
+The value is passed unchanged to Django's `reply_to` argument, which expects a
+list or tuple rather than a single string. Configure it in `base.py` or
+`local.py`, for example:
+
+```python
+EMAIL_REPLY_TO = ['support@example.com']
+```
 
 ---
 
 #### SENDFILE_BACKEND
 
-Default: `'sendfile.backends.simple'`
+Default: `'django_sendfile.backends.simple'`
 
-Sets the backend used for the sendfile integration to deliver static files. On a production system (using Apache), this will be `sendfile.backends.xsendfile`. For testing/demonstration `sendfile.backends.simple` can be used.
+Sets the backend used by `django-sendfile` when Daiquiri serves protected files
+from the files module or generated query downloads. On a production system
+using Apache with `mod_xsendfile`, this can be
+`django_sendfile.backends.xsendfile`. The simple backend streams files through
+Django and is suitable for testing and demonstration.
 
 See also [Django Sendfile](https://github.com/johnsensible/django-sendfile) GitHub readme.
 
@@ -269,7 +290,7 @@ See also [Django Sendfile](https://github.com/johnsensible/django-sendfile) GitH
 
 Default: `None`
 
-Key prefix to use for caching with [memcached](https://memcached.org/). Enables caching with memcached. See also [deployment](/deployment/#caching). Should be set in `.env`.
+Key prefix to use for caching with [memcached](https://memcached.org/). Enables caching with memcached. See also [deployment](deployment.md#caching). Should be set in `.env`.
 
 ---
 
@@ -278,9 +299,9 @@ daiquiri.core.settings.daiquiri
 
 #### ASYNC
 
-Default: `False`
+Default: `None`
 
-Designates if celery workers are used for asyncronous tasks like query execution. If set to `True`, three workers need to run: `default`, `query`, and `download`.
+Designates if Celery workers are used for asynchronous tasks like query execution. The current non-query queues are `default` and `download`; query workers use the queues configured by `QUERY_QUEUES`, whose names are prefixed with `query_`.
 
 ---
 
@@ -302,7 +323,7 @@ Number of bits kept from IPv6 addresses (e.g. to produce query stats) for anonym
 
 #### SITE_URL
 
-Default: `http://localhost:8000`
+Default: `None`
 
 Public URL of the Daiquiri site. Used for VO and OAI metadata.
 
@@ -320,7 +341,7 @@ Identifier for the Daiquiri site. Usually the URL without the protocol. Used for
 
 Default: `None`
 
-The title for the Daiquiri site. Used for VO and OAI metadata.
+The title for the Daiquiri site. Used for VO registry and service metadata.
 
 ---
 
@@ -328,7 +349,8 @@ The title for the Daiquiri site. Used for VO and OAI metadata.
 
 Default: `None`
 
-The description for the Daiquiri site. Used for VO and OAI metadata.
+The description for the Daiquiri site. This value is defined by the current
+settings module but is not read directly by the current core VO/OAI serializers.
 
 ---
 
@@ -336,7 +358,10 @@ The description for the Daiquiri site. Used for VO and OAI metadata.
 
 Default: `None`
 
-A license for the Daiquiri site. See <https://github.com/django-daiquiri/daiquiri/blob/master/daiquiri/core/constants.py> for the available choices. Used in various metadata fields.
+A license identifier for the Daiquiri site. The available resource-license
+constants are defined in `daiquiri.metadata.settings`; the current core
+serializers use the resource license settings rather than reading this value
+directly.
 
 ---
 
@@ -344,13 +369,12 @@ A license for the Daiquiri site. See <https://github.com/django-daiquiri/daiquir
 
 Default: `None`
 
-Creator of the Daiquiri site. Used in the VO registry entry. Has to be of the following form:
+Creator name of the Daiquiri site. It is used in VO curation metadata and as
+the default creator for Datalink OAI records. The current source expects the
+creator name here; the logo is configured separately by the application.
 
-```
-{
-    'name': 'Daiquiri project'
-    'logo': None
-}
+```python
+SITE_CREATOR = 'Daiquiri project'
 ```
 
 ---
@@ -359,13 +383,13 @@ Creator of the Daiquiri site. Used in the VO registry entry. Has to be of the fo
 
 Default: `None`
 
-List of contacts for the Daiquiri site. Used in the VO registry entry. Has to be of the following form:
+Contact information for the Daiquiri site. Used in the VO and OAI metadata. It has to be a dictionary of the following form:
 
 ```
 {
-    'name': 'Anna Admin'
+    'name': 'Anna Admin',
     'address': 'Beispielstr. 3, 12345 Berlin',
-    'email': 'contact@example.com'
+    'email': 'contact@example.com',
     'telephone': '+49 30 123467'
 }
 ```
@@ -377,6 +401,25 @@ List of contacts for the Daiquiri site. Used in the VO registry entry. Has to be
 Default: `None`
 
 Publisher of the Daiquiri site. Used for VO and OAI metadata.
+
+---
+
+#### SITE_PUBLISHER_PROPERTIES
+
+Default: `{}`
+
+XML attributes added to the publisher element in DataCite metadata for schemas,
+tables, and Datalink records. They can describe a publisher identifier and the
+scheme used for that identifier. The current VOResource renderer does not use
+these properties.
+
+```python
+SITE_PUBLISHER_PROPERTIES = {
+    'publisherIdentifier': 'https://ror.org/<id>',
+    'publisherIdentifierScheme': 'ROR',
+    'schemeURI': 'https://ror.org/',
+}
+```
 
 ---
 
@@ -403,13 +446,16 @@ Default:
 [
     {
         'subject': 'Astronomy',
+        'subjectScheme': 'Library of Congress Subject Headings (LCSH)',
         'schemeURI': 'http://id.loc.gov/authorities/subjects',
-        'valueURI': 'http://id.loc.gov/authorities/subjects/sh85009003'
+        'valueURI': 'http://id.loc.gov/authorities/subjects/sh85009003',
     }
 ]
 ```
 
-Subjects for this Daiquiri app. Used for VO and OAI metadata.
+Default subjects used by the Dublin Core and DataCite serializers for schema,
+table, and Datalink OAI records. VO service records use their module-specific
+subject settings instead.
 
 ---
 
@@ -417,7 +463,8 @@ Subjects for this Daiquiri app. Used for VO and OAI metadata.
 
 Default: `'service'`
 
-Type for this Daiquiri site. Used in the VO registry entry.
+Type for this Daiquiri site. The setting is currently defined but is not read
+elsewhere in Daiquiri.
 
 ---
 
@@ -426,9 +473,11 @@ daiquiri.core.settings.logging
 
 #### LOG_LEVEL
 
-Default: `INFO`
+Default: `None`
 
-Level of logging. Set to `DEBUG` to get more verbose logging. Should be set in `.env`.
+Level used for the Daiquiri, query, SQL, and rules loggers when the file-logging
+configuration is enabled through `LOG_DIR`. Set it to `DEBUG` for more verbose
+logging. It can be set in `.env`.
 
 ---
 
@@ -436,80 +485,10 @@ Level of logging. Set to `DEBUG` to get more verbose logging. Should be set in `
 
 Default: `None`
 
-Directory for log files. In development `log` is suitable, in production `/var/log/django/daiquiri/` might be a sensible choice. Note that this directory must exist for Daiquiri to work. Should be set in `.env`.
-
----
-
-daiquiri.archive.settings
--------------------------
-
-#### ARCHIVE_BASE_PATH
-
-Default: `os.path.join(BASE_DIR, 'files')`
-
-Sets the absolute base path of the files served by the archive module in the local file system.
-
----
-
-#### ARCHIVE_DOWNLOAD_DIR
-
-Default: `os.path.join(BASE_DIR, 'download')`
-
-Sets the absolute path where the zip files for downloads from the archive are located in the local file system.
-
----
-
-#### ARCHIVE_ANONYMOUS
-
-Default: `False`
-
-Designates if the archive interface can be accessed by anonymus users.
-
----
-
-#### ARCHIVE_SCHEMA
-
-Default: `'daiquiri_archive'`
-
-Sets the schema for the archive in the `data` database.
-
-#### ARCHIVE_TABLE
-
-Default: `'files'`
-
-Sets the table for the archive in the schema set by `ARCHIVE_SCHEMA` the `data` database.
-
-#### ARCHIVE_COLUMNS
-
-Default:
-
-```python
-[
-    {
-        'name': 'id',
-        'hidden': True
-    },
-    {
-        'name': 'timestamp',
-        'label': 'Timestamp'
-    },
-    {
-        'name': 'file',
-        'label': 'Filename',
-        'ucd': 'meta.file'
-    },
-    {
-        'name': 'collection',
-        'hidden': True
-    },
-    {
-        'name': 'path',
-        'hidden': True
-    }
-]
-```
-
-Sets the additional columns for the archive in the table set by `ARCHIVE_TABLE` the `data` database.
+Enables Daiquiri's file-logging configuration and sets the directory for
+`error.log`, `daiquiri.log`, `query.log`, `sql.log`, and `rules.log`. A relative
+value such as `log` is used as supplied; it is not made absolute. When set, the
+directory must already exist and be writable. It can be set in `.env`.
 
 ---
 
@@ -518,9 +497,9 @@ daiquiri.auth.settings
 
 #### AUTH_SIGNUP
 
-Default: `False`
+Default: `None`
 
-Designates if users can register for an account. If set to false, all users need to be created through the Django admin system.
+Designates if users can register for an account. If it is false, all users need to be created through the Django admin system. This setting is read from `.env`.
 
 ---
 
@@ -530,7 +509,7 @@ Default: `None`
 
 Sets the workflow for user registration. Options are
 
-* `None`: Newly registered users can log in after registartion.
+* `None`: Newly registered users can log in after registration.
 * `'activation'`: Newly registered users need to be activated by a manager or admin.
 * `'confirmation'`: Newly registered users need to be confirmed by a manager before they are activated by an admin.
 
@@ -559,9 +538,11 @@ where:
 
 * `key` is the internal identifier,
 * `label` the text shown in the interface,
-* `datatype` the type of the detail which affects the widget to be used (`'text'`, `'textarea'`, `'select'`, `'radio'`, `'multiselect'`, or `'checkbox'`),
-* `required` whether this detail is required or not, and
-* `options` a list of options for select, radio or checkboxes widgets of the form `[{'id': id, 'label': label}, ...]`.
+* `data_type` is the type of the detail, which affects the widget to be used (`'text'`, `'textarea'`, `'select'`, `'radio'`, `'multiselect'`, or `'checkbox'`),
+* `required` whether this detail is required or not,
+* `options` a list of options for select, radio, multiselect, or checkbox
+  widgets of the form `[{'id': id, 'label': label}, ...]`, and
+* optional `help_text` is explanatory text displayed with the field.
 
 ---
 
@@ -569,7 +550,7 @@ where:
 
 Default: `False`
 
-Designates whether terms of use are displayed on the signup page and need to be accepted to register. The text of to displayed needs to be configured in a template `account/terms_of_use.html`.
+Designates whether terms of use are displayed on the signup page and need to be accepted to register. The text to be displayed needs to be configured in a template `account/terms_of_use.html`.
 
 ---
 
@@ -578,9 +559,46 @@ daiquiri.conesearch.settings
 
 #### CONESEARCH_ADAPTER
 
-Default: `'daiquiri.conesearch.adapter.SimpleConeSearchAdapter'`
+Default: `'daiquiri.conesearch.adapter.BaseConeSearchAdapter'`
 
-Sets the adapter class to be used by the cone search api. The adapter class encapsulated all operations creating a cone search votable output from the api request. Custom adapter need to enherit from `daiquiri.conesearch.adapter.BaseConeSearchAdapter`.
+Sets the adapter class to be used by the cone search API. The adapter class encapsulates all operations for creating a cone-search VOTable output from an API request. A custom adapter should inherit from `daiquiri.conesearch.adapter.BaseConeSearchAdapter`.
+
+---
+
+#### CONESEARCH_RESOURCES
+
+Default: `{}`
+
+Defines which database tables are available to the cone-search API and the
+cone-search query form. Keys must match the `schema_name.table_name` value used
+by the query form. Each entry contains:
+
+* `schema_name`: schema containing the table,
+* `table_name`: table to query,
+* `column_names`: resource columns returned for `VERB=1`; principal or all
+  metadata columns are added for `VERB=2` or `VERB=3`, and
+* `coordinates_columns`: maps `RA` and `DEC` to the table columns used in the
+  cone predicate.
+
+```python
+CONESEARCH_RESOURCES = {
+    'catalog.sources': {
+        'schema_name': 'catalog',
+        'table_name': 'sources',
+        'column_names': ['source_id', 'ra', 'dec'],
+        'coordinates_columns': {'RA': 'ra', 'DEC': 'dec'},
+    },
+    'catalog.components': {
+        'schema_name': 'catalog',
+        'table_name': 'components',
+        'column_names': ['source_id', 'ra_component', 'dec_component'],
+        'coordinates_columns': {
+            'RA': 'ra_component',
+            'DEC': 'dec_component',
+        },
+    },
+}
+```
 
 ---
 
@@ -588,7 +606,121 @@ Sets the adapter class to be used by the cone search api. The adapter class enca
 
 Default: `False`
 
-Designates if cone searches can be done by by anonymous users.
+Designates if cone searches can be done by anonymous users.
+
+---
+
+#### CONESEARCH_SUBJECTS
+
+Default: `['cone search']`
+
+Defines the subjects included in the cone-search VOResource record.
+
+---
+
+#### CONESEARCH_RANGES
+
+Default:
+
+```python
+{
+    'RA': {
+        'min': 0,
+        'max': 360,
+    },
+    'DEC': {
+        'min': -90,
+        'max': 90,
+    },
+    'SR': {
+        'min': 0,
+        'max': 10,
+    },
+}
+```
+
+Defines the inclusive minimum and maximum accepted values for right ascension
+(`RA`), declination (`DEC`), and search radius (`SR`) in both cone-search entry
+points. The maximum `SR` is also advertised as `maxSR` in the cone-search
+VOResource capability.
+
+---
+
+#### CONESEARCH_DEFAULTS
+
+Default:
+
+```python
+{
+    'RA': 0.0,
+    'DEC': 0.0,
+    'SR': 1.0,
+}
+```
+
+Defines the initial values shown in the cone-search query form and the test
+query advertised in the cone-search VOResource record. The standalone
+cone-search API still requires all three request parameters.
+
+---
+
+#### CONESEARCH_MAX_RECORDS
+
+Default: `10000`
+
+Sets the maximum number of records returned by a cone-search query and is
+advertised as `maxRecords` in each cone-search VOResource capability. If a
+query produces more records, the response is truncated to this limit and its
+VOTable includes a `QUERY_STATUS` of `OVERFLOW`.
+
+---
+
+daiquiri.datalink.settings
+--------------------------
+
+#### DATALINK_ADAPTER
+
+Default: `'daiquiri.datalink.adapter.DefaultDatalinkAdapter'`
+
+Sets the adapter class used by the Datalink service. A custom adapter can
+provide application-specific resource discovery, link rows, and view context.
+The configured class is imported and instantiated without arguments. It should
+inherit from `BaseDatalinkAdapter` and can use the supplied Datalink mixins.
+
+---
+
+#### DATALINK_TABLES
+
+Default: `[]`
+
+List of Datalink tables that should be included by the table-based Datalink
+adapter and the OAI Datalink integration. Each entry is a database table name
+in the form `schema_name.table_name`.
+
+```python
+DATALINK_TABLES = [
+    'release_schema.datalink',
+]
+```
+
+---
+
+#### DATALINK_CUSTOM_SEMANTICS
+
+Default:
+
+```python
+{
+    '#doi': 'The access_url points to the Digital Object Identifier (DOI) of the object.',
+}
+```
+
+Maps relative custom Datalink semantic identifiers to their descriptions. For
+each matching link row, the active Datalink adapter replaces the identifier
+with the URL of the site's semantics page plus that identifier. The bundled
+semantics-page views currently render the module's default mapping directly,
+so overriding this setting changes link expansion but not the descriptions
+shown on those pages.
 
 ---
 
@@ -597,12 +729,14 @@ daiquiri.contact.settings
 
 #### ANNOUNCEMENT_MESSAGE_FILTER
 
-Default: `daiquiri.contact.filters.DefaultMessageFilter`
+Default: `'daiquiri.contact.filters.DefaultMessageFilter'`
 
-Sets the filter class to be used by the announcement messages.
-The filter class encapsulates all filter methods used to show announcements to a filtered set of users.
-Custom filter class must enherit from `daiquiri.contact.filters.DefaultMessageFilter`.
-All custom filter methods are required to have a single parameter `request`.
+Sets the import path of the filter class used to determine which announcement
+messages a visitor sees. A custom class must provide a `CHOICES` collection for
+the admin form and a callable for each choice key. Each callable accepts a
+single `request` argument and returns whether the message should be shown. It
+can inherit from `daiquiri.contact.filters.DefaultMessageFilter` to retain the
+built-in choices.
 
 The announcement messages can be added in the Django admin site. In order to show
 the messages on a webpage, one has to load the announcement tags in the template
@@ -618,7 +752,7 @@ daiquiri.cutout.settings
 
 Default: `'daiquiri.cutout.adapter.SimpleCutOutAdapter'`
 
-Sets the adapter class to be used by the cutout api. The adapter class encapsulated all operations creating a cut out from the api request. Custom adapter need to enherit from `daiquiri.cutout.adapter.BaseCutOutAdapter`.
+Sets the adapter class to be used by the cutout API. The adapter class encapsulates all operations for creating a cutout from an API request. A custom adapter should inherit from `daiquiri.cutout.adapter.BaseCutOutAdapter`.
 
 ---
 
@@ -626,7 +760,7 @@ Sets the adapter class to be used by the cutout api. The adapter class encapsula
 
 Default: `False`
 
-Designates if the cutout interface can be accessed by anonymus users.
+Designates if the cutout interface can be accessed by anonymous users.
 
 ---
 
@@ -635,9 +769,12 @@ daiquiri.files.settings
 
 #### FILES_BASE_PATH
 
-Default: `os.path.join(BASE_DIR, 'files')`
+Default: `None`
 
-Sets the absolute base path of the files served by the files module in the local file system. Should be set in `.env`.
+Sets the absolute local root used to locate files served by the files module,
+documentation-search files, and file references packaged by query archive
+jobs. It is read from `.env` and must be configured when the files module is
+installed.
 
 ---
 
@@ -645,7 +782,10 @@ Sets the absolute base path of the files served by the files module in the local
 
 Default: `None`
 
-Sets the absolute URL for this Daiquiri app to be prepended to file references when downloading query results. This is done for columns with the `meta.ref;meta.file`, `meta.ref;meta.image` or `meta.ref;meta.note` UCD. Should be set in `.env`.
+Sets the public base URL used for files-module and documentation-search links.
+It is also prepended to file references in query-result downloads for columns
+with the `meta.ref;meta.file`, `meta.ref;meta.image`, or `meta.ref;meta.note`
+UCD. It is read from `.env`.
 
 ---
 
@@ -661,7 +801,7 @@ into the template.
 ```
 {% include 'files/search-input.html' %}
 ```
-The layout of the results page can be changed by overloading the template `files/search-results.html` in the daiquri app.
+The layout of the results page can be changed by overriding the template `files/search-results.html` in the Daiquiri app.
 
 ---
 
@@ -670,6 +810,31 @@ The layout of the results page can be changed by overloading the template `files
 Default: `5`
 
 Sets the number of search results per page.
+
+---
+
+daiquiri.jobs.settings
+----------------------
+
+#### JOB_MAX_RECORDS
+
+Default:
+
+```python
+{
+    'anonymous': 5000000,
+    'user': 5000000,
+    'users': {},
+    'groups': {},
+}
+```
+
+Sets the maximum number of query-result rows retained and returned for
+anonymous and authenticated users. A client-supplied `MAXREC` can lower this
+limit, and reaching the effective limit marks the result as overflowed. The
+`users` and `groups` mappings can provide limits for specific users or groups;
+when several limits apply, the largest applicable value is used. The anonymous
+limit is also advertised as the TAP service output limit.
 
 ---
 
@@ -692,22 +857,50 @@ Sets the absolute URL of the metadata module, e.g. http://example.com/metadata/.
 
 ---
 
+#### METADATA_COLUMN_WIDTH
+
+Default:
+
+```python
+{
+    'default': 200,
+}
+```
+
+Sets the default width of columns in query results and the `serve` app. A
+specific column can be given a different width using a key of the form
+`schema_name.table_name.column_name`; columns without a specific entry use
+the `default` value.
+
+---
+
+#### ARCHIVE_BASE_PATH
+
+Default: `None`
+
+Sets the absolute base path value for archive-related integrations. It is read
+from the `ARCHIVE_BASE_PATH` environment variable. The setting remains defined
+in `daiquiri.metadata.settings`, but the current Daiquiri source does not
+provide a separate `daiquiri.archive` module or archive-specific consumers.
+
+---
+
 daiquiri.oai.settings
 ---------------------
 
 #### OAI_SCHEMA
 
-Default: `OAI_SCHEMA`
+Default: `'oai_schema'`
 
-Sets the name of the schema for OAI records. If more than one Daiquiri application is using the same `data` database, they cannot use the same OAI_SCHEMA schema. **This setting must be set in `.env`**
+Sets the name of the schema or database namespace for OAI records. If more than one Daiquiri application is using the same `data` database, they cannot use the same OAI schema. The default is `oai_schema`; this setting can be changed in `.env`.
 
 ---
 
 #### OAI_ADAPTER
 
-Default: `'daiquiri.metadata.adapter.RegistryDoiMetadataOaiAdapter'`
+Default: `'daiquiri.oai.adapter.DefaultOaiAdapter'`
 
-Sets the adapter class to be used by the OAI-PMH api. The adapter class encapsulated all operations to set up and retrieve the OAI records. Custom adapter need to enherit from `daiquiri.metadata.adapter.BaseOaiAdapter`. Usually this will be done in the Daiquiri app, e.g.
+Sets the adapter class to be used by the OAI-PMH API. The adapter class encapsulates the operations used to set up and retrieve OAI records. A custom adapter should inherit from `daiquiri.oai.adapter.BaseOaiAdapter`. Usually this will be done in the Daiquiri app, e.g.
 
 ```
 OAI_ADAPTER = 'app.adapter.OaiAdapter'
@@ -718,7 +911,9 @@ OAI_ADAPTER = 'app.adapter.OaiAdapter'
 
 Default: `500`
 
-Number of records returned in a OAI-PMH request.
+Maximum number of records returned in each OAI-PMH `ListIdentifiers` or
+`ListRecords` page. Daiquiri returns a resumption token when further records
+are available.
 
 ---
 
@@ -729,7 +924,7 @@ daiquiri.query.settings
 
 Default: `False`
 
-Designates if the query interface can be accessed by anonymus users. The permissions on schemas and tables need to be configured using the metadata interface.
+Designates if the query interface can be accessed by anonymous users. The permissions on schemas and tables need to be configured using the metadata interface.
 
 ---
 
@@ -754,7 +949,7 @@ Default:
 }
 ```
 
-Sets the maximum quota for tables in a user's personal schema. The quota need to be set for the `anonymous` user as well as regular loggen in users (`user`). Additionally, users or groups can be asigned individual quotas, e.g.:
+Sets the maximum quota for tables in a user's personal schema. The quota needs to be set for the `anonymous` user as well as regular logged-in users (`user`). Additionally, users or groups can be assigned individual quotas, e.g.:
 
 ```python
 {
@@ -777,7 +972,17 @@ If more than one quota applies, the maximum is used.
 
 Default: `5`
 
-Sets the timeout for syncronous (TAP) queries in seconds.
+Sets the timeout for synchronous (TAP) queries in seconds.
+
+---
+
+#### QUERY_ARCHIVE_MAX_NROWS
+
+Default: `1000`
+
+Sets the maximum number of rows in a query result that can be processed by an
+archive job. Archive processing is rejected when the result contains more
+rows than this limit.
 
 ---
 
@@ -791,7 +996,7 @@ Default:
 }
 ```
 
-Sets the maximum of simultanous jobs for users. The setting work analog to 'QUERY_QUOTA'. If more than one maximum applies, the maximum is used. If no maximum is given, like the default setting for logged users, no maximum is enforced.
+Sets the maximum number of simultaneous jobs for users. The setting works analogously to `QUERY_QUOTA`: if more than one maximum applies, the largest applicable value is used. If no maximum is given, no maximum is enforced.
 
 ---
 
@@ -802,25 +1007,33 @@ Default:
 ```python
 [
     {
-        'key': 'default',
-        'label': 'Default',
-        'timeout': 10,
-        'priority': 1,
+        'key': 'short',
+        'label': '30 seconds',
+        'timeout': 30,
         'access_level': 'PUBLIC',
-        'groups': []
-    }
+        'groups': [],
+    },
+    {
+        'key': 'long',
+        'label': '1 Hour',
+        'timeout': 3600,
+        'access_level': 'PUBLIC',
+        'groups': [],
+    },
 ]
 ```
 
-Set the different queue, which can be selected by the users. Each queue is represented by a dictionary where:
+Sets the different query queues that can be selected by users. Each queue is represented by a dictionary where:
 
 * `key` is the internal identifier,
 * `label` is the text shown in the interface,
-* `timeout` the maximum excecution time in seconds,
-* `priority` is a integer number indicationg the priority in which jobs are executed, and
-* `access_level` and `groups` the usual restiction on who can use this queue.
+* `timeout` is the maximum execution time in seconds,
+* `access_level` and `groups` restrict who can use the queue, and
+* optional `concurrency` sets the number of worker processes started for that
+  queue (default `1`).
 
-Jobs in a queue with *higher* priority are selected first when a query worker becomes available.
+Asynchronous query jobs are routed to `query_<key>`; for example, the defaults
+use `query_short` and `query_long`.
 
 ---
 
@@ -843,11 +1056,19 @@ Default:
 Sets the different query languages, which can be selected by the users. Each query language is represented by a dictionary where:
 
 * `key` is the internal identifier,
+* `version` is the version reported as part of the query-language identifier,
 * `label` is the text shown in the interface,
-* `description` is additional information shown, e.g. in TopCat, and
-* `quote_char` the character used by the database system to quote identifiers.
+* `description` is advertised in the TAP capabilities document, e.g. to
+  TOPCAT, and
+* `quote_char` is inserted around identifiers selected in the web query editor.
 
-Already implemented in Daiquiri are `adql`, `postgresql`, and `mysql`. Apart from ADQL, the query language must match the database system of the `data` database.
+Optional `access_level` and `groups` fields restrict who can select a language.
+
+The default configuration provides ADQL 2.0, which Daiquiri translates for the
+configured `data` database. For other configured languages, the submitted
+query is passed to the database-specific query processor without ADQL
+translation, so only languages that processor and database accept should be
+advertised.
 
 ---
 
@@ -860,20 +1081,35 @@ Default:
     {
         'key': 'sql',
         'label': 'SQL query',
-        'service': 'query/js/forms/sql.js',
         'template': 'query/query_form_sql.html'
-    }
+    },
+    {
+        'key': 'conesearch',
+        'label': 'Cone search',
+        'submit': 'Submit new cone search',
+        'template': 'query/query_form_cone.html',
+        'adapter': 'daiquiri.query.adapter.ConeSearchQueryFormAdapter',
+    },
+    {
+        'key': 'upload',
+        'label': 'Upload VOTable',
+        'template': 'query/query_form_upload.html',
+    },
 ]
 ```
 
-Sets the form available for the users in the query interface. Each form is represented by a dictionary where:
+Sets the forms available to users in the query interface. Each form is
+represented by a dictionary where:
 
 * `key` is the internal identifier,
 * `label` is the text shown in the interface,
-* `service` the path AngularJS service containing the client side logic, and
-* `template` the path to the Django template with the markup for the form.
+* `submit` is the submit-button label when a form provides one,
+* `template` is the path to the Django template with the markup for the form, and
+* `adapter` optionally names the class that supplies the form fields, query
+  language, and generated query through `get_fields()`,
+  `get_query_language(data)`, and `get_query(data, user)`.
 
-Included in Daiquiri are `sql` and (simplyfied) `cone` and `box` services.
+Included in Daiquiri are the `sql`, `conesearch`, and `upload` forms.
 
 ---
 
@@ -901,11 +1137,9 @@ Default:
 ]
 ```
 
-Sets the visibility of the available plot types in the web interface.
-
-* `key` is the internal identifier,
-* `label` is the type name shown in the interface, and
-* `is_active` controls whether the plot type is used in the interface.
+This setting is defined by `daiquiri.query.settings`, but the current Daiquiri
+code does not read it. Changing its entries does not currently change the plot
+types shown in the web interface.
 
 ---
 
@@ -916,42 +1150,95 @@ Default:
 ```python
 [
     {
+        'key': 'schemas',
+        'label': 'Database',
+    },
+    {
+        'key': 'columns',
+        'label': 'Columns',
+    },
+    {
+        'key': 'functions',
+        'label': 'Functions',
+    },
+    {
         'key': 'simbad',
-        'service': 'query/js/dropdowns/simbad.js',
-        'template': 'query/query_dropdown_simbad.html',
-        'options': {
-            'url': 'http://simbad.u-strasbg.fr/simbad/sim-id'
-        }
+        'label': 'Simbad',
+        'options': {'url': 'http://simbad.u-strasbg.fr/simbad/sim-id'},
     },
     {
         'key': 'vizier',
-        'service': 'query/js/dropdowns/vizier.js',
-        'template': 'query/query_dropdown_vizier.html',
+        'label': 'VizieR',
         'options': {
             'url': 'http://vizier.u-strasbg.fr/viz-bin/votable',
-            'catalogs': ['I/322A', 'I/259']
-        }
-    }
+            'catalogs': ['I/322A', 'I/259'],
+        },
+    },
+    {
+        'key': 'examples',
+        'label': 'Examples',
+        'classes': 'ms-auto',
+    },
 ]
 ```
 
-Sets the additional drop down menus above the SQL query interface available for the users. 
-Each drop down is represented by a dictionary where:
+Sets the additional dropdown menus above the SQL query interface available for users. Each dropdown is represented by a dictionary where:
 
 * `key` is the internal identifier,
-* `service` the path AngularJS service containing the client side logic,
-* `template` the path to the Django template with the markup, and
-* `options` additional options specific to the drop down.
+* `label` is the text shown in the interface,
+* `options` contains additional options specific to the dropdown, and
+* `classes` can add CSS classes to the dropdown entry.
 
-Included in Daiquiri are `simbad` and `vizier` services.
+Included in Daiquiri are database, column, function, Simbad, VizieR, and
+example dropdowns.
+
+---
+
+#### QUERY_DOWNLOADS
+
+Default:
+
+```python
+[
+    {
+        'key': 'table',
+        'model': 'daiquiri.query.models.DownloadJob',
+        'params': ['format_key'],
+    },
+    {
+        'key': 'archive',
+        'model': 'daiquiri.query.models.QueryArchiveJob',
+        'params': ['column_name'],
+    },
+]
+```
+
+Defines the asynchronous download jobs available for completed query results.
+For each entry, `key` identifies the download type, `model` is the import path
+of its job model, and `params` lists request fields copied to the model when a
+job is found or created and returned with submitted-job status. A model can
+also implement `get_form(query_job)` to expose a custom download form. The
+bundled web interface has dedicated handling for the `table` and `archive`
+keys.
 
 ---
 
 #### QUERY_DOWNLOAD_DIR
 
-Default: `os.path.join(BASE_DIR, 'download')`
+Default: `None`
 
-Sets the absolute base path of the download files served by the query module in the local file system.
+Sets the absolute base path of the download files served by the query module in the local file system. It is read from `.env`; the query application requires a download directory to be configured.
+
+---
+
+#### QUERY_UPLOAD_DIR
+
+Default: `None`
+
+Sets the absolute base path for files uploaded through the query interface.
+It is read from `.env`; uploaded files are stored below a user-specific
+subdirectory, so this directory must be configured when query uploads are
+enabled.
 
 ---
 
@@ -959,7 +1246,8 @@ Sets the absolute base path of the download files served by the query module in 
 
 Default: `'votable'`
 
-Sets the default download format.
+Sets the response format used when a query request does not specify one. The
+value must be a `key` from `QUERY_DOWNLOAD_FORMATS`.
 
 ---
 
@@ -973,15 +1261,15 @@ Default:
         'key': 'votable',
         'extension': 'xml',
         'content_type': 'application/xml',
-        'label': 'IVOA VOTable XML file - TABLEDATA serialization',
-        'help': 'A XML file using the IVOA VOTable format. Use this option if you intend to use VO compatible software to further process the data.'
+        'label': 'IVOA VOTable',
+        'help': 'A XML file using the IVOA VOTable format. Use this option if you intend to use VO compatible software to further process the data.',
     },
     {
         'key': 'csv',
         'extension': 'csv',
         'content_type': 'text/csv',
-        'label': 'Comma separated Values',
-        'help': 'A text file with a line for each row of the table. The fields are delimited by a comma and quoted by double quotes. Use this option for a later import into a spreadsheed application or a custom script. Use this option if you are unsure what to use.'
+        'label': 'Comma-separated Values',
+        'help': 'A text file with a line for each row of the table. The fields are delimited by a comma and quoted by double quotes.',
     },
     {
         'key': 'fits',
@@ -1000,7 +1288,10 @@ Default:
 ]
 ```
 
-Sets the available default download formats. Each format is represented by a dictionary where:
+Defines the supported query-result formats. The registry is used to validate
+synchronous and TAP response formats, produce direct and asynchronous result
+downloads, and advertise TAP output formats. Each format is represented by a
+dictionary where:
 
 * `key` is the internal identifier,
 * `extension` the file extension,
@@ -1008,7 +1299,7 @@ Sets the available default download formats. Each format is represented by a dic
 * `label` the text shown in the interface, and
 * `help` a more verbose help text for the format.
 
-**NOTE**: If you want faster `parquet` file generation, get the lastest binary of [`pg2parquet`](https://github.com/exyi/pg2parquet) and put it somewhere covered by your `PATH` variable. This rust-binary is up to 4 times faster as the Python-based `fastparquet` solution that works as a fallback.
+**NOTE**: If you want faster `parquet` file generation, get the latest binary of [`pg2parquet`](https://github.com/exyi/pg2parquet) and put it somewhere covered by your `PATH` variable. This Rust binary is up to four times faster than the Python-based `fastparquet` fallback.
 
 ---
 
@@ -1020,7 +1311,7 @@ Enables the upload functionality in the query interface.
 
 ---
 
-QUERY_UPLOAD_LIMIT
+#### QUERY_UPLOAD_LIMIT
 
 Default:
 
@@ -1033,7 +1324,11 @@ Default:
 }
 ```
 
-Sets the maximum quota for uploads by a user. The quota need to be set for the `anonymous` user as well as regular loggen in users (`user`). Additionally, users or groups can be asigned individual quotas, much like with `QUERY_QUOTA`.
+Sets the maximum size of each file uploaded through the query or TAP interface.
+This is a per-file limit, not a cumulative storage quota. The `anonymous` and
+`user` entries provide the base limits; the `users` and `groups` mappings can
+provide individual limits, and the largest applicable value is used. The
+anonymous limit is also advertised in the TAP capabilities document.
 
 ---
 
@@ -1042,9 +1337,12 @@ daiquiri.serve.settings
 
 #### SERVE_DOWNLOAD_DIR
 
-Default: `os.path.join(BASE_DIR, 'download')`
+Default: `None`
 
-Sets the absolute base path of the download files served by the serve module in the local file system.
+Sets the optional base path for download files served by the serve module. The
+current serve settings module defines this value, but the current serve code
+does not read it directly; configure application-specific serving code if a
+separate download directory is needed.
 
 ---
 
@@ -1052,7 +1350,10 @@ Sets the absolute base path of the download files served by the serve module in 
 
 Default: `None`
 
-Sets the a resolver class to handle references in tables served by the serve module.
+Sets a resolver class for reference URLs handled by the serve module. When set,
+the class is imported and instantiated without arguments. It must provide
+`resolve(request, key, value)` and return a redirect target; returning `None`
+causes a 404 response.
 
 ---
 
@@ -1066,10 +1367,6 @@ Default:
 ```python
 [
     {
-        'key': 'ARCHIVE_DOWNLOAD',
-        'label': 'Archive downloads'
-    },
-    {
         'key': 'CONESEARCH',
         'label': 'Performed cone searches'
     },
@@ -1079,7 +1376,23 @@ Default:
     },
     {
         'key': 'FILE',
-        'label': 'File downloads'
+        'label': 'Downloaded static files'
+    },
+    {
+        'key': 'CREATE_ZIP',
+        'label': 'Created zip files'
+    },
+    {
+        'key': 'CREATE_FILE',
+        'label': 'Created files for download'
+    },
+    {
+        'key': 'DOWNLOAD',
+        'label': 'Downloaded files'
+    },
+    {
+        'key': 'UPLOAD',
+        'label': 'Uploaded files'
     },
     {
         'key': 'QUERY',
@@ -1088,7 +1401,7 @@ Default:
 ]
 ```
 
-Sets the aggegated stats shown in the stats management overview.
+Sets the aggregated resource types shown in the stats management overview.
 
 ---
 
@@ -1097,40 +1410,53 @@ daiquiri.tap.settings
 
 #### TAP_SCHEMA
 
-Default: `'TAP_SCHEMA'`
+Default: `'tap_schema'`
 
-Sets the name of the TAP schema. If more than one Daiquiri application is using the same `data` database, they cannot use the same TAP schema. Therefore the schema name TAP_SCHEMA is replaced before queries are submitted. **This setting must be set in `.env`**
+Sets the namespace containing the TAP metadata tables. It is a PostgreSQL
+schema or a MySQL database and is used by the `tap` database alias. During
+query processing, the literal `TAP_SCHEMA` and `tap_schema` placeholders are
+replaced with this value. If more than one Daiquiri application uses the same
+`data` database, each needs a different TAP metadata namespace. This setting
+can be set in `.env`.
 
 ---
 
 #### TAP_UPLOAD
 
-Default: `'TAP_UPLOAD'`
+Default: `'tap_upload'`
 
-Sets the name of the schema for TAP uploads. If more than one Daiquiri application is using the same `data` database, they cannot use the same TAP_UPLOAD schema. Therefore the schema name TAP_UPLOAD is replaced before queries are submitted. **This setting must be set in `.env`**
+Sets the namespace where tables ingested for TAP uploads are created. For
+PostgreSQL this is a schema; for MySQL it is a database. During query
+processing, the literal `TAP_UPLOAD` and `tap_upload` placeholders are replaced
+with this value. If more than one Daiquiri application uses the same `data`
+database, each needs a different upload namespace. This setting can be set in
+`.env`.
 
 ---
 
-daiquiri.uws.settings
----------------------
+daiquiri.uws integration
+------------------------
 
 #### UWS_RESOURCES
 
-Default: `[]`
+There is no default value; `daiquiri.uws.urls` reads this optional setting
+directly from Django's settings. If it is absent, no additional UWS resources
+are registered.
 
-Configures UWS services (in addition to the TAP module). E.g.:
+Configures UWS services in addition to the TAP module. For example:
 
 ```python
-{
-    'prefix': r'query',
-    'viewset': 'daiquiri.query.viewsets.UWSQueryJobViewSet',
-    'base_name': 'uws_query'
-}
+UWS_RESOURCES = [
+    {
+        'prefix': r'query',
+        'viewset': 'daiquiri.query.viewsets.UWSQueryJobViewSet',
+        'base_name': 'uws_query',
+    },
+]
 ```
 
-where:
+Each entry is a dictionary where:
 
-* `prefix` is part of the base URL of the service (e.g. http://example.com/usw/query),
-* `viewset` is the ViewSet class handling the requests (neets to enherit from `daiquiri.jobs.viewsets.AsyncJobViewSet`), and
-* `base_name` a basename needed for the integration in the Django REST framework.
-
+* `prefix` is the URL prefix of the service (e.g. `query`),
+* `viewset` is the import path of the viewset class handling the requests, and
+* `base_name` is the basename used to register routes with the Django REST framework.

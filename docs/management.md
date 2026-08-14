@@ -12,7 +12,7 @@ URL path: */auth/users/*
 
 Group: *user_manager*
 
-Using the [AUTH_WORKFLOW setting](/settings/#daiquiriauthsettings), Daiquiri can be configured to use an `activation` or `confirmation` workflow. Using the `activation` workflow, after registration, users need to be manually activated. For the `confirmation` workflow, users need to be confirmed by through the interface, and then activated in a second step, usually ny a script through the API.
+Using the [AUTH_WORKFLOW setting](settings.md#daiquiriauthsettings), Daiquiri can be configured to use an `activation` or `confirmation` workflow. Using the `activation` workflow, after registration, users need to be manually activated. For the `confirmation` workflow, users need to be confirmed by through the interface, and then activated in a second step, usually ny a script through the API.
 
 ---
 
