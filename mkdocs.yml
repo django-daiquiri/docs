@@ -6,6 +6,7 @@ nav:
   - Deployment: deployment.md
   - Settings: settings.md
   - Administration: administration.md
+  - Release: release.md
   - Management: management.md
   - Advanced features: advanced.md
   - OAI Metadata: oai-metadata.md
@@ -14,6 +15,7 @@ theme:
     name: readthedocs
 
 markdown_extensions:
+- sane_lists
 - def_list
 - footnotes
 - tables

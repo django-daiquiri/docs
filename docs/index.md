@@ -23,7 +23,7 @@ At [Leibniz-Institute for Astrophysics Potsdam (AIP)](http://www.aip.de/), we ga
 
 Daiquiri enables collaboration and institutions to create customized websites, comprising of the following features:
 
-* An interactive Query interface enabling users to perform SQL/ADQL queries against catalog databases. The queries are analyzed using the [queryparser](https://github.com/django-daiquiri/queryparser) and permissions are checked depending on user accounts and groups.
+* An interactive Query interface enabling users to perform SQL/ADQL queries against catalog databases. The queries are analyzed using the [queryparser](https://github.com/aipescience/queryparser) and permissions are checked depending on user accounts and groups.
 * Asynchronous database queries, which can take minutes or even hours.
 * Download of the query results in different formats and visualization of the data.
 * A programmatic interface to the database implementing the [IVOA TAP](http://www.ivoa.net/documents/TAP/20180830/PR-TAP-1.1-20180830.html) protocol.
@@ -42,7 +42,8 @@ Daiquiri enables collaboration and institutions to create customized websites, c
 
 Daiquiri is based on [Django](https://www.djangoproject.com/) and is written in Python. The following requirements are mandatory:
 
-* Python `>=3.9`
+* Python `>=3.11` when running Daiquiri with `dq-dev`
+* Python `>=3.13` when installing Daiquiri directly on the host
 * PostgreSQL `>=13` (MariaDB `>=10.1` or MySQL `>=5.6` not actively supported anymore)
 * RabbitMQ `>=3.8` (for asyncronous tasks like the query queue)
 

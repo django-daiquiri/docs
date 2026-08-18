@@ -5,6 +5,8 @@ Installation
 Installation with `dq-dev`
 ---------------------------
 
+The `dq-dev` workflow requires Python 3.11 or newer.
+
 - Clone `dq-dev` and the default daiquiri-app
 
 ```bash
@@ -59,6 +61,9 @@ quiet a bit.__
 
 Outdated installation notes
 ----------------------------
+
+For a direct host installation, use Python 3.13 or newer. The `dq-dev`
+workflow above has the separate Python 3.11 minimum.
 
 A usual installation of Daiquiri contains of a set of different components:
 
@@ -149,7 +154,7 @@ create a [Virtual Environment](https://docs.python.org/3/tutorial/venv.html)
 ```bash
 cd app
 
-python3 -m venv env
+python3.13 -m venv env
 source env/bin/activate
 
 pip install --upgrade pip setuptools wheel
@@ -211,7 +216,7 @@ SITE_URL=http://localhost:8000
 DEBUG=True
 ASYNC=False
 
-DATABASE_DEFAULT=postgresql://<user>:<pass>@<host>/<db>
+DATABASE_APP=postgresql://<user>:<pass>@<host>/<db>
 DATABASE_DATA=postgresql://<user>:<pass>@<host>/<db>
 
 FILES_BASE_PATH=files
