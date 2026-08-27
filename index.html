@@ -73,6 +73,10 @@
                 </li>
               </ul>
               <ul>
+                <li class="toctree-l1"><a class="reference internal" href="release/">Release</a>
+                </li>
+              </ul>
+              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="management/">Management</a>
                 </li>
               </ul>
@@ -124,7 +128,7 @@
 <h2 id="features">Features</h2>
 <p>Daiquiri enables collaboration and institutions to create customized websites, comprising of the following features:</p>
 <ul>
-<li>An interactive Query interface enabling users to perform SQL/ADQL queries against catalog databases. The queries are analyzed using the <a href="https://github.com/django-daiquiri/queryparser">queryparser</a> and permissions are checked depending on user accounts and groups.</li>
+<li>An interactive Query interface enabling users to perform SQL/ADQL queries against catalog databases. The queries are analyzed using the <a href="https://github.com/aipescience/queryparser">queryparser</a> and permissions are checked depending on user accounts and groups.</li>
 <li>Asynchronous database queries, which can take minutes or even hours.</li>
 <li>Download of the query results in different formats and visualization of the data.</li>
 <li>A programmatic interface to the database implementing the <a href="http://www.ivoa.net/documents/TAP/20180830/PR-TAP-1.1-20180830.html">IVOA TAP</a> protocol.</li>
@@ -142,7 +146,8 @@
 <h2 id="requirements">Requirements</h2>
 <p>Daiquiri is based on <a href="https://www.djangoproject.com/">Django</a> and is written in Python. The following requirements are mandatory:</p>
 <ul>
-<li>Python <code>&gt;=3.9</code></li>
+<li>Python <code>&gt;=3.11</code> when running Daiquiri with <code>dq-dev</code></li>
+<li>Python <code>&gt;=3.13</code> when installing Daiquiri directly on the host</li>
 <li>PostgreSQL <code>&gt;=13</code> (MariaDB <code>&gt;=10.1</code> or MySQL <code>&gt;=5.6</code> not actively supported anymore)</li>
 <li>RabbitMQ <code>&gt;=3.8</code> (for asyncronous tasks like the query queue)</li>
 </ul>
@@ -212,5 +217,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-08-14 13:29:58.303918+00:00
+Build Date UTC : 2026-08-27 09:37:45.571258+00:00
 -->

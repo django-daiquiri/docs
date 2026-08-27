@@ -81,6 +81,10 @@
                 </li>
               </ul>
               <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../release/">Release</a>
+                </li>
+              </ul>
+              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../management/">Management</a>
                 </li>
               </ul>
@@ -117,6 +121,7 @@
               
                 <h1 id="installation">Installation</h1>
 <h2 id="installation-with-dq-dev">Installation with <code>dq-dev</code></h2>
+<p>The <code>dq-dev</code> workflow requires Python 3.11 or newer.</p>
 <ul>
 <li>Clone <code>dq-dev</code> and the default daiquiri-app</li>
 </ul>
@@ -159,6 +164,8 @@ dq_app = &quot;/home/dq/app&quot;
 we are using our containerization setup &lsquo;dq-dev&rsquo; which simplifies things 
 quiet a bit.</strong></p>
 <h2 id="outdated-installation-notes">Outdated installation notes</h2>
+<p>For a direct host installation, use Python 3.13 or newer. The <code>dq-dev</code>
+workflow above has the separate Python 3.11 minimum.</p>
 <p>A usual installation of Daiquiri contains of a set of different components:</p>
 <ol>
 <li>A <strong>directory</strong> holding all the settings and customisations, custom to your
@@ -228,7 +235,7 @@ create a <a href="https://docs.python.org/3/tutorial/venv.html">Virtual Environm
 (this is done as your user or the created <code>daiquiri</code> user, not as <code>root</code>):</p>
 <pre><code class="language-bash">cd app
 
-python3 -m venv env
+python3.13 -m venv env
 source env/bin/activate
 
 pip install --upgrade pip setuptools wheel
@@ -272,7 +279,7 @@ SITE_URL=http://localhost:8000
 DEBUG=True
 ASYNC=False
 
-DATABASE_DEFAULT=postgresql://&lt;user&gt;:&lt;pass&gt;@&lt;host&gt;/&lt;db&gt;
+DATABASE_APP=postgresql://&lt;user&gt;:&lt;pass&gt;@&lt;host&gt;/&lt;db&gt;
 DATABASE_DATA=postgresql://&lt;user&gt;:&lt;pass&gt;@&lt;host&gt;/&lt;db&gt;
 
 FILES_BASE_PATH=files
