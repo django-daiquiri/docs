@@ -678,14 +678,62 @@ VOTable includes a `QUERY_STATUS` of `OVERFLOW`.
 daiquiri.datalink.settings
 --------------------------
 
+#### DATALINK_SERVICES
+
+Default:
+
+```python
+DATALINK_SERVICES = [
+    {
+        'column_name': None,
+        'path': '/',
+        'adapter': 'daiquiri.datalink.adapter.DefaultDatalinkAdapter',
+    },
+]
+```
+
+DataLink services connect an identifier from a discovery result with files,
+related resources, or services and return those links in a standard VOTable
+response. See the [DataLink guide](datalink.md) for the current implementation
+details and a custom adapter example.
+
+Configure one entry for each DataLink service. Keep the root entry when adding
+a custom endpoint:
+
+```python
+DATALINK_SERVICES = [
+    {
+        'column_name': None,
+        'path': '/',
+        'adapter': 'daiquiri.datalink.adapter.DefaultDatalinkAdapter',
+    },
+    {
+        'adapter': 'config.datalink.NewIdDatalinkAdapter',
+        'path': '/new_id/',
+        'column_name': 'new_id',
+    },
+]
+```
+
+* `adapter`: path to the adapter class used by the DataLink service. A custom
+  adapter must inherit from `BaseDatalinkAdapter` and is instantiated without
+  arguments.
+* `path`: endpoint path for the DataLink service handled by the adapter.
+* `column_name`: name of the source/result column whose values identify the
+  resources served by this DataLink service. A matching result column receives
+  the corresponding DataLink service descriptor and identifier reference.
+
+---
+
 #### DATALINK_ADAPTER
 
-Default: `'daiquiri.datalink.adapter.DefaultDatalinkAdapter'`
+Default: `None`
 
-Sets the adapter class used by the Datalink service. A custom adapter can
-provide application-specific resource discovery, link rows, and view context.
-The configured class is imported and instantiated without arguments. It should
-inherit from `BaseDatalinkAdapter` and can use the supplied Datalink mixins.
+**Deprecated:** use the root (`'/'`) entry in `DATALINK_SERVICES` instead.
+
+For backward compatibility, setting `DATALINK_ADAPTER` overrides the adapter
+configured for the root service in `DATALINK_SERVICES` and emits a warning. See
+the [DataLink guide](datalink.md) for the current adapter behavior.
 
 ---
 
@@ -715,12 +763,8 @@ Default:
 }
 ```
 
-Maps relative custom Datalink semantic identifiers to their descriptions. For
-each matching link row, the active Datalink adapter replaces the identifier
-with the URL of the site's semantics page plus that identifier. The bundled
-semantics-page views currently render the module's default mapping directly,
-so overriding this setting changes link expansion but not the descriptions
-shown on those pages.
+Maps relative custom Datalink semantic identifiers to their descriptions. See
+the [DataLink guide](datalink.md) for the current semantics behavior.
 
 ---
 
